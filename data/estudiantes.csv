@@ -1,0 +1,1001 @@
+id_estudiante,nombre,email,telefono,residencia,habitacion,fecha_entrada,cuota_mensual
+EST-0001,Estudiante 1,estudiante1@email.com,600000001,Residencia Sol,386,2024-09-01,1200.0
+EST-0002,Estudiante 2,estudiante2@email.com,600000002,Residencia Nova,143,2024-09-01,1200.0
+EST-0003,Estudiante 3,estudiante3@email.com,600000003,Residencia Elite,431,2024-09-01,1200.0
+EST-0004,Estudiante 4,estudiante4@email.com,600000004,Residencia Royal,529,2024-09-01,1200.0
+EST-0005,Estudiante 5,estudiante5@email.com,600000005,Residencia Zenith,345,2024-09-01,1200.0
+EST-0006,Estudiante 6,estudiante6@email.com,600000006,Residencia Standard 6,585,2024-09-01,850.0
+EST-0007,Estudiante 7,estudiante7@email.com,600000007,Residencia Standard 7,189,2024-09-01,850.0
+EST-0008,Estudiante 8,estudiante8@email.com,600000008,Residencia Standard 8,371,2024-09-01,850.0
+EST-0009,Estudiante 9,estudiante9@email.com,600000009,Residencia Standard 9,101,2024-09-01,850.0
+EST-0010,Estudiante 10,estudiante10@email.com,600000010,Residencia Standard 10,291,2024-09-01,850.0
+EST-0011,Estudiante 11,estudiante11@email.com,600000011,Residencia Standard 11,599,2024-09-01,850.0
+EST-0012,Estudiante 12,estudiante12@email.com,600000012,Residencia Standard 12,293,2024-09-01,850.0
+EST-0013,Estudiante 13,estudiante13@email.com,600000013,Residencia Standard 13,392,2024-09-01,850.0
+EST-0014,Estudiante 14,estudiante14@email.com,600000014,Residencia Standard 14,219,2024-09-01,850.0
+EST-0015,Estudiante 15,estudiante15@email.com,600000015,Residencia Standard 15,134,2024-09-01,850.0
+EST-0016,Estudiante 16,estudiante16@email.com,600000016,Residencia LowCost 16,296,2024-09-01,600.0
+EST-0017,Estudiante 17,estudiante17@email.com,600000017,Residencia LowCost 17,306,2024-09-01,600.0
+EST-0018,Estudiante 18,estudiante18@email.com,600000018,Residencia LowCost 18,151,2024-09-01,600.0
+EST-0019,Estudiante 19,estudiante19@email.com,600000019,Residencia LowCost 19,123,2024-09-01,600.0
+EST-0020,Estudiante 20,estudiante20@email.com,600000020,Residencia LowCost 20,161,2024-09-01,600.0
+EST-0021,Estudiante 21,estudiante21@email.com,600000021,Residencia Sol,493,2024-09-01,1200.0
+EST-0022,Estudiante 22,estudiante22@email.com,600000022,Residencia Nova,209,2024-09-01,1200.0
+EST-0023,Estudiante 23,estudiante23@email.com,600000023,Residencia Elite,293,2024-09-01,1200.0
+EST-0024,Estudiante 24,estudiante24@email.com,600000024,Residencia Royal,151,2024-09-01,1200.0
+EST-0025,Estudiante 25,estudiante25@email.com,600000025,Residencia Zenith,311,2024-09-01,1200.0
+EST-0026,Estudiante 26,estudiante26@email.com,600000026,Residencia Standard 6,126,2024-09-01,850.0
+EST-0027,Estudiante 27,estudiante27@email.com,600000027,Residencia Standard 7,414,2024-09-01,850.0
+EST-0028,Estudiante 28,estudiante28@email.com,600000028,Residencia Standard 8,115,2024-09-01,850.0
+EST-0029,Estudiante 29,estudiante29@email.com,600000029,Residencia Standard 9,384,2024-09-01,850.0
+EST-0030,Estudiante 30,estudiante30@email.com,600000030,Residencia Standard 10,362,2024-09-01,850.0
+EST-0031,Estudiante 31,estudiante31@email.com,600000031,Residencia Standard 11,135,2024-09-01,850.0
+EST-0032,Estudiante 32,estudiante32@email.com,600000032,Residencia Standard 12,499,2024-09-01,850.0
+EST-0033,Estudiante 33,estudiante33@email.com,600000033,Residencia Standard 13,562,2024-09-01,850.0
+EST-0034,Estudiante 34,estudiante34@email.com,600000034,Residencia Standard 14,200,2024-09-01,850.0
+EST-0035,Estudiante 35,estudiante35@email.com,600000035,Residencia Standard 15,495,2024-09-01,850.0
+EST-0036,Estudiante 36,estudiante36@email.com,600000036,Residencia LowCost 16,197,2024-09-01,600.0
+EST-0037,Estudiante 37,estudiante37@email.com,600000037,Residencia LowCost 17,114,2024-09-01,600.0
+EST-0038,Estudiante 38,estudiante38@email.com,600000038,Residencia LowCost 18,463,2024-09-01,600.0
+EST-0039,Estudiante 39,estudiante39@email.com,600000039,Residencia LowCost 19,217,2024-09-01,600.0
+EST-0040,Estudiante 40,estudiante40@email.com,600000040,Residencia LowCost 20,503,2024-09-01,600.0
+EST-0041,Estudiante 41,estudiante41@email.com,600000041,Residencia Sol,582,2024-09-01,1200.0
+EST-0042,Estudiante 42,estudiante42@email.com,600000042,Residencia Nova,501,2024-09-01,1200.0
+EST-0043,Estudiante 43,estudiante43@email.com,600000043,Residencia Elite,428,2024-09-01,1200.0
+EST-0044,Estudiante 44,estudiante44@email.com,600000044,Residencia Royal,304,2024-09-01,1200.0
+EST-0045,Estudiante 45,estudiante45@email.com,600000045,Residencia Zenith,572,2024-09-01,1200.0
+EST-0046,Estudiante 46,estudiante46@email.com,600000046,Residencia Standard 6,336,2024-09-01,850.0
+EST-0047,Estudiante 47,estudiante47@email.com,600000047,Residencia Standard 7,282,2024-09-01,850.0
+EST-0048,Estudiante 48,estudiante48@email.com,600000048,Residencia Standard 8,367,2024-09-01,850.0
+EST-0049,Estudiante 49,estudiante49@email.com,600000049,Residencia Standard 9,568,2024-09-01,850.0
+EST-0050,Estudiante 50,estudiante50@email.com,600000050,Residencia Standard 10,116,2024-09-01,850.0
+EST-0051,Estudiante 51,estudiante51@email.com,600000051,Residencia Standard 11,405,2024-09-01,850.0
+EST-0052,Estudiante 52,estudiante52@email.com,600000052,Residencia Standard 12,157,2024-09-01,850.0
+EST-0053,Estudiante 53,estudiante53@email.com,600000053,Residencia Standard 13,380,2024-09-01,850.0
+EST-0054,Estudiante 54,estudiante54@email.com,600000054,Residencia Standard 14,202,2024-09-01,850.0
+EST-0055,Estudiante 55,estudiante55@email.com,600000055,Residencia Standard 15,207,2024-09-01,850.0
+EST-0056,Estudiante 56,estudiante56@email.com,600000056,Residencia LowCost 16,163,2024-09-01,600.0
+EST-0057,Estudiante 57,estudiante57@email.com,600000057,Residencia LowCost 17,225,2024-09-01,600.0
+EST-0058,Estudiante 58,estudiante58@email.com,600000058,Residencia LowCost 18,411,2024-09-01,600.0
+EST-0059,Estudiante 59,estudiante59@email.com,600000059,Residencia LowCost 19,117,2024-09-01,600.0
+EST-0060,Estudiante 60,estudiante60@email.com,600000060,Residencia LowCost 20,160,2024-09-01,600.0
+EST-0061,Estudiante 61,estudiante61@email.com,600000061,Residencia Sol,502,2024-09-01,1200.0
+EST-0062,Estudiante 62,estudiante62@email.com,600000062,Residencia Nova,170,2024-09-01,1200.0
+EST-0063,Estudiante 63,estudiante63@email.com,600000063,Residencia Elite,383,2024-09-01,1200.0
+EST-0064,Estudiante 64,estudiante64@email.com,600000064,Residencia Royal,597,2024-09-01,1200.0
+EST-0065,Estudiante 65,estudiante65@email.com,600000065,Residencia Zenith,289,2024-09-01,1200.0
+EST-0066,Estudiante 66,estudiante66@email.com,600000066,Residencia Standard 6,145,2024-09-01,850.0
+EST-0067,Estudiante 67,estudiante67@email.com,600000067,Residencia Standard 7,401,2024-09-01,850.0
+EST-0068,Estudiante 68,estudiante68@email.com,600000068,Residencia Standard 8,336,2024-09-01,850.0
+EST-0069,Estudiante 69,estudiante69@email.com,600000069,Residencia Standard 9,492,2024-09-01,850.0
+EST-0070,Estudiante 70,estudiante70@email.com,600000070,Residencia Standard 10,243,2024-09-01,850.0
+EST-0071,Estudiante 71,estudiante71@email.com,600000071,Residencia Standard 11,327,2024-09-01,850.0
+EST-0072,Estudiante 72,estudiante72@email.com,600000072,Residencia Standard 12,517,2024-09-01,850.0
+EST-0073,Estudiante 73,estudiante73@email.com,600000073,Residencia Standard 13,582,2024-09-01,850.0
+EST-0074,Estudiante 74,estudiante74@email.com,600000074,Residencia Standard 14,396,2024-09-01,850.0
+EST-0075,Estudiante 75,estudiante75@email.com,600000075,Residencia Standard 15,191,2024-09-01,850.0
+EST-0076,Estudiante 76,estudiante76@email.com,600000076,Residencia LowCost 16,522,2024-09-01,600.0
+EST-0077,Estudiante 77,estudiante77@email.com,600000077,Residencia LowCost 17,474,2024-09-01,600.0
+EST-0078,Estudiante 78,estudiante78@email.com,600000078,Residencia LowCost 18,266,2024-09-01,600.0
+EST-0079,Estudiante 79,estudiante79@email.com,600000079,Residencia LowCost 19,371,2024-09-01,600.0
+EST-0080,Estudiante 80,estudiante80@email.com,600000080,Residencia LowCost 20,329,2024-09-01,600.0
+EST-0081,Estudiante 81,estudiante81@email.com,600000081,Residencia Sol,373,2024-09-01,1200.0
+EST-0082,Estudiante 82,estudiante82@email.com,600000082,Residencia Nova,510,2024-09-01,1200.0
+EST-0083,Estudiante 83,estudiante83@email.com,600000083,Residencia Elite,509,2024-09-01,1200.0
+EST-0084,Estudiante 84,estudiante84@email.com,600000084,Residencia Royal,334,2024-09-01,1200.0
+EST-0085,Estudiante 85,estudiante85@email.com,600000085,Residencia Zenith,305,2024-09-01,1200.0
+EST-0086,Estudiante 86,estudiante86@email.com,600000086,Residencia Standard 6,454,2024-09-01,850.0
+EST-0087,Estudiante 87,estudiante87@email.com,600000087,Residencia Standard 7,138,2024-09-01,850.0
+EST-0088,Estudiante 88,estudiante88@email.com,600000088,Residencia Standard 8,488,2024-09-01,850.0
+EST-0089,Estudiante 89,estudiante89@email.com,600000089,Residencia Standard 9,484,2024-09-01,850.0
+EST-0090,Estudiante 90,estudiante90@email.com,600000090,Residencia Standard 10,389,2024-09-01,850.0
+EST-0091,Estudiante 91,estudiante91@email.com,600000091,Residencia Standard 11,321,2024-09-01,850.0
+EST-0092,Estudiante 92,estudiante92@email.com,600000092,Residencia Standard 12,436,2024-09-01,850.0
+EST-0093,Estudiante 93,estudiante93@email.com,600000093,Residencia Standard 13,558,2024-09-01,850.0
+EST-0094,Estudiante 94,estudiante94@email.com,600000094,Residencia Standard 14,401,2024-09-01,850.0
+EST-0095,Estudiante 95,estudiante95@email.com,600000095,Residencia Standard 15,115,2024-09-01,850.0
+EST-0096,Estudiante 96,estudiante96@email.com,600000096,Residencia LowCost 16,489,2024-09-01,600.0
+EST-0097,Estudiante 97,estudiante97@email.com,600000097,Residencia LowCost 17,270,2024-09-01,600.0
+EST-0098,Estudiante 98,estudiante98@email.com,600000098,Residencia LowCost 18,538,2024-09-01,600.0
+EST-0099,Estudiante 99,estudiante99@email.com,600000099,Residencia LowCost 19,414,2024-09-01,600.0
+EST-0100,Estudiante 100,estudiante100@email.com,600000100,Residencia LowCost 20,530,2024-09-01,600.0
+EST-0101,Estudiante 101,estudiante101@email.com,600000101,Residencia Sol,226,2024-09-01,1200.0
+EST-0102,Estudiante 102,estudiante102@email.com,600000102,Residencia Nova,277,2024-09-01,1200.0
+EST-0103,Estudiante 103,estudiante103@email.com,600000103,Residencia Elite,217,2024-09-01,1200.0
+EST-0104,Estudiante 104,estudiante104@email.com,600000104,Residencia Royal,379,2024-09-01,1200.0
+EST-0105,Estudiante 105,estudiante105@email.com,600000105,Residencia Zenith,372,2024-09-01,1200.0
+EST-0106,Estudiante 106,estudiante106@email.com,600000106,Residencia Standard 6,408,2024-09-01,850.0
+EST-0107,Estudiante 107,estudiante107@email.com,600000107,Residencia Standard 7,260,2024-09-01,850.0
+EST-0108,Estudiante 108,estudiante108@email.com,600000108,Residencia Standard 8,183,2024-09-01,850.0
+EST-0109,Estudiante 109,estudiante109@email.com,600000109,Residencia Standard 9,538,2024-09-01,850.0
+EST-0110,Estudiante 110,estudiante110@email.com,600000110,Residencia Standard 10,244,2024-09-01,850.0
+EST-0111,Estudiante 111,estudiante111@email.com,600000111,Residencia Standard 11,270,2024-09-01,850.0
+EST-0112,Estudiante 112,estudiante112@email.com,600000112,Residencia Standard 12,251,2024-09-01,850.0
+EST-0113,Estudiante 113,estudiante113@email.com,600000113,Residencia Standard 13,285,2024-09-01,850.0
+EST-0114,Estudiante 114,estudiante114@email.com,600000114,Residencia Standard 14,139,2024-09-01,850.0
+EST-0115,Estudiante 115,estudiante115@email.com,600000115,Residencia Standard 15,386,2024-09-01,850.0
+EST-0116,Estudiante 116,estudiante116@email.com,600000116,Residencia LowCost 16,176,2024-09-01,600.0
+EST-0117,Estudiante 117,estudiante117@email.com,600000117,Residencia LowCost 17,442,2024-09-01,600.0
+EST-0118,Estudiante 118,estudiante118@email.com,600000118,Residencia LowCost 18,525,2024-09-01,600.0
+EST-0119,Estudiante 119,estudiante119@email.com,600000119,Residencia LowCost 19,242,2024-09-01,600.0
+EST-0120,Estudiante 120,estudiante120@email.com,600000120,Residencia LowCost 20,380,2024-09-01,600.0
+EST-0121,Estudiante 121,estudiante121@email.com,600000121,Residencia Sol,241,2024-09-01,1200.0
+EST-0122,Estudiante 122,estudiante122@email.com,600000122,Residencia Nova,389,2024-09-01,1200.0
+EST-0123,Estudiante 123,estudiante123@email.com,600000123,Residencia Elite,427,2024-09-01,1200.0
+EST-0124,Estudiante 124,estudiante124@email.com,600000124,Residencia Royal,559,2024-09-01,1200.0
+EST-0125,Estudiante 125,estudiante125@email.com,600000125,Residencia Zenith,176,2024-09-01,1200.0
+EST-0126,Estudiante 126,estudiante126@email.com,600000126,Residencia Standard 6,101,2024-09-01,850.0
+EST-0127,Estudiante 127,estudiante127@email.com,600000127,Residencia Standard 7,280,2024-09-01,850.0
+EST-0128,Estudiante 128,estudiante128@email.com,600000128,Residencia Standard 8,565,2024-09-01,850.0
+EST-0129,Estudiante 129,estudiante129@email.com,600000129,Residencia Standard 9,474,2024-09-01,850.0
+EST-0130,Estudiante 130,estudiante130@email.com,600000130,Residencia Standard 10,599,2024-09-01,850.0
+EST-0131,Estudiante 131,estudiante131@email.com,600000131,Residencia Standard 11,420,2024-09-01,850.0
+EST-0132,Estudiante 132,estudiante132@email.com,600000132,Residencia Standard 12,381,2024-09-01,850.0
+EST-0133,Estudiante 133,estudiante133@email.com,600000133,Residencia Standard 13,516,2024-09-01,850.0
+EST-0134,Estudiante 134,estudiante134@email.com,600000134,Residencia Standard 14,402,2024-09-01,850.0
+EST-0135,Estudiante 135,estudiante135@email.com,600000135,Residencia Standard 15,377,2024-09-01,850.0
+EST-0136,Estudiante 136,estudiante136@email.com,600000136,Residencia LowCost 16,384,2024-09-01,600.0
+EST-0137,Estudiante 137,estudiante137@email.com,600000137,Residencia LowCost 17,393,2024-09-01,600.0
+EST-0138,Estudiante 138,estudiante138@email.com,600000138,Residencia LowCost 18,179,2024-09-01,600.0
+EST-0139,Estudiante 139,estudiante139@email.com,600000139,Residencia LowCost 19,358,2024-09-01,600.0
+EST-0140,Estudiante 140,estudiante140@email.com,600000140,Residencia LowCost 20,570,2024-09-01,600.0
+EST-0141,Estudiante 141,estudiante141@email.com,600000141,Residencia Sol,297,2024-09-01,1200.0
+EST-0142,Estudiante 142,estudiante142@email.com,600000142,Residencia Nova,523,2024-09-01,1200.0
+EST-0143,Estudiante 143,estudiante143@email.com,600000143,Residencia Elite,276,2024-09-01,1200.0
+EST-0144,Estudiante 144,estudiante144@email.com,600000144,Residencia Royal,364,2024-09-01,1200.0
+EST-0145,Estudiante 145,estudiante145@email.com,600000145,Residencia Zenith,227,2024-09-01,1200.0
+EST-0146,Estudiante 146,estudiante146@email.com,600000146,Residencia Standard 6,258,2024-09-01,850.0
+EST-0147,Estudiante 147,estudiante147@email.com,600000147,Residencia Standard 7,402,2024-09-01,850.0
+EST-0148,Estudiante 148,estudiante148@email.com,600000148,Residencia Standard 8,113,2024-09-01,850.0
+EST-0149,Estudiante 149,estudiante149@email.com,600000149,Residencia Standard 9,359,2024-09-01,850.0
+EST-0150,Estudiante 150,estudiante150@email.com,600000150,Residencia Standard 10,560,2024-09-01,850.0
+EST-0151,Estudiante 151,estudiante151@email.com,600000151,Residencia Standard 11,394,2024-09-01,850.0
+EST-0152,Estudiante 152,estudiante152@email.com,600000152,Residencia Standard 12,309,2024-09-01,850.0
+EST-0153,Estudiante 153,estudiante153@email.com,600000153,Residencia Standard 13,452,2024-09-01,850.0
+EST-0154,Estudiante 154,estudiante154@email.com,600000154,Residencia Standard 14,117,2024-09-01,850.0
+EST-0155,Estudiante 155,estudiante155@email.com,600000155,Residencia Standard 15,206,2024-09-01,850.0
+EST-0156,Estudiante 156,estudiante156@email.com,600000156,Residencia LowCost 16,206,2024-09-01,600.0
+EST-0157,Estudiante 157,estudiante157@email.com,600000157,Residencia LowCost 17,205,2024-09-01,600.0
+EST-0158,Estudiante 158,estudiante158@email.com,600000158,Residencia LowCost 18,210,2024-09-01,600.0
+EST-0159,Estudiante 159,estudiante159@email.com,600000159,Residencia LowCost 19,174,2024-09-01,600.0
+EST-0160,Estudiante 160,estudiante160@email.com,600000160,Residencia LowCost 20,424,2024-09-01,600.0
+EST-0161,Estudiante 161,estudiante161@email.com,600000161,Residencia Sol,328,2024-09-01,1200.0
+EST-0162,Estudiante 162,estudiante162@email.com,600000162,Residencia Nova,538,2024-09-01,1200.0
+EST-0163,Estudiante 163,estudiante163@email.com,600000163,Residencia Elite,394,2024-09-01,1200.0
+EST-0164,Estudiante 164,estudiante164@email.com,600000164,Residencia Royal,591,2024-09-01,1200.0
+EST-0165,Estudiante 165,estudiante165@email.com,600000165,Residencia Zenith,492,2024-09-01,1200.0
+EST-0166,Estudiante 166,estudiante166@email.com,600000166,Residencia Standard 6,178,2024-09-01,850.0
+EST-0167,Estudiante 167,estudiante167@email.com,600000167,Residencia Standard 7,233,2024-09-01,850.0
+EST-0168,Estudiante 168,estudiante168@email.com,600000168,Residencia Standard 8,362,2024-09-01,850.0
+EST-0169,Estudiante 169,estudiante169@email.com,600000169,Residencia Standard 9,106,2024-09-01,850.0
+EST-0170,Estudiante 170,estudiante170@email.com,600000170,Residencia Standard 10,149,2024-09-01,850.0
+EST-0171,Estudiante 171,estudiante171@email.com,600000171,Residencia Standard 11,399,2024-09-01,850.0
+EST-0172,Estudiante 172,estudiante172@email.com,600000172,Residencia Standard 12,323,2024-09-01,850.0
+EST-0173,Estudiante 173,estudiante173@email.com,600000173,Residencia Standard 13,201,2024-09-01,850.0
+EST-0174,Estudiante 174,estudiante174@email.com,600000174,Residencia Standard 14,579,2024-09-01,850.0
+EST-0175,Estudiante 175,estudiante175@email.com,600000175,Residencia Standard 15,173,2024-09-01,850.0
+EST-0176,Estudiante 176,estudiante176@email.com,600000176,Residencia LowCost 16,586,2024-09-01,600.0
+EST-0177,Estudiante 177,estudiante177@email.com,600000177,Residencia LowCost 17,189,2024-09-01,600.0
+EST-0178,Estudiante 178,estudiante178@email.com,600000178,Residencia LowCost 18,539,2024-09-01,600.0
+EST-0179,Estudiante 179,estudiante179@email.com,600000179,Residencia LowCost 19,449,2024-09-01,600.0
+EST-0180,Estudiante 180,estudiante180@email.com,600000180,Residencia LowCost 20,223,2024-09-01,600.0
+EST-0181,Estudiante 181,estudiante181@email.com,600000181,Residencia Sol,475,2024-09-01,1200.0
+EST-0182,Estudiante 182,estudiante182@email.com,600000182,Residencia Nova,262,2024-09-01,1200.0
+EST-0183,Estudiante 183,estudiante183@email.com,600000183,Residencia Elite,233,2024-09-01,1200.0
+EST-0184,Estudiante 184,estudiante184@email.com,600000184,Residencia Royal,450,2024-09-01,1200.0
+EST-0185,Estudiante 185,estudiante185@email.com,600000185,Residencia Zenith,565,2024-09-01,1200.0
+EST-0186,Estudiante 186,estudiante186@email.com,600000186,Residencia Standard 6,170,2024-09-01,850.0
+EST-0187,Estudiante 187,estudiante187@email.com,600000187,Residencia Standard 7,474,2024-09-01,850.0
+EST-0188,Estudiante 188,estudiante188@email.com,600000188,Residencia Standard 8,422,2024-09-01,850.0
+EST-0189,Estudiante 189,estudiante189@email.com,600000189,Residencia Standard 9,264,2024-09-01,850.0
+EST-0190,Estudiante 190,estudiante190@email.com,600000190,Residencia Standard 10,480,2024-09-01,850.0
+EST-0191,Estudiante 191,estudiante191@email.com,600000191,Residencia Standard 11,287,2024-09-01,850.0
+EST-0192,Estudiante 192,estudiante192@email.com,600000192,Residencia Standard 12,178,2024-09-01,850.0
+EST-0193,Estudiante 193,estudiante193@email.com,600000193,Residencia Standard 13,303,2024-09-01,850.0
+EST-0194,Estudiante 194,estudiante194@email.com,600000194,Residencia Standard 14,585,2024-09-01,850.0
+EST-0195,Estudiante 195,estudiante195@email.com,600000195,Residencia Standard 15,551,2024-09-01,850.0
+EST-0196,Estudiante 196,estudiante196@email.com,600000196,Residencia LowCost 16,218,2024-09-01,600.0
+EST-0197,Estudiante 197,estudiante197@email.com,600000197,Residencia LowCost 17,410,2024-09-01,600.0
+EST-0198,Estudiante 198,estudiante198@email.com,600000198,Residencia LowCost 18,485,2024-09-01,600.0
+EST-0199,Estudiante 199,estudiante199@email.com,600000199,Residencia LowCost 19,331,2024-09-01,600.0
+EST-0200,Estudiante 200,estudiante200@email.com,600000200,Residencia LowCost 20,506,2024-09-01,600.0
+EST-0201,Estudiante 201,estudiante201@email.com,600000201,Residencia Sol,195,2024-09-01,1200.0
+EST-0202,Estudiante 202,estudiante202@email.com,600000202,Residencia Nova,140,2024-09-01,1200.0
+EST-0203,Estudiante 203,estudiante203@email.com,600000203,Residencia Elite,577,2024-09-01,1200.0
+EST-0204,Estudiante 204,estudiante204@email.com,600000204,Residencia Royal,362,2024-09-01,1200.0
+EST-0205,Estudiante 205,estudiante205@email.com,600000205,Residencia Zenith,179,2024-09-01,1200.0
+EST-0206,Estudiante 206,estudiante206@email.com,600000206,Residencia Standard 6,224,2024-09-01,850.0
+EST-0207,Estudiante 207,estudiante207@email.com,600000207,Residencia Standard 7,443,2024-09-01,850.0
+EST-0208,Estudiante 208,estudiante208@email.com,600000208,Residencia Standard 8,315,2024-09-01,850.0
+EST-0209,Estudiante 209,estudiante209@email.com,600000209,Residencia Standard 9,262,2024-09-01,850.0
+EST-0210,Estudiante 210,estudiante210@email.com,600000210,Residencia Standard 10,510,2024-09-01,850.0
+EST-0211,Estudiante 211,estudiante211@email.com,600000211,Residencia Standard 11,461,2024-09-01,850.0
+EST-0212,Estudiante 212,estudiante212@email.com,600000212,Residencia Standard 12,511,2024-09-01,850.0
+EST-0213,Estudiante 213,estudiante213@email.com,600000213,Residencia Standard 13,547,2024-09-01,850.0
+EST-0214,Estudiante 214,estudiante214@email.com,600000214,Residencia Standard 14,446,2024-09-01,850.0
+EST-0215,Estudiante 215,estudiante215@email.com,600000215,Residencia Standard 15,436,2024-09-01,850.0
+EST-0216,Estudiante 216,estudiante216@email.com,600000216,Residencia LowCost 16,402,2024-09-01,600.0
+EST-0217,Estudiante 217,estudiante217@email.com,600000217,Residencia LowCost 17,386,2024-09-01,600.0
+EST-0218,Estudiante 218,estudiante218@email.com,600000218,Residencia LowCost 18,217,2024-09-01,600.0
+EST-0219,Estudiante 219,estudiante219@email.com,600000219,Residencia LowCost 19,106,2024-09-01,600.0
+EST-0220,Estudiante 220,estudiante220@email.com,600000220,Residencia LowCost 20,554,2024-09-01,600.0
+EST-0221,Estudiante 221,estudiante221@email.com,600000221,Residencia Sol,487,2024-09-01,1200.0
+EST-0222,Estudiante 222,estudiante222@email.com,600000222,Residencia Nova,281,2024-09-01,1200.0
+EST-0223,Estudiante 223,estudiante223@email.com,600000223,Residencia Elite,472,2024-09-01,1200.0
+EST-0224,Estudiante 224,estudiante224@email.com,600000224,Residencia Royal,466,2024-09-01,1200.0
+EST-0225,Estudiante 225,estudiante225@email.com,600000225,Residencia Zenith,564,2024-09-01,1200.0
+EST-0226,Estudiante 226,estudiante226@email.com,600000226,Residencia Standard 6,365,2024-09-01,850.0
+EST-0227,Estudiante 227,estudiante227@email.com,600000227,Residencia Standard 7,283,2024-09-01,850.0
+EST-0228,Estudiante 228,estudiante228@email.com,600000228,Residencia Standard 8,290,2024-09-01,850.0
+EST-0229,Estudiante 229,estudiante229@email.com,600000229,Residencia Standard 9,365,2024-09-01,850.0
+EST-0230,Estudiante 230,estudiante230@email.com,600000230,Residencia Standard 10,344,2024-09-01,850.0
+EST-0231,Estudiante 231,estudiante231@email.com,600000231,Residencia Standard 11,267,2024-09-01,850.0
+EST-0232,Estudiante 232,estudiante232@email.com,600000232,Residencia Standard 12,234,2024-09-01,850.0
+EST-0233,Estudiante 233,estudiante233@email.com,600000233,Residencia Standard 13,589,2024-09-01,850.0
+EST-0234,Estudiante 234,estudiante234@email.com,600000234,Residencia Standard 14,135,2024-09-01,850.0
+EST-0235,Estudiante 235,estudiante235@email.com,600000235,Residencia Standard 15,577,2024-09-01,850.0
+EST-0236,Estudiante 236,estudiante236@email.com,600000236,Residencia LowCost 16,177,2024-09-01,600.0
+EST-0237,Estudiante 237,estudiante237@email.com,600000237,Residencia LowCost 17,258,2024-09-01,600.0
+EST-0238,Estudiante 238,estudiante238@email.com,600000238,Residencia LowCost 18,476,2024-09-01,600.0
+EST-0239,Estudiante 239,estudiante239@email.com,600000239,Residencia LowCost 19,360,2024-09-01,600.0
+EST-0240,Estudiante 240,estudiante240@email.com,600000240,Residencia LowCost 20,333,2024-09-01,600.0
+EST-0241,Estudiante 241,estudiante241@email.com,600000241,Residencia Sol,416,2024-09-01,1200.0
+EST-0242,Estudiante 242,estudiante242@email.com,600000242,Residencia Nova,319,2024-09-01,1200.0
+EST-0243,Estudiante 243,estudiante243@email.com,600000243,Residencia Elite,418,2024-09-01,1200.0
+EST-0244,Estudiante 244,estudiante244@email.com,600000244,Residencia Royal,417,2024-09-01,1200.0
+EST-0245,Estudiante 245,estudiante245@email.com,600000245,Residencia Zenith,314,2024-09-01,1200.0
+EST-0246,Estudiante 246,estudiante246@email.com,600000246,Residencia Standard 6,270,2024-09-01,850.0
+EST-0247,Estudiante 247,estudiante247@email.com,600000247,Residencia Standard 7,270,2024-09-01,850.0
+EST-0248,Estudiante 248,estudiante248@email.com,600000248,Residencia Standard 8,161,2024-09-01,850.0
+EST-0249,Estudiante 249,estudiante249@email.com,600000249,Residencia Standard 9,499,2024-09-01,850.0
+EST-0250,Estudiante 250,estudiante250@email.com,600000250,Residencia Standard 10,422,2024-09-01,850.0
+EST-0251,Estudiante 251,estudiante251@email.com,600000251,Residencia Standard 11,592,2024-09-01,850.0
+EST-0252,Estudiante 252,estudiante252@email.com,600000252,Residencia Standard 12,228,2024-09-01,850.0
+EST-0253,Estudiante 253,estudiante253@email.com,600000253,Residencia Standard 13,594,2024-09-01,850.0
+EST-0254,Estudiante 254,estudiante254@email.com,600000254,Residencia Standard 14,541,2024-09-01,850.0
+EST-0255,Estudiante 255,estudiante255@email.com,600000255,Residencia Standard 15,564,2024-09-01,850.0
+EST-0256,Estudiante 256,estudiante256@email.com,600000256,Residencia LowCost 16,409,2024-09-01,600.0
+EST-0257,Estudiante 257,estudiante257@email.com,600000257,Residencia LowCost 17,180,2024-09-01,600.0
+EST-0258,Estudiante 258,estudiante258@email.com,600000258,Residencia LowCost 18,232,2024-09-01,600.0
+EST-0259,Estudiante 259,estudiante259@email.com,600000259,Residencia LowCost 19,542,2024-09-01,600.0
+EST-0260,Estudiante 260,estudiante260@email.com,600000260,Residencia LowCost 20,159,2024-09-01,600.0
+EST-0261,Estudiante 261,estudiante261@email.com,600000261,Residencia Sol,272,2024-09-01,1200.0
+EST-0262,Estudiante 262,estudiante262@email.com,600000262,Residencia Nova,219,2024-09-01,1200.0
+EST-0263,Estudiante 263,estudiante263@email.com,600000263,Residencia Elite,479,2024-09-01,1200.0
+EST-0264,Estudiante 264,estudiante264@email.com,600000264,Residencia Royal,176,2024-09-01,1200.0
+EST-0265,Estudiante 265,estudiante265@email.com,600000265,Residencia Zenith,354,2024-09-01,1200.0
+EST-0266,Estudiante 266,estudiante266@email.com,600000266,Residencia Standard 6,434,2024-09-01,850.0
+EST-0267,Estudiante 267,estudiante267@email.com,600000267,Residencia Standard 7,194,2024-09-01,850.0
+EST-0268,Estudiante 268,estudiante268@email.com,600000268,Residencia Standard 8,458,2024-09-01,850.0
+EST-0269,Estudiante 269,estudiante269@email.com,600000269,Residencia Standard 9,364,2024-09-01,850.0
+EST-0270,Estudiante 270,estudiante270@email.com,600000270,Residencia Standard 10,421,2024-09-01,850.0
+EST-0271,Estudiante 271,estudiante271@email.com,600000271,Residencia Standard 11,138,2024-09-01,850.0
+EST-0272,Estudiante 272,estudiante272@email.com,600000272,Residencia Standard 12,153,2024-09-01,850.0
+EST-0273,Estudiante 273,estudiante273@email.com,600000273,Residencia Standard 13,194,2024-09-01,850.0
+EST-0274,Estudiante 274,estudiante274@email.com,600000274,Residencia Standard 14,235,2024-09-01,850.0
+EST-0275,Estudiante 275,estudiante275@email.com,600000275,Residencia Standard 15,280,2024-09-01,850.0
+EST-0276,Estudiante 276,estudiante276@email.com,600000276,Residencia LowCost 16,531,2024-09-01,600.0
+EST-0277,Estudiante 277,estudiante277@email.com,600000277,Residencia LowCost 17,507,2024-09-01,600.0
+EST-0278,Estudiante 278,estudiante278@email.com,600000278,Residencia LowCost 18,415,2024-09-01,600.0
+EST-0279,Estudiante 279,estudiante279@email.com,600000279,Residencia LowCost 19,131,2024-09-01,600.0
+EST-0280,Estudiante 280,estudiante280@email.com,600000280,Residencia LowCost 20,538,2024-09-01,600.0
+EST-0281,Estudiante 281,estudiante281@email.com,600000281,Residencia Sol,523,2024-09-01,1200.0
+EST-0282,Estudiante 282,estudiante282@email.com,600000282,Residencia Nova,104,2024-09-01,1200.0
+EST-0283,Estudiante 283,estudiante283@email.com,600000283,Residencia Elite,576,2024-09-01,1200.0
+EST-0284,Estudiante 284,estudiante284@email.com,600000284,Residencia Royal,400,2024-09-01,1200.0
+EST-0285,Estudiante 285,estudiante285@email.com,600000285,Residencia Zenith,163,2024-09-01,1200.0
+EST-0286,Estudiante 286,estudiante286@email.com,600000286,Residencia Standard 6,515,2024-09-01,850.0
+EST-0287,Estudiante 287,estudiante287@email.com,600000287,Residencia Standard 7,452,2024-09-01,850.0
+EST-0288,Estudiante 288,estudiante288@email.com,600000288,Residencia Standard 8,403,2024-09-01,850.0
+EST-0289,Estudiante 289,estudiante289@email.com,600000289,Residencia Standard 9,405,2024-09-01,850.0
+EST-0290,Estudiante 290,estudiante290@email.com,600000290,Residencia Standard 10,589,2024-09-01,850.0
+EST-0291,Estudiante 291,estudiante291@email.com,600000291,Residencia Standard 11,273,2024-09-01,850.0
+EST-0292,Estudiante 292,estudiante292@email.com,600000292,Residencia Standard 12,488,2024-09-01,850.0
+EST-0293,Estudiante 293,estudiante293@email.com,600000293,Residencia Standard 13,253,2024-09-01,850.0
+EST-0294,Estudiante 294,estudiante294@email.com,600000294,Residencia Standard 14,216,2024-09-01,850.0
+EST-0295,Estudiante 295,estudiante295@email.com,600000295,Residencia Standard 15,448,2024-09-01,850.0
+EST-0296,Estudiante 296,estudiante296@email.com,600000296,Residencia LowCost 16,235,2024-09-01,600.0
+EST-0297,Estudiante 297,estudiante297@email.com,600000297,Residencia LowCost 17,411,2024-09-01,600.0
+EST-0298,Estudiante 298,estudiante298@email.com,600000298,Residencia LowCost 18,238,2024-09-01,600.0
+EST-0299,Estudiante 299,estudiante299@email.com,600000299,Residencia LowCost 19,199,2024-09-01,600.0
+EST-0300,Estudiante 300,estudiante300@email.com,600000300,Residencia LowCost 20,428,2024-09-01,600.0
+EST-0301,Estudiante 301,estudiante301@email.com,600000301,Residencia Sol,128,2024-09-01,1200.0
+EST-0302,Estudiante 302,estudiante302@email.com,600000302,Residencia Nova,435,2024-09-01,1200.0
+EST-0303,Estudiante 303,estudiante303@email.com,600000303,Residencia Elite,305,2024-09-01,1200.0
+EST-0304,Estudiante 304,estudiante304@email.com,600000304,Residencia Royal,386,2024-09-01,1200.0
+EST-0305,Estudiante 305,estudiante305@email.com,600000305,Residencia Zenith,400,2024-09-01,1200.0
+EST-0306,Estudiante 306,estudiante306@email.com,600000306,Residencia Standard 6,322,2024-09-01,850.0
+EST-0307,Estudiante 307,estudiante307@email.com,600000307,Residencia Standard 7,467,2024-09-01,850.0
+EST-0308,Estudiante 308,estudiante308@email.com,600000308,Residencia Standard 8,497,2024-09-01,850.0
+EST-0309,Estudiante 309,estudiante309@email.com,600000309,Residencia Standard 9,246,2024-09-01,850.0
+EST-0310,Estudiante 310,estudiante310@email.com,600000310,Residencia Standard 10,388,2024-09-01,850.0
+EST-0311,Estudiante 311,estudiante311@email.com,600000311,Residencia Standard 11,237,2024-09-01,850.0
+EST-0312,Estudiante 312,estudiante312@email.com,600000312,Residencia Standard 12,442,2024-09-01,850.0
+EST-0313,Estudiante 313,estudiante313@email.com,600000313,Residencia Standard 13,263,2024-09-01,850.0
+EST-0314,Estudiante 314,estudiante314@email.com,600000314,Residencia Standard 14,202,2024-09-01,850.0
+EST-0315,Estudiante 315,estudiante315@email.com,600000315,Residencia Standard 15,562,2024-09-01,850.0
+EST-0316,Estudiante 316,estudiante316@email.com,600000316,Residencia LowCost 16,242,2024-09-01,600.0
+EST-0317,Estudiante 317,estudiante317@email.com,600000317,Residencia LowCost 17,335,2024-09-01,600.0
+EST-0318,Estudiante 318,estudiante318@email.com,600000318,Residencia LowCost 18,421,2024-09-01,600.0
+EST-0319,Estudiante 319,estudiante319@email.com,600000319,Residencia LowCost 19,562,2024-09-01,600.0
+EST-0320,Estudiante 320,estudiante320@email.com,600000320,Residencia LowCost 20,427,2024-09-01,600.0
+EST-0321,Estudiante 321,estudiante321@email.com,600000321,Residencia Sol,437,2024-09-01,1200.0
+EST-0322,Estudiante 322,estudiante322@email.com,600000322,Residencia Nova,128,2024-09-01,1200.0
+EST-0323,Estudiante 323,estudiante323@email.com,600000323,Residencia Elite,284,2024-09-01,1200.0
+EST-0324,Estudiante 324,estudiante324@email.com,600000324,Residencia Royal,112,2024-09-01,1200.0
+EST-0325,Estudiante 325,estudiante325@email.com,600000325,Residencia Zenith,487,2024-09-01,1200.0
+EST-0326,Estudiante 326,estudiante326@email.com,600000326,Residencia Standard 6,373,2024-09-01,850.0
+EST-0327,Estudiante 327,estudiante327@email.com,600000327,Residencia Standard 7,480,2024-09-01,850.0
+EST-0328,Estudiante 328,estudiante328@email.com,600000328,Residencia Standard 8,521,2024-09-01,850.0
+EST-0329,Estudiante 329,estudiante329@email.com,600000329,Residencia Standard 9,597,2024-09-01,850.0
+EST-0330,Estudiante 330,estudiante330@email.com,600000330,Residencia Standard 10,464,2024-09-01,850.0
+EST-0331,Estudiante 331,estudiante331@email.com,600000331,Residencia Standard 11,399,2024-09-01,850.0
+EST-0332,Estudiante 332,estudiante332@email.com,600000332,Residencia Standard 12,339,2024-09-01,850.0
+EST-0333,Estudiante 333,estudiante333@email.com,600000333,Residencia Standard 13,384,2024-09-01,850.0
+EST-0334,Estudiante 334,estudiante334@email.com,600000334,Residencia Standard 14,177,2024-09-01,850.0
+EST-0335,Estudiante 335,estudiante335@email.com,600000335,Residencia Standard 15,457,2024-09-01,850.0
+EST-0336,Estudiante 336,estudiante336@email.com,600000336,Residencia LowCost 16,553,2024-09-01,600.0
+EST-0337,Estudiante 337,estudiante337@email.com,600000337,Residencia LowCost 17,461,2024-09-01,600.0
+EST-0338,Estudiante 338,estudiante338@email.com,600000338,Residencia LowCost 18,423,2024-09-01,600.0
+EST-0339,Estudiante 339,estudiante339@email.com,600000339,Residencia LowCost 19,151,2024-09-01,600.0
+EST-0340,Estudiante 340,estudiante340@email.com,600000340,Residencia LowCost 20,525,2024-09-01,600.0
+EST-0341,Estudiante 341,estudiante341@email.com,600000341,Residencia Sol,438,2024-09-01,1200.0
+EST-0342,Estudiante 342,estudiante342@email.com,600000342,Residencia Nova,523,2024-09-01,1200.0
+EST-0343,Estudiante 343,estudiante343@email.com,600000343,Residencia Elite,301,2024-09-01,1200.0
+EST-0344,Estudiante 344,estudiante344@email.com,600000344,Residencia Royal,305,2024-09-01,1200.0
+EST-0345,Estudiante 345,estudiante345@email.com,600000345,Residencia Zenith,584,2024-09-01,1200.0
+EST-0346,Estudiante 346,estudiante346@email.com,600000346,Residencia Standard 6,280,2024-09-01,850.0
+EST-0347,Estudiante 347,estudiante347@email.com,600000347,Residencia Standard 7,314,2024-09-01,850.0
+EST-0348,Estudiante 348,estudiante348@email.com,600000348,Residencia Standard 8,126,2024-09-01,850.0
+EST-0349,Estudiante 349,estudiante349@email.com,600000349,Residencia Standard 9,583,2024-09-01,850.0
+EST-0350,Estudiante 350,estudiante350@email.com,600000350,Residencia Standard 10,146,2024-09-01,850.0
+EST-0351,Estudiante 351,estudiante351@email.com,600000351,Residencia Standard 11,549,2024-09-01,850.0
+EST-0352,Estudiante 352,estudiante352@email.com,600000352,Residencia Standard 12,533,2024-09-01,850.0
+EST-0353,Estudiante 353,estudiante353@email.com,600000353,Residencia Standard 13,500,2024-09-01,850.0
+EST-0354,Estudiante 354,estudiante354@email.com,600000354,Residencia Standard 14,248,2024-09-01,850.0
+EST-0355,Estudiante 355,estudiante355@email.com,600000355,Residencia Standard 15,146,2024-09-01,850.0
+EST-0356,Estudiante 356,estudiante356@email.com,600000356,Residencia LowCost 16,516,2024-09-01,600.0
+EST-0357,Estudiante 357,estudiante357@email.com,600000357,Residencia LowCost 17,152,2024-09-01,600.0
+EST-0358,Estudiante 358,estudiante358@email.com,600000358,Residencia LowCost 18,568,2024-09-01,600.0
+EST-0359,Estudiante 359,estudiante359@email.com,600000359,Residencia LowCost 19,571,2024-09-01,600.0
+EST-0360,Estudiante 360,estudiante360@email.com,600000360,Residencia LowCost 20,578,2024-09-01,600.0
+EST-0361,Estudiante 361,estudiante361@email.com,600000361,Residencia Sol,369,2024-09-01,1200.0
+EST-0362,Estudiante 362,estudiante362@email.com,600000362,Residencia Nova,319,2024-09-01,1200.0
+EST-0363,Estudiante 363,estudiante363@email.com,600000363,Residencia Elite,352,2024-09-01,1200.0
+EST-0364,Estudiante 364,estudiante364@email.com,600000364,Residencia Royal,379,2024-09-01,1200.0
+EST-0365,Estudiante 365,estudiante365@email.com,600000365,Residencia Zenith,290,2024-09-01,1200.0
+EST-0366,Estudiante 366,estudiante366@email.com,600000366,Residencia Standard 6,559,2024-09-01,850.0
+EST-0367,Estudiante 367,estudiante367@email.com,600000367,Residencia Standard 7,147,2024-09-01,850.0
+EST-0368,Estudiante 368,estudiante368@email.com,600000368,Residencia Standard 8,230,2024-09-01,850.0
+EST-0369,Estudiante 369,estudiante369@email.com,600000369,Residencia Standard 9,159,2024-09-01,850.0
+EST-0370,Estudiante 370,estudiante370@email.com,600000370,Residencia Standard 10,273,2024-09-01,850.0
+EST-0371,Estudiante 371,estudiante371@email.com,600000371,Residencia Standard 11,468,2024-09-01,850.0
+EST-0372,Estudiante 372,estudiante372@email.com,600000372,Residencia Standard 12,288,2024-09-01,850.0
+EST-0373,Estudiante 373,estudiante373@email.com,600000373,Residencia Standard 13,570,2024-09-01,850.0
+EST-0374,Estudiante 374,estudiante374@email.com,600000374,Residencia Standard 14,489,2024-09-01,850.0
+EST-0375,Estudiante 375,estudiante375@email.com,600000375,Residencia Standard 15,366,2024-09-01,850.0
+EST-0376,Estudiante 376,estudiante376@email.com,600000376,Residencia LowCost 16,115,2024-09-01,600.0
+EST-0377,Estudiante 377,estudiante377@email.com,600000377,Residencia LowCost 17,521,2024-09-01,600.0
+EST-0378,Estudiante 378,estudiante378@email.com,600000378,Residencia LowCost 18,532,2024-09-01,600.0
+EST-0379,Estudiante 379,estudiante379@email.com,600000379,Residencia LowCost 19,167,2024-09-01,600.0
+EST-0380,Estudiante 380,estudiante380@email.com,600000380,Residencia LowCost 20,379,2024-09-01,600.0
+EST-0381,Estudiante 381,estudiante381@email.com,600000381,Residencia Sol,458,2024-09-01,1200.0
+EST-0382,Estudiante 382,estudiante382@email.com,600000382,Residencia Nova,336,2024-09-01,1200.0
+EST-0383,Estudiante 383,estudiante383@email.com,600000383,Residencia Elite,569,2024-09-01,1200.0
+EST-0384,Estudiante 384,estudiante384@email.com,600000384,Residencia Royal,258,2024-09-01,1200.0
+EST-0385,Estudiante 385,estudiante385@email.com,600000385,Residencia Zenith,158,2024-09-01,1200.0
+EST-0386,Estudiante 386,estudiante386@email.com,600000386,Residencia Standard 6,277,2024-09-01,850.0
+EST-0387,Estudiante 387,estudiante387@email.com,600000387,Residencia Standard 7,232,2024-09-01,850.0
+EST-0388,Estudiante 388,estudiante388@email.com,600000388,Residencia Standard 8,233,2024-09-01,850.0
+EST-0389,Estudiante 389,estudiante389@email.com,600000389,Residencia Standard 9,164,2024-09-01,850.0
+EST-0390,Estudiante 390,estudiante390@email.com,600000390,Residencia Standard 10,446,2024-09-01,850.0
+EST-0391,Estudiante 391,estudiante391@email.com,600000391,Residencia Standard 11,351,2024-09-01,850.0
+EST-0392,Estudiante 392,estudiante392@email.com,600000392,Residencia Standard 12,101,2024-09-01,850.0
+EST-0393,Estudiante 393,estudiante393@email.com,600000393,Residencia Standard 13,469,2024-09-01,850.0
+EST-0394,Estudiante 394,estudiante394@email.com,600000394,Residencia Standard 14,420,2024-09-01,850.0
+EST-0395,Estudiante 395,estudiante395@email.com,600000395,Residencia Standard 15,487,2024-09-01,850.0
+EST-0396,Estudiante 396,estudiante396@email.com,600000396,Residencia LowCost 16,263,2024-09-01,600.0
+EST-0397,Estudiante 397,estudiante397@email.com,600000397,Residencia LowCost 17,253,2024-09-01,600.0
+EST-0398,Estudiante 398,estudiante398@email.com,600000398,Residencia LowCost 18,433,2024-09-01,600.0
+EST-0399,Estudiante 399,estudiante399@email.com,600000399,Residencia LowCost 19,231,2024-09-01,600.0
+EST-0400,Estudiante 400,estudiante400@email.com,600000400,Residencia LowCost 20,124,2024-09-01,600.0
+EST-0401,Estudiante 401,estudiante401@email.com,600000401,Residencia Sol,106,2024-09-01,1200.0
+EST-0402,Estudiante 402,estudiante402@email.com,600000402,Residencia Nova,443,2024-09-01,1200.0
+EST-0403,Estudiante 403,estudiante403@email.com,600000403,Residencia Elite,104,2024-09-01,1200.0
+EST-0404,Estudiante 404,estudiante404@email.com,600000404,Residencia Royal,596,2024-09-01,1200.0
+EST-0405,Estudiante 405,estudiante405@email.com,600000405,Residencia Zenith,469,2024-09-01,1200.0
+EST-0406,Estudiante 406,estudiante406@email.com,600000406,Residencia Standard 6,256,2024-09-01,850.0
+EST-0407,Estudiante 407,estudiante407@email.com,600000407,Residencia Standard 7,256,2024-09-01,850.0
+EST-0408,Estudiante 408,estudiante408@email.com,600000408,Residencia Standard 8,437,2024-09-01,850.0
+EST-0409,Estudiante 409,estudiante409@email.com,600000409,Residencia Standard 9,323,2024-09-01,850.0
+EST-0410,Estudiante 410,estudiante410@email.com,600000410,Residencia Standard 10,120,2024-09-01,850.0
+EST-0411,Estudiante 411,estudiante411@email.com,600000411,Residencia Standard 11,188,2024-09-01,850.0
+EST-0412,Estudiante 412,estudiante412@email.com,600000412,Residencia Standard 12,538,2024-09-01,850.0
+EST-0413,Estudiante 413,estudiante413@email.com,600000413,Residencia Standard 13,475,2024-09-01,850.0
+EST-0414,Estudiante 414,estudiante414@email.com,600000414,Residencia Standard 14,291,2024-09-01,850.0
+EST-0415,Estudiante 415,estudiante415@email.com,600000415,Residencia Standard 15,558,2024-09-01,850.0
+EST-0416,Estudiante 416,estudiante416@email.com,600000416,Residencia LowCost 16,380,2024-09-01,600.0
+EST-0417,Estudiante 417,estudiante417@email.com,600000417,Residencia LowCost 17,270,2024-09-01,600.0
+EST-0418,Estudiante 418,estudiante418@email.com,600000418,Residencia LowCost 18,408,2024-09-01,600.0
+EST-0419,Estudiante 419,estudiante419@email.com,600000419,Residencia LowCost 19,282,2024-09-01,600.0
+EST-0420,Estudiante 420,estudiante420@email.com,600000420,Residencia LowCost 20,432,2024-09-01,600.0
+EST-0421,Estudiante 421,estudiante421@email.com,600000421,Residencia Sol,169,2024-09-01,1200.0
+EST-0422,Estudiante 422,estudiante422@email.com,600000422,Residencia Nova,534,2024-09-01,1200.0
+EST-0423,Estudiante 423,estudiante423@email.com,600000423,Residencia Elite,170,2024-09-01,1200.0
+EST-0424,Estudiante 424,estudiante424@email.com,600000424,Residencia Royal,179,2024-09-01,1200.0
+EST-0425,Estudiante 425,estudiante425@email.com,600000425,Residencia Zenith,414,2024-09-01,1200.0
+EST-0426,Estudiante 426,estudiante426@email.com,600000426,Residencia Standard 6,518,2024-09-01,850.0
+EST-0427,Estudiante 427,estudiante427@email.com,600000427,Residencia Standard 7,221,2024-09-01,850.0
+EST-0428,Estudiante 428,estudiante428@email.com,600000428,Residencia Standard 8,236,2024-09-01,850.0
+EST-0429,Estudiante 429,estudiante429@email.com,600000429,Residencia Standard 9,115,2024-09-01,850.0
+EST-0430,Estudiante 430,estudiante430@email.com,600000430,Residencia Standard 10,438,2024-09-01,850.0
+EST-0431,Estudiante 431,estudiante431@email.com,600000431,Residencia Standard 11,356,2024-09-01,850.0
+EST-0432,Estudiante 432,estudiante432@email.com,600000432,Residencia Standard 12,554,2024-09-01,850.0
+EST-0433,Estudiante 433,estudiante433@email.com,600000433,Residencia Standard 13,344,2024-09-01,850.0
+EST-0434,Estudiante 434,estudiante434@email.com,600000434,Residencia Standard 14,341,2024-09-01,850.0
+EST-0435,Estudiante 435,estudiante435@email.com,600000435,Residencia Standard 15,598,2024-09-01,850.0
+EST-0436,Estudiante 436,estudiante436@email.com,600000436,Residencia LowCost 16,195,2024-09-01,600.0
+EST-0437,Estudiante 437,estudiante437@email.com,600000437,Residencia LowCost 17,204,2024-09-01,600.0
+EST-0438,Estudiante 438,estudiante438@email.com,600000438,Residencia LowCost 18,222,2024-09-01,600.0
+EST-0439,Estudiante 439,estudiante439@email.com,600000439,Residencia LowCost 19,414,2024-09-01,600.0
+EST-0440,Estudiante 440,estudiante440@email.com,600000440,Residencia LowCost 20,505,2024-09-01,600.0
+EST-0441,Estudiante 441,estudiante441@email.com,600000441,Residencia Sol,156,2024-09-01,1200.0
+EST-0442,Estudiante 442,estudiante442@email.com,600000442,Residencia Nova,313,2024-09-01,1200.0
+EST-0443,Estudiante 443,estudiante443@email.com,600000443,Residencia Elite,473,2024-09-01,1200.0
+EST-0444,Estudiante 444,estudiante444@email.com,600000444,Residencia Royal,568,2024-09-01,1200.0
+EST-0445,Estudiante 445,estudiante445@email.com,600000445,Residencia Zenith,244,2024-09-01,1200.0
+EST-0446,Estudiante 446,estudiante446@email.com,600000446,Residencia Standard 6,176,2024-09-01,850.0
+EST-0447,Estudiante 447,estudiante447@email.com,600000447,Residencia Standard 7,161,2024-09-01,850.0
+EST-0448,Estudiante 448,estudiante448@email.com,600000448,Residencia Standard 8,451,2024-09-01,850.0
+EST-0449,Estudiante 449,estudiante449@email.com,600000449,Residencia Standard 9,243,2024-09-01,850.0
+EST-0450,Estudiante 450,estudiante450@email.com,600000450,Residencia Standard 10,522,2024-09-01,850.0
+EST-0451,Estudiante 451,estudiante451@email.com,600000451,Residencia Standard 11,239,2024-09-01,850.0
+EST-0452,Estudiante 452,estudiante452@email.com,600000452,Residencia Standard 12,223,2024-09-01,850.0
+EST-0453,Estudiante 453,estudiante453@email.com,600000453,Residencia Standard 13,130,2024-09-01,850.0
+EST-0454,Estudiante 454,estudiante454@email.com,600000454,Residencia Standard 14,315,2024-09-01,850.0
+EST-0455,Estudiante 455,estudiante455@email.com,600000455,Residencia Standard 15,519,2024-09-01,850.0
+EST-0456,Estudiante 456,estudiante456@email.com,600000456,Residencia LowCost 16,372,2024-09-01,600.0
+EST-0457,Estudiante 457,estudiante457@email.com,600000457,Residencia LowCost 17,384,2024-09-01,600.0
+EST-0458,Estudiante 458,estudiante458@email.com,600000458,Residencia LowCost 18,169,2024-09-01,600.0
+EST-0459,Estudiante 459,estudiante459@email.com,600000459,Residencia LowCost 19,293,2024-09-01,600.0
+EST-0460,Estudiante 460,estudiante460@email.com,600000460,Residencia LowCost 20,433,2024-09-01,600.0
+EST-0461,Estudiante 461,estudiante461@email.com,600000461,Residencia Sol,422,2024-09-01,1200.0
+EST-0462,Estudiante 462,estudiante462@email.com,600000462,Residencia Nova,461,2024-09-01,1200.0
+EST-0463,Estudiante 463,estudiante463@email.com,600000463,Residencia Elite,212,2024-09-01,1200.0
+EST-0464,Estudiante 464,estudiante464@email.com,600000464,Residencia Royal,207,2024-09-01,1200.0
+EST-0465,Estudiante 465,estudiante465@email.com,600000465,Residencia Zenith,124,2024-09-01,1200.0
+EST-0466,Estudiante 466,estudiante466@email.com,600000466,Residencia Standard 6,364,2024-09-01,850.0
+EST-0467,Estudiante 467,estudiante467@email.com,600000467,Residencia Standard 7,562,2024-09-01,850.0
+EST-0468,Estudiante 468,estudiante468@email.com,600000468,Residencia Standard 8,519,2024-09-01,850.0
+EST-0469,Estudiante 469,estudiante469@email.com,600000469,Residencia Standard 9,163,2024-09-01,850.0
+EST-0470,Estudiante 470,estudiante470@email.com,600000470,Residencia Standard 10,265,2024-09-01,850.0
+EST-0471,Estudiante 471,estudiante471@email.com,600000471,Residencia Standard 11,547,2024-09-01,850.0
+EST-0472,Estudiante 472,estudiante472@email.com,600000472,Residencia Standard 12,351,2024-09-01,850.0
+EST-0473,Estudiante 473,estudiante473@email.com,600000473,Residencia Standard 13,250,2024-09-01,850.0
+EST-0474,Estudiante 474,estudiante474@email.com,600000474,Residencia Standard 14,301,2024-09-01,850.0
+EST-0475,Estudiante 475,estudiante475@email.com,600000475,Residencia Standard 15,104,2024-09-01,850.0
+EST-0476,Estudiante 476,estudiante476@email.com,600000476,Residencia LowCost 16,127,2024-09-01,600.0
+EST-0477,Estudiante 477,estudiante477@email.com,600000477,Residencia LowCost 17,558,2024-09-01,600.0
+EST-0478,Estudiante 478,estudiante478@email.com,600000478,Residencia LowCost 18,254,2024-09-01,600.0
+EST-0479,Estudiante 479,estudiante479@email.com,600000479,Residencia LowCost 19,170,2024-09-01,600.0
+EST-0480,Estudiante 480,estudiante480@email.com,600000480,Residencia LowCost 20,112,2024-09-01,600.0
+EST-0481,Estudiante 481,estudiante481@email.com,600000481,Residencia Sol,205,2024-09-01,1200.0
+EST-0482,Estudiante 482,estudiante482@email.com,600000482,Residencia Nova,281,2024-09-01,1200.0
+EST-0483,Estudiante 483,estudiante483@email.com,600000483,Residencia Elite,553,2024-09-01,1200.0
+EST-0484,Estudiante 484,estudiante484@email.com,600000484,Residencia Royal,176,2024-09-01,1200.0
+EST-0485,Estudiante 485,estudiante485@email.com,600000485,Residencia Zenith,238,2024-09-01,1200.0
+EST-0486,Estudiante 486,estudiante486@email.com,600000486,Residencia Standard 6,248,2024-09-01,850.0
+EST-0487,Estudiante 487,estudiante487@email.com,600000487,Residencia Standard 7,521,2024-09-01,850.0
+EST-0488,Estudiante 488,estudiante488@email.com,600000488,Residencia Standard 8,508,2024-09-01,850.0
+EST-0489,Estudiante 489,estudiante489@email.com,600000489,Residencia Standard 9,424,2024-09-01,850.0
+EST-0490,Estudiante 490,estudiante490@email.com,600000490,Residencia Standard 10,108,2024-09-01,850.0
+EST-0491,Estudiante 491,estudiante491@email.com,600000491,Residencia Standard 11,165,2024-09-01,850.0
+EST-0492,Estudiante 492,estudiante492@email.com,600000492,Residencia Standard 12,598,2024-09-01,850.0
+EST-0493,Estudiante 493,estudiante493@email.com,600000493,Residencia Standard 13,138,2024-09-01,850.0
+EST-0494,Estudiante 494,estudiante494@email.com,600000494,Residencia Standard 14,572,2024-09-01,850.0
+EST-0495,Estudiante 495,estudiante495@email.com,600000495,Residencia Standard 15,172,2024-09-01,850.0
+EST-0496,Estudiante 496,estudiante496@email.com,600000496,Residencia LowCost 16,454,2024-09-01,600.0
+EST-0497,Estudiante 497,estudiante497@email.com,600000497,Residencia LowCost 17,105,2024-09-01,600.0
+EST-0498,Estudiante 498,estudiante498@email.com,600000498,Residencia LowCost 18,172,2024-09-01,600.0
+EST-0499,Estudiante 499,estudiante499@email.com,600000499,Residencia LowCost 19,210,2024-09-01,600.0
+EST-0500,Estudiante 500,estudiante500@email.com,600000500,Residencia LowCost 20,179,2024-09-01,600.0
+EST-0501,Estudiante 501,estudiante501@email.com,600000501,Residencia Sol,349,2024-09-01,1200.0
+EST-0502,Estudiante 502,estudiante502@email.com,600000502,Residencia Nova,490,2024-09-01,1200.0
+EST-0503,Estudiante 503,estudiante503@email.com,600000503,Residencia Elite,561,2024-09-01,1200.0
+EST-0504,Estudiante 504,estudiante504@email.com,600000504,Residencia Royal,417,2024-09-01,1200.0
+EST-0505,Estudiante 505,estudiante505@email.com,600000505,Residencia Zenith,400,2024-09-01,1200.0
+EST-0506,Estudiante 506,estudiante506@email.com,600000506,Residencia Standard 6,582,2024-09-01,850.0
+EST-0507,Estudiante 507,estudiante507@email.com,600000507,Residencia Standard 7,177,2024-09-01,850.0
+EST-0508,Estudiante 508,estudiante508@email.com,600000508,Residencia Standard 8,150,2024-09-01,850.0
+EST-0509,Estudiante 509,estudiante509@email.com,600000509,Residencia Standard 9,381,2024-09-01,850.0
+EST-0510,Estudiante 510,estudiante510@email.com,600000510,Residencia Standard 10,127,2024-09-01,850.0
+EST-0511,Estudiante 511,estudiante511@email.com,600000511,Residencia Standard 11,205,2024-09-01,850.0
+EST-0512,Estudiante 512,estudiante512@email.com,600000512,Residencia Standard 12,486,2024-09-01,850.0
+EST-0513,Estudiante 513,estudiante513@email.com,600000513,Residencia Standard 13,438,2024-09-01,850.0
+EST-0514,Estudiante 514,estudiante514@email.com,600000514,Residencia Standard 14,385,2024-09-01,850.0
+EST-0515,Estudiante 515,estudiante515@email.com,600000515,Residencia Standard 15,179,2024-09-01,850.0
+EST-0516,Estudiante 516,estudiante516@email.com,600000516,Residencia LowCost 16,445,2024-09-01,600.0
+EST-0517,Estudiante 517,estudiante517@email.com,600000517,Residencia LowCost 17,158,2024-09-01,600.0
+EST-0518,Estudiante 518,estudiante518@email.com,600000518,Residencia LowCost 18,133,2024-09-01,600.0
+EST-0519,Estudiante 519,estudiante519@email.com,600000519,Residencia LowCost 19,498,2024-09-01,600.0
+EST-0520,Estudiante 520,estudiante520@email.com,600000520,Residencia LowCost 20,265,2024-09-01,600.0
+EST-0521,Estudiante 521,estudiante521@email.com,600000521,Residencia Sol,205,2024-09-01,1200.0
+EST-0522,Estudiante 522,estudiante522@email.com,600000522,Residencia Nova,426,2024-09-01,1200.0
+EST-0523,Estudiante 523,estudiante523@email.com,600000523,Residencia Elite,288,2024-09-01,1200.0
+EST-0524,Estudiante 524,estudiante524@email.com,600000524,Residencia Royal,165,2024-09-01,1200.0
+EST-0525,Estudiante 525,estudiante525@email.com,600000525,Residencia Zenith,261,2024-09-01,1200.0
+EST-0526,Estudiante 526,estudiante526@email.com,600000526,Residencia Standard 6,396,2024-09-01,850.0
+EST-0527,Estudiante 527,estudiante527@email.com,600000527,Residencia Standard 7,468,2024-09-01,850.0
+EST-0528,Estudiante 528,estudiante528@email.com,600000528,Residencia Standard 8,313,2024-09-01,850.0
+EST-0529,Estudiante 529,estudiante529@email.com,600000529,Residencia Standard 9,355,2024-09-01,850.0
+EST-0530,Estudiante 530,estudiante530@email.com,600000530,Residencia Standard 10,227,2024-09-01,850.0
+EST-0531,Estudiante 531,estudiante531@email.com,600000531,Residencia Standard 11,186,2024-09-01,850.0
+EST-0532,Estudiante 532,estudiante532@email.com,600000532,Residencia Standard 12,268,2024-09-01,850.0
+EST-0533,Estudiante 533,estudiante533@email.com,600000533,Residencia Standard 13,548,2024-09-01,850.0
+EST-0534,Estudiante 534,estudiante534@email.com,600000534,Residencia Standard 14,385,2024-09-01,850.0
+EST-0535,Estudiante 535,estudiante535@email.com,600000535,Residencia Standard 15,200,2024-09-01,850.0
+EST-0536,Estudiante 536,estudiante536@email.com,600000536,Residencia LowCost 16,417,2024-09-01,600.0
+EST-0537,Estudiante 537,estudiante537@email.com,600000537,Residencia LowCost 17,213,2024-09-01,600.0
+EST-0538,Estudiante 538,estudiante538@email.com,600000538,Residencia LowCost 18,256,2024-09-01,600.0
+EST-0539,Estudiante 539,estudiante539@email.com,600000539,Residencia LowCost 19,376,2024-09-01,600.0
+EST-0540,Estudiante 540,estudiante540@email.com,600000540,Residencia LowCost 20,211,2024-09-01,600.0
+EST-0541,Estudiante 541,estudiante541@email.com,600000541,Residencia Sol,257,2024-09-01,1200.0
+EST-0542,Estudiante 542,estudiante542@email.com,600000542,Residencia Nova,261,2024-09-01,1200.0
+EST-0543,Estudiante 543,estudiante543@email.com,600000543,Residencia Elite,503,2024-09-01,1200.0
+EST-0544,Estudiante 544,estudiante544@email.com,600000544,Residencia Royal,428,2024-09-01,1200.0
+EST-0545,Estudiante 545,estudiante545@email.com,600000545,Residencia Zenith,181,2024-09-01,1200.0
+EST-0546,Estudiante 546,estudiante546@email.com,600000546,Residencia Standard 6,391,2024-09-01,850.0
+EST-0547,Estudiante 547,estudiante547@email.com,600000547,Residencia Standard 7,340,2024-09-01,850.0
+EST-0548,Estudiante 548,estudiante548@email.com,600000548,Residencia Standard 8,591,2024-09-01,850.0
+EST-0549,Estudiante 549,estudiante549@email.com,600000549,Residencia Standard 9,289,2024-09-01,850.0
+EST-0550,Estudiante 550,estudiante550@email.com,600000550,Residencia Standard 10,323,2024-09-01,850.0
+EST-0551,Estudiante 551,estudiante551@email.com,600000551,Residencia Standard 11,118,2024-09-01,850.0
+EST-0552,Estudiante 552,estudiante552@email.com,600000552,Residencia Standard 12,425,2024-09-01,850.0
+EST-0553,Estudiante 553,estudiante553@email.com,600000553,Residencia Standard 13,191,2024-09-01,850.0
+EST-0554,Estudiante 554,estudiante554@email.com,600000554,Residencia Standard 14,442,2024-09-01,850.0
+EST-0555,Estudiante 555,estudiante555@email.com,600000555,Residencia Standard 15,169,2024-09-01,850.0
+EST-0556,Estudiante 556,estudiante556@email.com,600000556,Residencia LowCost 16,580,2024-09-01,600.0
+EST-0557,Estudiante 557,estudiante557@email.com,600000557,Residencia LowCost 17,161,2024-09-01,600.0
+EST-0558,Estudiante 558,estudiante558@email.com,600000558,Residencia LowCost 18,426,2024-09-01,600.0
+EST-0559,Estudiante 559,estudiante559@email.com,600000559,Residencia LowCost 19,199,2024-09-01,600.0
+EST-0560,Estudiante 560,estudiante560@email.com,600000560,Residencia LowCost 20,582,2024-09-01,600.0
+EST-0561,Estudiante 561,estudiante561@email.com,600000561,Residencia Sol,485,2024-09-01,1200.0
+EST-0562,Estudiante 562,estudiante562@email.com,600000562,Residencia Nova,125,2024-09-01,1200.0
+EST-0563,Estudiante 563,estudiante563@email.com,600000563,Residencia Elite,521,2024-09-01,1200.0
+EST-0564,Estudiante 564,estudiante564@email.com,600000564,Residencia Royal,273,2024-09-01,1200.0
+EST-0565,Estudiante 565,estudiante565@email.com,600000565,Residencia Zenith,255,2024-09-01,1200.0
+EST-0566,Estudiante 566,estudiante566@email.com,600000566,Residencia Standard 6,563,2024-09-01,850.0
+EST-0567,Estudiante 567,estudiante567@email.com,600000567,Residencia Standard 7,435,2024-09-01,850.0
+EST-0568,Estudiante 568,estudiante568@email.com,600000568,Residencia Standard 8,171,2024-09-01,850.0
+EST-0569,Estudiante 569,estudiante569@email.com,600000569,Residencia Standard 9,390,2024-09-01,850.0
+EST-0570,Estudiante 570,estudiante570@email.com,600000570,Residencia Standard 10,460,2024-09-01,850.0
+EST-0571,Estudiante 571,estudiante571@email.com,600000571,Residencia Standard 11,376,2024-09-01,850.0
+EST-0572,Estudiante 572,estudiante572@email.com,600000572,Residencia Standard 12,205,2024-09-01,850.0
+EST-0573,Estudiante 573,estudiante573@email.com,600000573,Residencia Standard 13,344,2024-09-01,850.0
+EST-0574,Estudiante 574,estudiante574@email.com,600000574,Residencia Standard 14,360,2024-09-01,850.0
+EST-0575,Estudiante 575,estudiante575@email.com,600000575,Residencia Standard 15,312,2024-09-01,850.0
+EST-0576,Estudiante 576,estudiante576@email.com,600000576,Residencia LowCost 16,339,2024-09-01,600.0
+EST-0577,Estudiante 577,estudiante577@email.com,600000577,Residencia LowCost 17,593,2024-09-01,600.0
+EST-0578,Estudiante 578,estudiante578@email.com,600000578,Residencia LowCost 18,413,2024-09-01,600.0
+EST-0579,Estudiante 579,estudiante579@email.com,600000579,Residencia LowCost 19,425,2024-09-01,600.0
+EST-0580,Estudiante 580,estudiante580@email.com,600000580,Residencia LowCost 20,160,2024-09-01,600.0
+EST-0581,Estudiante 581,estudiante581@email.com,600000581,Residencia Sol,303,2024-09-01,1200.0
+EST-0582,Estudiante 582,estudiante582@email.com,600000582,Residencia Nova,500,2024-09-01,1200.0
+EST-0583,Estudiante 583,estudiante583@email.com,600000583,Residencia Elite,523,2024-09-01,1200.0
+EST-0584,Estudiante 584,estudiante584@email.com,600000584,Residencia Royal,265,2024-09-01,1200.0
+EST-0585,Estudiante 585,estudiante585@email.com,600000585,Residencia Zenith,331,2024-09-01,1200.0
+EST-0586,Estudiante 586,estudiante586@email.com,600000586,Residencia Standard 6,166,2024-09-01,850.0
+EST-0587,Estudiante 587,estudiante587@email.com,600000587,Residencia Standard 7,520,2024-09-01,850.0
+EST-0588,Estudiante 588,estudiante588@email.com,600000588,Residencia Standard 8,162,2024-09-01,850.0
+EST-0589,Estudiante 589,estudiante589@email.com,600000589,Residencia Standard 9,280,2024-09-01,850.0
+EST-0590,Estudiante 590,estudiante590@email.com,600000590,Residencia Standard 10,189,2024-09-01,850.0
+EST-0591,Estudiante 591,estudiante591@email.com,600000591,Residencia Standard 11,568,2024-09-01,850.0
+EST-0592,Estudiante 592,estudiante592@email.com,600000592,Residencia Standard 12,507,2024-09-01,850.0
+EST-0593,Estudiante 593,estudiante593@email.com,600000593,Residencia Standard 13,529,2024-09-01,850.0
+EST-0594,Estudiante 594,estudiante594@email.com,600000594,Residencia Standard 14,159,2024-09-01,850.0
+EST-0595,Estudiante 595,estudiante595@email.com,600000595,Residencia Standard 15,422,2024-09-01,850.0
+EST-0596,Estudiante 596,estudiante596@email.com,600000596,Residencia LowCost 16,432,2024-09-01,600.0
+EST-0597,Estudiante 597,estudiante597@email.com,600000597,Residencia LowCost 17,399,2024-09-01,600.0
+EST-0598,Estudiante 598,estudiante598@email.com,600000598,Residencia LowCost 18,274,2024-09-01,600.0
+EST-0599,Estudiante 599,estudiante599@email.com,600000599,Residencia LowCost 19,154,2024-09-01,600.0
+EST-0600,Estudiante 600,estudiante600@email.com,600000600,Residencia LowCost 20,403,2024-09-01,600.0
+EST-0601,Estudiante 601,estudiante601@email.com,600000601,Residencia Sol,110,2024-09-01,1200.0
+EST-0602,Estudiante 602,estudiante602@email.com,600000602,Residencia Nova,430,2024-09-01,1200.0
+EST-0603,Estudiante 603,estudiante603@email.com,600000603,Residencia Elite,105,2024-09-01,1200.0
+EST-0604,Estudiante 604,estudiante604@email.com,600000604,Residencia Royal,234,2024-09-01,1200.0
+EST-0605,Estudiante 605,estudiante605@email.com,600000605,Residencia Zenith,141,2024-09-01,1200.0
+EST-0606,Estudiante 606,estudiante606@email.com,600000606,Residencia Standard 6,530,2024-09-01,850.0
+EST-0607,Estudiante 607,estudiante607@email.com,600000607,Residencia Standard 7,546,2024-09-01,850.0
+EST-0608,Estudiante 608,estudiante608@email.com,600000608,Residencia Standard 8,474,2024-09-01,850.0
+EST-0609,Estudiante 609,estudiante609@email.com,600000609,Residencia Standard 9,260,2024-09-01,850.0
+EST-0610,Estudiante 610,estudiante610@email.com,600000610,Residencia Standard 10,452,2024-09-01,850.0
+EST-0611,Estudiante 611,estudiante611@email.com,600000611,Residencia Standard 11,475,2024-09-01,850.0
+EST-0612,Estudiante 612,estudiante612@email.com,600000612,Residencia Standard 12,552,2024-09-01,850.0
+EST-0613,Estudiante 613,estudiante613@email.com,600000613,Residencia Standard 13,492,2024-09-01,850.0
+EST-0614,Estudiante 614,estudiante614@email.com,600000614,Residencia Standard 14,440,2024-09-01,850.0
+EST-0615,Estudiante 615,estudiante615@email.com,600000615,Residencia Standard 15,521,2024-09-01,850.0
+EST-0616,Estudiante 616,estudiante616@email.com,600000616,Residencia LowCost 16,249,2024-09-01,600.0
+EST-0617,Estudiante 617,estudiante617@email.com,600000617,Residencia LowCost 17,263,2024-09-01,600.0
+EST-0618,Estudiante 618,estudiante618@email.com,600000618,Residencia LowCost 18,170,2024-09-01,600.0
+EST-0619,Estudiante 619,estudiante619@email.com,600000619,Residencia LowCost 19,596,2024-09-01,600.0
+EST-0620,Estudiante 620,estudiante620@email.com,600000620,Residencia LowCost 20,103,2024-09-01,600.0
+EST-0621,Estudiante 621,estudiante621@email.com,600000621,Residencia Sol,333,2024-09-01,1200.0
+EST-0622,Estudiante 622,estudiante622@email.com,600000622,Residencia Nova,365,2024-09-01,1200.0
+EST-0623,Estudiante 623,estudiante623@email.com,600000623,Residencia Elite,565,2024-09-01,1200.0
+EST-0624,Estudiante 624,estudiante624@email.com,600000624,Residencia Royal,575,2024-09-01,1200.0
+EST-0625,Estudiante 625,estudiante625@email.com,600000625,Residencia Zenith,563,2024-09-01,1200.0
+EST-0626,Estudiante 626,estudiante626@email.com,600000626,Residencia Standard 6,137,2024-09-01,850.0
+EST-0627,Estudiante 627,estudiante627@email.com,600000627,Residencia Standard 7,471,2024-09-01,850.0
+EST-0628,Estudiante 628,estudiante628@email.com,600000628,Residencia Standard 8,389,2024-09-01,850.0
+EST-0629,Estudiante 629,estudiante629@email.com,600000629,Residencia Standard 9,209,2024-09-01,850.0
+EST-0630,Estudiante 630,estudiante630@email.com,600000630,Residencia Standard 10,407,2024-09-01,850.0
+EST-0631,Estudiante 631,estudiante631@email.com,600000631,Residencia Standard 11,122,2024-09-01,850.0
+EST-0632,Estudiante 632,estudiante632@email.com,600000632,Residencia Standard 12,274,2024-09-01,850.0
+EST-0633,Estudiante 633,estudiante633@email.com,600000633,Residencia Standard 13,435,2024-09-01,850.0
+EST-0634,Estudiante 634,estudiante634@email.com,600000634,Residencia Standard 14,169,2024-09-01,850.0
+EST-0635,Estudiante 635,estudiante635@email.com,600000635,Residencia Standard 15,373,2024-09-01,850.0
+EST-0636,Estudiante 636,estudiante636@email.com,600000636,Residencia LowCost 16,466,2024-09-01,600.0
+EST-0637,Estudiante 637,estudiante637@email.com,600000637,Residencia LowCost 17,366,2024-09-01,600.0
+EST-0638,Estudiante 638,estudiante638@email.com,600000638,Residencia LowCost 18,282,2024-09-01,600.0
+EST-0639,Estudiante 639,estudiante639@email.com,600000639,Residencia LowCost 19,555,2024-09-01,600.0
+EST-0640,Estudiante 640,estudiante640@email.com,600000640,Residencia LowCost 20,439,2024-09-01,600.0
+EST-0641,Estudiante 641,estudiante641@email.com,600000641,Residencia Sol,423,2024-09-01,1200.0
+EST-0642,Estudiante 642,estudiante642@email.com,600000642,Residencia Nova,434,2024-09-01,1200.0
+EST-0643,Estudiante 643,estudiante643@email.com,600000643,Residencia Elite,565,2024-09-01,1200.0
+EST-0644,Estudiante 644,estudiante644@email.com,600000644,Residencia Royal,271,2024-09-01,1200.0
+EST-0645,Estudiante 645,estudiante645@email.com,600000645,Residencia Zenith,568,2024-09-01,1200.0
+EST-0646,Estudiante 646,estudiante646@email.com,600000646,Residencia Standard 6,382,2024-09-01,850.0
+EST-0647,Estudiante 647,estudiante647@email.com,600000647,Residencia Standard 7,230,2024-09-01,850.0
+EST-0648,Estudiante 648,estudiante648@email.com,600000648,Residencia Standard 8,200,2024-09-01,850.0
+EST-0649,Estudiante 649,estudiante649@email.com,600000649,Residencia Standard 9,417,2024-09-01,850.0
+EST-0650,Estudiante 650,estudiante650@email.com,600000650,Residencia Standard 10,479,2024-09-01,850.0
+EST-0651,Estudiante 651,estudiante651@email.com,600000651,Residencia Standard 11,162,2024-09-01,850.0
+EST-0652,Estudiante 652,estudiante652@email.com,600000652,Residencia Standard 12,163,2024-09-01,850.0
+EST-0653,Estudiante 653,estudiante653@email.com,600000653,Residencia Standard 13,583,2024-09-01,850.0
+EST-0654,Estudiante 654,estudiante654@email.com,600000654,Residencia Standard 14,337,2024-09-01,850.0
+EST-0655,Estudiante 655,estudiante655@email.com,600000655,Residencia Standard 15,463,2024-09-01,850.0
+EST-0656,Estudiante 656,estudiante656@email.com,600000656,Residencia LowCost 16,196,2024-09-01,600.0
+EST-0657,Estudiante 657,estudiante657@email.com,600000657,Residencia LowCost 17,401,2024-09-01,600.0
+EST-0658,Estudiante 658,estudiante658@email.com,600000658,Residencia LowCost 18,597,2024-09-01,600.0
+EST-0659,Estudiante 659,estudiante659@email.com,600000659,Residencia LowCost 19,127,2024-09-01,600.0
+EST-0660,Estudiante 660,estudiante660@email.com,600000660,Residencia LowCost 20,480,2024-09-01,600.0
+EST-0661,Estudiante 661,estudiante661@email.com,600000661,Residencia Sol,367,2024-09-01,1200.0
+EST-0662,Estudiante 662,estudiante662@email.com,600000662,Residencia Nova,259,2024-09-01,1200.0
+EST-0663,Estudiante 663,estudiante663@email.com,600000663,Residencia Elite,545,2024-09-01,1200.0
+EST-0664,Estudiante 664,estudiante664@email.com,600000664,Residencia Royal,509,2024-09-01,1200.0
+EST-0665,Estudiante 665,estudiante665@email.com,600000665,Residencia Zenith,429,2024-09-01,1200.0
+EST-0666,Estudiante 666,estudiante666@email.com,600000666,Residencia Standard 6,516,2024-09-01,850.0
+EST-0667,Estudiante 667,estudiante667@email.com,600000667,Residencia Standard 7,152,2024-09-01,850.0
+EST-0668,Estudiante 668,estudiante668@email.com,600000668,Residencia Standard 8,174,2024-09-01,850.0
+EST-0669,Estudiante 669,estudiante669@email.com,600000669,Residencia Standard 9,459,2024-09-01,850.0
+EST-0670,Estudiante 670,estudiante670@email.com,600000670,Residencia Standard 10,572,2024-09-01,850.0
+EST-0671,Estudiante 671,estudiante671@email.com,600000671,Residencia Standard 11,210,2024-09-01,850.0
+EST-0672,Estudiante 672,estudiante672@email.com,600000672,Residencia Standard 12,264,2024-09-01,850.0
+EST-0673,Estudiante 673,estudiante673@email.com,600000673,Residencia Standard 13,194,2024-09-01,850.0
+EST-0674,Estudiante 674,estudiante674@email.com,600000674,Residencia Standard 14,484,2024-09-01,850.0
+EST-0675,Estudiante 675,estudiante675@email.com,600000675,Residencia Standard 15,363,2024-09-01,850.0
+EST-0676,Estudiante 676,estudiante676@email.com,600000676,Residencia LowCost 16,322,2024-09-01,600.0
+EST-0677,Estudiante 677,estudiante677@email.com,600000677,Residencia LowCost 17,526,2024-09-01,600.0
+EST-0678,Estudiante 678,estudiante678@email.com,600000678,Residencia LowCost 18,193,2024-09-01,600.0
+EST-0679,Estudiante 679,estudiante679@email.com,600000679,Residencia LowCost 19,304,2024-09-01,600.0
+EST-0680,Estudiante 680,estudiante680@email.com,600000680,Residencia LowCost 20,349,2024-09-01,600.0
+EST-0681,Estudiante 681,estudiante681@email.com,600000681,Residencia Sol,162,2024-09-01,1200.0
+EST-0682,Estudiante 682,estudiante682@email.com,600000682,Residencia Nova,245,2024-09-01,1200.0
+EST-0683,Estudiante 683,estudiante683@email.com,600000683,Residencia Elite,492,2024-09-01,1200.0
+EST-0684,Estudiante 684,estudiante684@email.com,600000684,Residencia Royal,488,2024-09-01,1200.0
+EST-0685,Estudiante 685,estudiante685@email.com,600000685,Residencia Zenith,507,2024-09-01,1200.0
+EST-0686,Estudiante 686,estudiante686@email.com,600000686,Residencia Standard 6,197,2024-09-01,850.0
+EST-0687,Estudiante 687,estudiante687@email.com,600000687,Residencia Standard 7,186,2024-09-01,850.0
+EST-0688,Estudiante 688,estudiante688@email.com,600000688,Residencia Standard 8,199,2024-09-01,850.0
+EST-0689,Estudiante 689,estudiante689@email.com,600000689,Residencia Standard 9,401,2024-09-01,850.0
+EST-0690,Estudiante 690,estudiante690@email.com,600000690,Residencia Standard 10,553,2024-09-01,850.0
+EST-0691,Estudiante 691,estudiante691@email.com,600000691,Residencia Standard 11,427,2024-09-01,850.0
+EST-0692,Estudiante 692,estudiante692@email.com,600000692,Residencia Standard 12,431,2024-09-01,850.0
+EST-0693,Estudiante 693,estudiante693@email.com,600000693,Residencia Standard 13,131,2024-09-01,850.0
+EST-0694,Estudiante 694,estudiante694@email.com,600000694,Residencia Standard 14,324,2024-09-01,850.0
+EST-0695,Estudiante 695,estudiante695@email.com,600000695,Residencia Standard 15,120,2024-09-01,850.0
+EST-0696,Estudiante 696,estudiante696@email.com,600000696,Residencia LowCost 16,559,2024-09-01,600.0
+EST-0697,Estudiante 697,estudiante697@email.com,600000697,Residencia LowCost 17,466,2024-09-01,600.0
+EST-0698,Estudiante 698,estudiante698@email.com,600000698,Residencia LowCost 18,167,2024-09-01,600.0
+EST-0699,Estudiante 699,estudiante699@email.com,600000699,Residencia LowCost 19,427,2024-09-01,600.0
+EST-0700,Estudiante 700,estudiante700@email.com,600000700,Residencia LowCost 20,260,2024-09-01,600.0
+EST-0701,Estudiante 701,estudiante701@email.com,600000701,Residencia Sol,174,2024-09-01,1200.0
+EST-0702,Estudiante 702,estudiante702@email.com,600000702,Residencia Nova,160,2024-09-01,1200.0
+EST-0703,Estudiante 703,estudiante703@email.com,600000703,Residencia Elite,152,2024-09-01,1200.0
+EST-0704,Estudiante 704,estudiante704@email.com,600000704,Residencia Royal,315,2024-09-01,1200.0
+EST-0705,Estudiante 705,estudiante705@email.com,600000705,Residencia Zenith,485,2024-09-01,1200.0
+EST-0706,Estudiante 706,estudiante706@email.com,600000706,Residencia Standard 6,354,2024-09-01,850.0
+EST-0707,Estudiante 707,estudiante707@email.com,600000707,Residencia Standard 7,404,2024-09-01,850.0
+EST-0708,Estudiante 708,estudiante708@email.com,600000708,Residencia Standard 8,321,2024-09-01,850.0
+EST-0709,Estudiante 709,estudiante709@email.com,600000709,Residencia Standard 9,344,2024-09-01,850.0
+EST-0710,Estudiante 710,estudiante710@email.com,600000710,Residencia Standard 10,357,2024-09-01,850.0
+EST-0711,Estudiante 711,estudiante711@email.com,600000711,Residencia Standard 11,165,2024-09-01,850.0
+EST-0712,Estudiante 712,estudiante712@email.com,600000712,Residencia Standard 12,508,2024-09-01,850.0
+EST-0713,Estudiante 713,estudiante713@email.com,600000713,Residencia Standard 13,259,2024-09-01,850.0
+EST-0714,Estudiante 714,estudiante714@email.com,600000714,Residencia Standard 14,251,2024-09-01,850.0
+EST-0715,Estudiante 715,estudiante715@email.com,600000715,Residencia Standard 15,182,2024-09-01,850.0
+EST-0716,Estudiante 716,estudiante716@email.com,600000716,Residencia LowCost 16,592,2024-09-01,600.0
+EST-0717,Estudiante 717,estudiante717@email.com,600000717,Residencia LowCost 17,291,2024-09-01,600.0
+EST-0718,Estudiante 718,estudiante718@email.com,600000718,Residencia LowCost 18,238,2024-09-01,600.0
+EST-0719,Estudiante 719,estudiante719@email.com,600000719,Residencia LowCost 19,130,2024-09-01,600.0
+EST-0720,Estudiante 720,estudiante720@email.com,600000720,Residencia LowCost 20,447,2024-09-01,600.0
+EST-0721,Estudiante 721,estudiante721@email.com,600000721,Residencia Sol,406,2024-09-01,1200.0
+EST-0722,Estudiante 722,estudiante722@email.com,600000722,Residencia Nova,371,2024-09-01,1200.0
+EST-0723,Estudiante 723,estudiante723@email.com,600000723,Residencia Elite,395,2024-09-01,1200.0
+EST-0724,Estudiante 724,estudiante724@email.com,600000724,Residencia Royal,147,2024-09-01,1200.0
+EST-0725,Estudiante 725,estudiante725@email.com,600000725,Residencia Zenith,283,2024-09-01,1200.0
+EST-0726,Estudiante 726,estudiante726@email.com,600000726,Residencia Standard 6,528,2024-09-01,850.0
+EST-0727,Estudiante 727,estudiante727@email.com,600000727,Residencia Standard 7,258,2024-09-01,850.0
+EST-0728,Estudiante 728,estudiante728@email.com,600000728,Residencia Standard 8,225,2024-09-01,850.0
+EST-0729,Estudiante 729,estudiante729@email.com,600000729,Residencia Standard 9,325,2024-09-01,850.0
+EST-0730,Estudiante 730,estudiante730@email.com,600000730,Residencia Standard 10,326,2024-09-01,850.0
+EST-0731,Estudiante 731,estudiante731@email.com,600000731,Residencia Standard 11,247,2024-09-01,850.0
+EST-0732,Estudiante 732,estudiante732@email.com,600000732,Residencia Standard 12,388,2024-09-01,850.0
+EST-0733,Estudiante 733,estudiante733@email.com,600000733,Residencia Standard 13,452,2024-09-01,850.0
+EST-0734,Estudiante 734,estudiante734@email.com,600000734,Residencia Standard 14,219,2024-09-01,850.0
+EST-0735,Estudiante 735,estudiante735@email.com,600000735,Residencia Standard 15,554,2024-09-01,850.0
+EST-0736,Estudiante 736,estudiante736@email.com,600000736,Residencia LowCost 16,182,2024-09-01,600.0
+EST-0737,Estudiante 737,estudiante737@email.com,600000737,Residencia LowCost 17,529,2024-09-01,600.0
+EST-0738,Estudiante 738,estudiante738@email.com,600000738,Residencia LowCost 18,328,2024-09-01,600.0
+EST-0739,Estudiante 739,estudiante739@email.com,600000739,Residencia LowCost 19,508,2024-09-01,600.0
+EST-0740,Estudiante 740,estudiante740@email.com,600000740,Residencia LowCost 20,565,2024-09-01,600.0
+EST-0741,Estudiante 741,estudiante741@email.com,600000741,Residencia Sol,227,2024-09-01,1200.0
+EST-0742,Estudiante 742,estudiante742@email.com,600000742,Residencia Nova,444,2024-09-01,1200.0
+EST-0743,Estudiante 743,estudiante743@email.com,600000743,Residencia Elite,203,2024-09-01,1200.0
+EST-0744,Estudiante 744,estudiante744@email.com,600000744,Residencia Royal,448,2024-09-01,1200.0
+EST-0745,Estudiante 745,estudiante745@email.com,600000745,Residencia Zenith,183,2024-09-01,1200.0
+EST-0746,Estudiante 746,estudiante746@email.com,600000746,Residencia Standard 6,598,2024-09-01,850.0
+EST-0747,Estudiante 747,estudiante747@email.com,600000747,Residencia Standard 7,244,2024-09-01,850.0
+EST-0748,Estudiante 748,estudiante748@email.com,600000748,Residencia Standard 8,121,2024-09-01,850.0
+EST-0749,Estudiante 749,estudiante749@email.com,600000749,Residencia Standard 9,543,2024-09-01,850.0
+EST-0750,Estudiante 750,estudiante750@email.com,600000750,Residencia Standard 10,239,2024-09-01,850.0
+EST-0751,Estudiante 751,estudiante751@email.com,600000751,Residencia Standard 11,566,2024-09-01,850.0
+EST-0752,Estudiante 752,estudiante752@email.com,600000752,Residencia Standard 12,232,2024-09-01,850.0
+EST-0753,Estudiante 753,estudiante753@email.com,600000753,Residencia Standard 13,121,2024-09-01,850.0
+EST-0754,Estudiante 754,estudiante754@email.com,600000754,Residencia Standard 14,510,2024-09-01,850.0
+EST-0755,Estudiante 755,estudiante755@email.com,600000755,Residencia Standard 15,429,2024-09-01,850.0
+EST-0756,Estudiante 756,estudiante756@email.com,600000756,Residencia LowCost 16,209,2024-09-01,600.0
+EST-0757,Estudiante 757,estudiante757@email.com,600000757,Residencia LowCost 17,254,2024-09-01,600.0
+EST-0758,Estudiante 758,estudiante758@email.com,600000758,Residencia LowCost 18,313,2024-09-01,600.0
+EST-0759,Estudiante 759,estudiante759@email.com,600000759,Residencia LowCost 19,592,2024-09-01,600.0
+EST-0760,Estudiante 760,estudiante760@email.com,600000760,Residencia LowCost 20,172,2024-09-01,600.0
+EST-0761,Estudiante 761,estudiante761@email.com,600000761,Residencia Sol,117,2024-09-01,1200.0
+EST-0762,Estudiante 762,estudiante762@email.com,600000762,Residencia Nova,257,2024-09-01,1200.0
+EST-0763,Estudiante 763,estudiante763@email.com,600000763,Residencia Elite,151,2024-09-01,1200.0
+EST-0764,Estudiante 764,estudiante764@email.com,600000764,Residencia Royal,238,2024-09-01,1200.0
+EST-0765,Estudiante 765,estudiante765@email.com,600000765,Residencia Zenith,517,2024-09-01,1200.0
+EST-0766,Estudiante 766,estudiante766@email.com,600000766,Residencia Standard 6,255,2024-09-01,850.0
+EST-0767,Estudiante 767,estudiante767@email.com,600000767,Residencia Standard 7,539,2024-09-01,850.0
+EST-0768,Estudiante 768,estudiante768@email.com,600000768,Residencia Standard 8,424,2024-09-01,850.0
+EST-0769,Estudiante 769,estudiante769@email.com,600000769,Residencia Standard 9,504,2024-09-01,850.0
+EST-0770,Estudiante 770,estudiante770@email.com,600000770,Residencia Standard 10,266,2024-09-01,850.0
+EST-0771,Estudiante 771,estudiante771@email.com,600000771,Residencia Standard 11,282,2024-09-01,850.0
+EST-0772,Estudiante 772,estudiante772@email.com,600000772,Residencia Standard 12,329,2024-09-01,850.0
+EST-0773,Estudiante 773,estudiante773@email.com,600000773,Residencia Standard 13,157,2024-09-01,850.0
+EST-0774,Estudiante 774,estudiante774@email.com,600000774,Residencia Standard 14,495,2024-09-01,850.0
+EST-0775,Estudiante 775,estudiante775@email.com,600000775,Residencia Standard 15,433,2024-09-01,850.0
+EST-0776,Estudiante 776,estudiante776@email.com,600000776,Residencia LowCost 16,521,2024-09-01,600.0
+EST-0777,Estudiante 777,estudiante777@email.com,600000777,Residencia LowCost 17,354,2024-09-01,600.0
+EST-0778,Estudiante 778,estudiante778@email.com,600000778,Residencia LowCost 18,365,2024-09-01,600.0
+EST-0779,Estudiante 779,estudiante779@email.com,600000779,Residencia LowCost 19,372,2024-09-01,600.0
+EST-0780,Estudiante 780,estudiante780@email.com,600000780,Residencia LowCost 20,181,2024-09-01,600.0
+EST-0781,Estudiante 781,estudiante781@email.com,600000781,Residencia Sol,348,2024-09-01,1200.0
+EST-0782,Estudiante 782,estudiante782@email.com,600000782,Residencia Nova,288,2024-09-01,1200.0
+EST-0783,Estudiante 783,estudiante783@email.com,600000783,Residencia Elite,318,2024-09-01,1200.0
+EST-0784,Estudiante 784,estudiante784@email.com,600000784,Residencia Royal,146,2024-09-01,1200.0
+EST-0785,Estudiante 785,estudiante785@email.com,600000785,Residencia Zenith,165,2024-09-01,1200.0
+EST-0786,Estudiante 786,estudiante786@email.com,600000786,Residencia Standard 6,318,2024-09-01,850.0
+EST-0787,Estudiante 787,estudiante787@email.com,600000787,Residencia Standard 7,447,2024-09-01,850.0
+EST-0788,Estudiante 788,estudiante788@email.com,600000788,Residencia Standard 8,271,2024-09-01,850.0
+EST-0789,Estudiante 789,estudiante789@email.com,600000789,Residencia Standard 9,366,2024-09-01,850.0
+EST-0790,Estudiante 790,estudiante790@email.com,600000790,Residencia Standard 10,402,2024-09-01,850.0
+EST-0791,Estudiante 791,estudiante791@email.com,600000791,Residencia Standard 11,391,2024-09-01,850.0
+EST-0792,Estudiante 792,estudiante792@email.com,600000792,Residencia Standard 12,517,2024-09-01,850.0
+EST-0793,Estudiante 793,estudiante793@email.com,600000793,Residencia Standard 13,159,2024-09-01,850.0
+EST-0794,Estudiante 794,estudiante794@email.com,600000794,Residencia Standard 14,446,2024-09-01,850.0
+EST-0795,Estudiante 795,estudiante795@email.com,600000795,Residencia Standard 15,250,2024-09-01,850.0
+EST-0796,Estudiante 796,estudiante796@email.com,600000796,Residencia LowCost 16,581,2024-09-01,600.0
+EST-0797,Estudiante 797,estudiante797@email.com,600000797,Residencia LowCost 17,311,2024-09-01,600.0
+EST-0798,Estudiante 798,estudiante798@email.com,600000798,Residencia LowCost 18,387,2024-09-01,600.0
+EST-0799,Estudiante 799,estudiante799@email.com,600000799,Residencia LowCost 19,397,2024-09-01,600.0
+EST-0800,Estudiante 800,estudiante800@email.com,600000800,Residencia LowCost 20,285,2024-09-01,600.0
+EST-0801,Estudiante 801,estudiante801@email.com,600000801,Residencia Sol,195,2024-09-01,1200.0
+EST-0802,Estudiante 802,estudiante802@email.com,600000802,Residencia Nova,285,2024-09-01,1200.0
+EST-0803,Estudiante 803,estudiante803@email.com,600000803,Residencia Elite,535,2024-09-01,1200.0
+EST-0804,Estudiante 804,estudiante804@email.com,600000804,Residencia Royal,333,2024-09-01,1200.0
+EST-0805,Estudiante 805,estudiante805@email.com,600000805,Residencia Zenith,215,2024-09-01,1200.0
+EST-0806,Estudiante 806,estudiante806@email.com,600000806,Residencia Standard 6,511,2024-09-01,850.0
+EST-0807,Estudiante 807,estudiante807@email.com,600000807,Residencia Standard 7,279,2024-09-01,850.0
+EST-0808,Estudiante 808,estudiante808@email.com,600000808,Residencia Standard 8,447,2024-09-01,850.0
+EST-0809,Estudiante 809,estudiante809@email.com,600000809,Residencia Standard 9,578,2024-09-01,850.0
+EST-0810,Estudiante 810,estudiante810@email.com,600000810,Residencia Standard 10,105,2024-09-01,850.0
+EST-0811,Estudiante 811,estudiante811@email.com,600000811,Residencia Standard 11,364,2024-09-01,850.0
+EST-0812,Estudiante 812,estudiante812@email.com,600000812,Residencia Standard 12,303,2024-09-01,850.0
+EST-0813,Estudiante 813,estudiante813@email.com,600000813,Residencia Standard 13,150,2024-09-01,850.0
+EST-0814,Estudiante 814,estudiante814@email.com,600000814,Residencia Standard 14,564,2024-09-01,850.0
+EST-0815,Estudiante 815,estudiante815@email.com,600000815,Residencia Standard 15,313,2024-09-01,850.0
+EST-0816,Estudiante 816,estudiante816@email.com,600000816,Residencia LowCost 16,400,2024-09-01,600.0
+EST-0817,Estudiante 817,estudiante817@email.com,600000817,Residencia LowCost 17,174,2024-09-01,600.0
+EST-0818,Estudiante 818,estudiante818@email.com,600000818,Residencia LowCost 18,451,2024-09-01,600.0
+EST-0819,Estudiante 819,estudiante819@email.com,600000819,Residencia LowCost 19,125,2024-09-01,600.0
+EST-0820,Estudiante 820,estudiante820@email.com,600000820,Residencia LowCost 20,301,2024-09-01,600.0
+EST-0821,Estudiante 821,estudiante821@email.com,600000821,Residencia Sol,461,2024-09-01,1200.0
+EST-0822,Estudiante 822,estudiante822@email.com,600000822,Residencia Nova,267,2024-09-01,1200.0
+EST-0823,Estudiante 823,estudiante823@email.com,600000823,Residencia Elite,414,2024-09-01,1200.0
+EST-0824,Estudiante 824,estudiante824@email.com,600000824,Residencia Royal,584,2024-09-01,1200.0
+EST-0825,Estudiante 825,estudiante825@email.com,600000825,Residencia Zenith,499,2024-09-01,1200.0
+EST-0826,Estudiante 826,estudiante826@email.com,600000826,Residencia Standard 6,532,2024-09-01,850.0
+EST-0827,Estudiante 827,estudiante827@email.com,600000827,Residencia Standard 7,576,2024-09-01,850.0
+EST-0828,Estudiante 828,estudiante828@email.com,600000828,Residencia Standard 8,293,2024-09-01,850.0
+EST-0829,Estudiante 829,estudiante829@email.com,600000829,Residencia Standard 9,434,2024-09-01,850.0
+EST-0830,Estudiante 830,estudiante830@email.com,600000830,Residencia Standard 10,586,2024-09-01,850.0
+EST-0831,Estudiante 831,estudiante831@email.com,600000831,Residencia Standard 11,324,2024-09-01,850.0
+EST-0832,Estudiante 832,estudiante832@email.com,600000832,Residencia Standard 12,411,2024-09-01,850.0
+EST-0833,Estudiante 833,estudiante833@email.com,600000833,Residencia Standard 13,445,2024-09-01,850.0
+EST-0834,Estudiante 834,estudiante834@email.com,600000834,Residencia Standard 14,326,2024-09-01,850.0
+EST-0835,Estudiante 835,estudiante835@email.com,600000835,Residencia Standard 15,353,2024-09-01,850.0
+EST-0836,Estudiante 836,estudiante836@email.com,600000836,Residencia LowCost 16,575,2024-09-01,600.0
+EST-0837,Estudiante 837,estudiante837@email.com,600000837,Residencia LowCost 17,363,2024-09-01,600.0
+EST-0838,Estudiante 838,estudiante838@email.com,600000838,Residencia LowCost 18,208,2024-09-01,600.0
+EST-0839,Estudiante 839,estudiante839@email.com,600000839,Residencia LowCost 19,544,2024-09-01,600.0
+EST-0840,Estudiante 840,estudiante840@email.com,600000840,Residencia LowCost 20,123,2024-09-01,600.0
+EST-0841,Estudiante 841,estudiante841@email.com,600000841,Residencia Sol,381,2024-09-01,1200.0
+EST-0842,Estudiante 842,estudiante842@email.com,600000842,Residencia Nova,229,2024-09-01,1200.0
+EST-0843,Estudiante 843,estudiante843@email.com,600000843,Residencia Elite,222,2024-09-01,1200.0
+EST-0844,Estudiante 844,estudiante844@email.com,600000844,Residencia Royal,368,2024-09-01,1200.0
+EST-0845,Estudiante 845,estudiante845@email.com,600000845,Residencia Zenith,105,2024-09-01,1200.0
+EST-0846,Estudiante 846,estudiante846@email.com,600000846,Residencia Standard 6,589,2024-09-01,850.0
+EST-0847,Estudiante 847,estudiante847@email.com,600000847,Residencia Standard 7,127,2024-09-01,850.0
+EST-0848,Estudiante 848,estudiante848@email.com,600000848,Residencia Standard 8,336,2024-09-01,850.0
+EST-0849,Estudiante 849,estudiante849@email.com,600000849,Residencia Standard 9,531,2024-09-01,850.0
+EST-0850,Estudiante 850,estudiante850@email.com,600000850,Residencia Standard 10,481,2024-09-01,850.0
+EST-0851,Estudiante 851,estudiante851@email.com,600000851,Residencia Standard 11,437,2024-09-01,850.0
+EST-0852,Estudiante 852,estudiante852@email.com,600000852,Residencia Standard 12,395,2024-09-01,850.0
+EST-0853,Estudiante 853,estudiante853@email.com,600000853,Residencia Standard 13,121,2024-09-01,850.0
+EST-0854,Estudiante 854,estudiante854@email.com,600000854,Residencia Standard 14,157,2024-09-01,850.0
+EST-0855,Estudiante 855,estudiante855@email.com,600000855,Residencia Standard 15,554,2024-09-01,850.0
+EST-0856,Estudiante 856,estudiante856@email.com,600000856,Residencia LowCost 16,538,2024-09-01,600.0
+EST-0857,Estudiante 857,estudiante857@email.com,600000857,Residencia LowCost 17,218,2024-09-01,600.0
+EST-0858,Estudiante 858,estudiante858@email.com,600000858,Residencia LowCost 18,136,2024-09-01,600.0
+EST-0859,Estudiante 859,estudiante859@email.com,600000859,Residencia LowCost 19,375,2024-09-01,600.0
+EST-0860,Estudiante 860,estudiante860@email.com,600000860,Residencia LowCost 20,233,2024-09-01,600.0
+EST-0861,Estudiante 861,estudiante861@email.com,600000861,Residencia Sol,270,2024-09-01,1200.0
+EST-0862,Estudiante 862,estudiante862@email.com,600000862,Residencia Nova,563,2024-09-01,1200.0
+EST-0863,Estudiante 863,estudiante863@email.com,600000863,Residencia Elite,558,2024-09-01,1200.0
+EST-0864,Estudiante 864,estudiante864@email.com,600000864,Residencia Royal,341,2024-09-01,1200.0
+EST-0865,Estudiante 865,estudiante865@email.com,600000865,Residencia Zenith,343,2024-09-01,1200.0
+EST-0866,Estudiante 866,estudiante866@email.com,600000866,Residencia Standard 6,123,2024-09-01,850.0
+EST-0867,Estudiante 867,estudiante867@email.com,600000867,Residencia Standard 7,505,2024-09-01,850.0
+EST-0868,Estudiante 868,estudiante868@email.com,600000868,Residencia Standard 8,280,2024-09-01,850.0
+EST-0869,Estudiante 869,estudiante869@email.com,600000869,Residencia Standard 9,573,2024-09-01,850.0
+EST-0870,Estudiante 870,estudiante870@email.com,600000870,Residencia Standard 10,513,2024-09-01,850.0
+EST-0871,Estudiante 871,estudiante871@email.com,600000871,Residencia Standard 11,340,2024-09-01,850.0
+EST-0872,Estudiante 872,estudiante872@email.com,600000872,Residencia Standard 12,469,2024-09-01,850.0
+EST-0873,Estudiante 873,estudiante873@email.com,600000873,Residencia Standard 13,446,2024-09-01,850.0
+EST-0874,Estudiante 874,estudiante874@email.com,600000874,Residencia Standard 14,170,2024-09-01,850.0
+EST-0875,Estudiante 875,estudiante875@email.com,600000875,Residencia Standard 15,307,2024-09-01,850.0
+EST-0876,Estudiante 876,estudiante876@email.com,600000876,Residencia LowCost 16,228,2024-09-01,600.0
+EST-0877,Estudiante 877,estudiante877@email.com,600000877,Residencia LowCost 17,169,2024-09-01,600.0
+EST-0878,Estudiante 878,estudiante878@email.com,600000878,Residencia LowCost 18,307,2024-09-01,600.0
+EST-0879,Estudiante 879,estudiante879@email.com,600000879,Residencia LowCost 19,233,2024-09-01,600.0
+EST-0880,Estudiante 880,estudiante880@email.com,600000880,Residencia LowCost 20,574,2024-09-01,600.0
+EST-0881,Estudiante 881,estudiante881@email.com,600000881,Residencia Sol,199,2024-09-01,1200.0
+EST-0882,Estudiante 882,estudiante882@email.com,600000882,Residencia Nova,311,2024-09-01,1200.0
+EST-0883,Estudiante 883,estudiante883@email.com,600000883,Residencia Elite,598,2024-09-01,1200.0
+EST-0884,Estudiante 884,estudiante884@email.com,600000884,Residencia Royal,379,2024-09-01,1200.0
+EST-0885,Estudiante 885,estudiante885@email.com,600000885,Residencia Zenith,333,2024-09-01,1200.0
+EST-0886,Estudiante 886,estudiante886@email.com,600000886,Residencia Standard 6,147,2024-09-01,850.0
+EST-0887,Estudiante 887,estudiante887@email.com,600000887,Residencia Standard 7,304,2024-09-01,850.0
+EST-0888,Estudiante 888,estudiante888@email.com,600000888,Residencia Standard 8,478,2024-09-01,850.0
+EST-0889,Estudiante 889,estudiante889@email.com,600000889,Residencia Standard 9,373,2024-09-01,850.0
+EST-0890,Estudiante 890,estudiante890@email.com,600000890,Residencia Standard 10,199,2024-09-01,850.0
+EST-0891,Estudiante 891,estudiante891@email.com,600000891,Residencia Standard 11,292,2024-09-01,850.0
+EST-0892,Estudiante 892,estudiante892@email.com,600000892,Residencia Standard 12,397,2024-09-01,850.0
+EST-0893,Estudiante 893,estudiante893@email.com,600000893,Residencia Standard 13,353,2024-09-01,850.0
+EST-0894,Estudiante 894,estudiante894@email.com,600000894,Residencia Standard 14,315,2024-09-01,850.0
+EST-0895,Estudiante 895,estudiante895@email.com,600000895,Residencia Standard 15,236,2024-09-01,850.0
+EST-0896,Estudiante 896,estudiante896@email.com,600000896,Residencia LowCost 16,396,2024-09-01,600.0
+EST-0897,Estudiante 897,estudiante897@email.com,600000897,Residencia LowCost 17,368,2024-09-01,600.0
+EST-0898,Estudiante 898,estudiante898@email.com,600000898,Residencia LowCost 18,572,2024-09-01,600.0
+EST-0899,Estudiante 899,estudiante899@email.com,600000899,Residencia LowCost 19,222,2024-09-01,600.0
+EST-0900,Estudiante 900,estudiante900@email.com,600000900,Residencia LowCost 20,489,2024-09-01,600.0
+EST-0901,Estudiante 901,estudiante901@email.com,600000901,Residencia Sol,384,2024-09-01,1200.0
+EST-0902,Estudiante 902,estudiante902@email.com,600000902,Residencia Nova,360,2024-09-01,1200.0
+EST-0903,Estudiante 903,estudiante903@email.com,600000903,Residencia Elite,224,2024-09-01,1200.0
+EST-0904,Estudiante 904,estudiante904@email.com,600000904,Residencia Royal,296,2024-09-01,1200.0
+EST-0905,Estudiante 905,estudiante905@email.com,600000905,Residencia Zenith,236,2024-09-01,1200.0
+EST-0906,Estudiante 906,estudiante906@email.com,600000906,Residencia Standard 6,305,2024-09-01,850.0
+EST-0907,Estudiante 907,estudiante907@email.com,600000907,Residencia Standard 7,202,2024-09-01,850.0
+EST-0908,Estudiante 908,estudiante908@email.com,600000908,Residencia Standard 8,317,2024-09-01,850.0
+EST-0909,Estudiante 909,estudiante909@email.com,600000909,Residencia Standard 9,342,2024-09-01,850.0
+EST-0910,Estudiante 910,estudiante910@email.com,600000910,Residencia Standard 10,449,2024-09-01,850.0
+EST-0911,Estudiante 911,estudiante911@email.com,600000911,Residencia Standard 11,579,2024-09-01,850.0
+EST-0912,Estudiante 912,estudiante912@email.com,600000912,Residencia Standard 12,375,2024-09-01,850.0
+EST-0913,Estudiante 913,estudiante913@email.com,600000913,Residencia Standard 13,437,2024-09-01,850.0
+EST-0914,Estudiante 914,estudiante914@email.com,600000914,Residencia Standard 14,121,2024-09-01,850.0
+EST-0915,Estudiante 915,estudiante915@email.com,600000915,Residencia Standard 15,307,2024-09-01,850.0
+EST-0916,Estudiante 916,estudiante916@email.com,600000916,Residencia LowCost 16,452,2024-09-01,600.0
+EST-0917,Estudiante 917,estudiante917@email.com,600000917,Residencia LowCost 17,196,2024-09-01,600.0
+EST-0918,Estudiante 918,estudiante918@email.com,600000918,Residencia LowCost 18,121,2024-09-01,600.0
+EST-0919,Estudiante 919,estudiante919@email.com,600000919,Residencia LowCost 19,459,2024-09-01,600.0
+EST-0920,Estudiante 920,estudiante920@email.com,600000920,Residencia LowCost 20,485,2024-09-01,600.0
+EST-0921,Estudiante 921,estudiante921@email.com,600000921,Residencia Sol,332,2024-09-01,1200.0
+EST-0922,Estudiante 922,estudiante922@email.com,600000922,Residencia Nova,185,2024-09-01,1200.0
+EST-0923,Estudiante 923,estudiante923@email.com,600000923,Residencia Elite,419,2024-09-01,1200.0
+EST-0924,Estudiante 924,estudiante924@email.com,600000924,Residencia Royal,296,2024-09-01,1200.0
+EST-0925,Estudiante 925,estudiante925@email.com,600000925,Residencia Zenith,315,2024-09-01,1200.0
+EST-0926,Estudiante 926,estudiante926@email.com,600000926,Residencia Standard 6,101,2024-09-01,850.0
+EST-0927,Estudiante 927,estudiante927@email.com,600000927,Residencia Standard 7,194,2024-09-01,850.0
+EST-0928,Estudiante 928,estudiante928@email.com,600000928,Residencia Standard 8,523,2024-09-01,850.0
+EST-0929,Estudiante 929,estudiante929@email.com,600000929,Residencia Standard 9,118,2024-09-01,850.0
+EST-0930,Estudiante 930,estudiante930@email.com,600000930,Residencia Standard 10,379,2024-09-01,850.0
+EST-0931,Estudiante 931,estudiante931@email.com,600000931,Residencia Standard 11,380,2024-09-01,850.0
+EST-0932,Estudiante 932,estudiante932@email.com,600000932,Residencia Standard 12,160,2024-09-01,850.0
+EST-0933,Estudiante 933,estudiante933@email.com,600000933,Residencia Standard 13,132,2024-09-01,850.0
+EST-0934,Estudiante 934,estudiante934@email.com,600000934,Residencia Standard 14,265,2024-09-01,850.0
+EST-0935,Estudiante 935,estudiante935@email.com,600000935,Residencia Standard 15,261,2024-09-01,850.0
+EST-0936,Estudiante 936,estudiante936@email.com,600000936,Residencia LowCost 16,124,2024-09-01,600.0
+EST-0937,Estudiante 937,estudiante937@email.com,600000937,Residencia LowCost 17,191,2024-09-01,600.0
+EST-0938,Estudiante 938,estudiante938@email.com,600000938,Residencia LowCost 18,566,2024-09-01,600.0
+EST-0939,Estudiante 939,estudiante939@email.com,600000939,Residencia LowCost 19,400,2024-09-01,600.0
+EST-0940,Estudiante 940,estudiante940@email.com,600000940,Residencia LowCost 20,257,2024-09-01,600.0
+EST-0941,Estudiante 941,estudiante941@email.com,600000941,Residencia Sol,457,2024-09-01,1200.0
+EST-0942,Estudiante 942,estudiante942@email.com,600000942,Residencia Nova,362,2024-09-01,1200.0
+EST-0943,Estudiante 943,estudiante943@email.com,600000943,Residencia Elite,558,2024-09-01,1200.0
+EST-0944,Estudiante 944,estudiante944@email.com,600000944,Residencia Royal,203,2024-09-01,1200.0
+EST-0945,Estudiante 945,estudiante945@email.com,600000945,Residencia Zenith,376,2024-09-01,1200.0
+EST-0946,Estudiante 946,estudiante946@email.com,600000946,Residencia Standard 6,256,2024-09-01,850.0
+EST-0947,Estudiante 947,estudiante947@email.com,600000947,Residencia Standard 7,272,2024-09-01,850.0
+EST-0948,Estudiante 948,estudiante948@email.com,600000948,Residencia Standard 8,342,2024-09-01,850.0
+EST-0949,Estudiante 949,estudiante949@email.com,600000949,Residencia Standard 9,502,2024-09-01,850.0
+EST-0950,Estudiante 950,estudiante950@email.com,600000950,Residencia Standard 10,545,2024-09-01,850.0
+EST-0951,Estudiante 951,estudiante951@email.com,600000951,Residencia Standard 11,247,2024-09-01,850.0
+EST-0952,Estudiante 952,estudiante952@email.com,600000952,Residencia Standard 12,408,2024-09-01,850.0
+EST-0953,Estudiante 953,estudiante953@email.com,600000953,Residencia Standard 13,242,2024-09-01,850.0
+EST-0954,Estudiante 954,estudiante954@email.com,600000954,Residencia Standard 14,369,2024-09-01,850.0
+EST-0955,Estudiante 955,estudiante955@email.com,600000955,Residencia Standard 15,599,2024-09-01,850.0
+EST-0956,Estudiante 956,estudiante956@email.com,600000956,Residencia LowCost 16,512,2024-09-01,600.0
+EST-0957,Estudiante 957,estudiante957@email.com,600000957,Residencia LowCost 17,154,2024-09-01,600.0
+EST-0958,Estudiante 958,estudiante958@email.com,600000958,Residencia LowCost 18,388,2024-09-01,600.0
+EST-0959,Estudiante 959,estudiante959@email.com,600000959,Residencia LowCost 19,249,2024-09-01,600.0
+EST-0960,Estudiante 960,estudiante960@email.com,600000960,Residencia LowCost 20,293,2024-09-01,600.0
+EST-0961,Estudiante 961,estudiante961@email.com,600000961,Residencia Sol,411,2024-09-01,1200.0
+EST-0962,Estudiante 962,estudiante962@email.com,600000962,Residencia Nova,446,2024-09-01,1200.0
+EST-0963,Estudiante 963,estudiante963@email.com,600000963,Residencia Elite,423,2024-09-01,1200.0
+EST-0964,Estudiante 964,estudiante964@email.com,600000964,Residencia Royal,596,2024-09-01,1200.0
+EST-0965,Estudiante 965,estudiante965@email.com,600000965,Residencia Zenith,276,2024-09-01,1200.0
+EST-0966,Estudiante 966,estudiante966@email.com,600000966,Residencia Standard 6,404,2024-09-01,850.0
+EST-0967,Estudiante 967,estudiante967@email.com,600000967,Residencia Standard 7,254,2024-09-01,850.0
+EST-0968,Estudiante 968,estudiante968@email.com,600000968,Residencia Standard 8,167,2024-09-01,850.0
+EST-0969,Estudiante 969,estudiante969@email.com,600000969,Residencia Standard 9,579,2024-09-01,850.0
+EST-0970,Estudiante 970,estudiante970@email.com,600000970,Residencia Standard 10,322,2024-09-01,850.0
+EST-0971,Estudiante 971,estudiante971@email.com,600000971,Residencia Standard 11,193,2024-09-01,850.0
+EST-0972,Estudiante 972,estudiante972@email.com,600000972,Residencia Standard 12,323,2024-09-01,850.0
+EST-0973,Estudiante 973,estudiante973@email.com,600000973,Residencia Standard 13,258,2024-09-01,850.0
+EST-0974,Estudiante 974,estudiante974@email.com,600000974,Residencia Standard 14,224,2024-09-01,850.0
+EST-0975,Estudiante 975,estudiante975@email.com,600000975,Residencia Standard 15,355,2024-09-01,850.0
+EST-0976,Estudiante 976,estudiante976@email.com,600000976,Residencia LowCost 16,513,2024-09-01,600.0
+EST-0977,Estudiante 977,estudiante977@email.com,600000977,Residencia LowCost 17,450,2024-09-01,600.0
+EST-0978,Estudiante 978,estudiante978@email.com,600000978,Residencia LowCost 18,449,2024-09-01,600.0
+EST-0979,Estudiante 979,estudiante979@email.com,600000979,Residencia LowCost 19,274,2024-09-01,600.0
+EST-0980,Estudiante 980,estudiante980@email.com,600000980,Residencia LowCost 20,338,2024-09-01,600.0
+EST-0981,Estudiante 981,estudiante981@email.com,600000981,Residencia Sol,419,2024-09-01,1200.0
+EST-0982,Estudiante 982,estudiante982@email.com,600000982,Residencia Nova,139,2024-09-01,1200.0
+EST-0983,Estudiante 983,estudiante983@email.com,600000983,Residencia Elite,553,2024-09-01,1200.0
+EST-0984,Estudiante 984,estudiante984@email.com,600000984,Residencia Royal,282,2024-09-01,1200.0
+EST-0985,Estudiante 985,estudiante985@email.com,600000985,Residencia Zenith,137,2024-09-01,1200.0
+EST-0986,Estudiante 986,estudiante986@email.com,600000986,Residencia Standard 6,344,2024-09-01,850.0
+EST-0987,Estudiante 987,estudiante987@email.com,600000987,Residencia Standard 7,514,2024-09-01,850.0
+EST-0988,Estudiante 988,estudiante988@email.com,600000988,Residencia Standard 8,279,2024-09-01,850.0
+EST-0989,Estudiante 989,estudiante989@email.com,600000989,Residencia Standard 9,186,2024-09-01,850.0
+EST-0990,Estudiante 990,estudiante990@email.com,600000990,Residencia Standard 10,492,2024-09-01,850.0
+EST-0991,Estudiante 991,estudiante991@email.com,600000991,Residencia Standard 11,519,2024-09-01,850.0
+EST-0992,Estudiante 992,estudiante992@email.com,600000992,Residencia Standard 12,578,2024-09-01,850.0
+EST-0993,Estudiante 993,estudiante993@email.com,600000993,Residencia Standard 13,168,2024-09-01,850.0
+EST-0994,Estudiante 994,estudiante994@email.com,600000994,Residencia Standard 14,284,2024-09-01,850.0
+EST-0995,Estudiante 995,estudiante995@email.com,600000995,Residencia Standard 15,490,2024-09-01,850.0
+EST-0996,Estudiante 996,estudiante996@email.com,600000996,Residencia LowCost 16,404,2024-09-01,600.0
+EST-0997,Estudiante 997,estudiante997@email.com,600000997,Residencia LowCost 17,566,2024-09-01,600.0
+EST-0998,Estudiante 998,estudiante998@email.com,600000998,Residencia LowCost 18,133,2024-09-01,600.0
+EST-0999,Estudiante 999,estudiante999@email.com,600000999,Residencia LowCost 19,586,2024-09-01,600.0
+EST-1000,Estudiante 1000,estudiante1000@email.com,600001000,Residencia LowCost 20,218,2024-09-01,600.0

@@ -1,0 +1,35 @@
+# Requirements - Sistema Multi-Agente Financiero
+
+# Core LangChain
+langchain>=0.2.0,<0.3.0
+langchain-core>=0.2.0,<0.3.0
+langchain-community>=0.2.0,<0.3.0
+langchain-ollama>=0.1.0
+
+# LLM Local
+ollama>=0.2.0
+
+# LangGraph
+langgraph>=0.1.0
+
+# RAG
+rank-bm25>=0.2.0
+
+# Web Interface
+streamlit>=1.30.0
+
+# Visualization
+plotly>=5.18.0
+
+# Data
+pandas>=2.0.0
+numpy>=1.24.0
+openpyxl>=3.1.0
+
+# PDF
+fpdf2>=2.7.0
+
+# Utils
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+kaleido>=0.2.1

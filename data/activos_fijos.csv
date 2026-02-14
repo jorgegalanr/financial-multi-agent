@@ -1,0 +1,21 @@
+id_activo,descripcion,categoria,valor_adquisicion,amortizacion_acumulada,valor_neto,vida_util_anos,fecha_adquisicion
+ACT-01,Edificio Residencia Sol,Inmuebles,2400000.0,200000.0,2200000.0,50,2015-01-01
+ACT-02,Edificio Residencia Nova,Inmuebles,2400000.0,200000.0,2200000.0,50,2015-01-01
+ACT-03,Edificio Residencia Elite,Inmuebles,2400000.0,200000.0,2200000.0,50,2015-01-01
+ACT-04,Edificio Residencia Royal,Inmuebles,2400000.0,200000.0,2200000.0,50,2015-01-01
+ACT-05,Edificio Residencia Zenith,Inmuebles,2400000.0,200000.0,2200000.0,50,2015-01-01
+ACT-06,Edificio Residencia Standard 6,Inmuebles,1700000.0,200000.0,1500000.0,50,2015-01-01
+ACT-07,Edificio Residencia Standard 7,Inmuebles,1700000.0,200000.0,1500000.0,50,2015-01-01
+ACT-08,Edificio Residencia Standard 8,Inmuebles,1700000.0,200000.0,1500000.0,50,2015-01-01
+ACT-09,Edificio Residencia Standard 9,Inmuebles,1700000.0,200000.0,1500000.0,50,2015-01-01
+ACT-10,Edificio Residencia Standard 10,Inmuebles,1700000.0,200000.0,1500000.0,50,2015-01-01
+ACT-11,Edificio Residencia Standard 11,Inmuebles,1700000.0,200000.0,1500000.0,50,2015-01-01
+ACT-12,Edificio Residencia Standard 12,Inmuebles,1700000.0,200000.0,1500000.0,50,2015-01-01
+ACT-13,Edificio Residencia Standard 13,Inmuebles,1700000.0,200000.0,1500000.0,50,2015-01-01
+ACT-14,Edificio Residencia Standard 14,Inmuebles,1700000.0,200000.0,1500000.0,50,2015-01-01
+ACT-15,Edificio Residencia Standard 15,Inmuebles,1700000.0,200000.0,1500000.0,50,2015-01-01
+ACT-16,Edificio Residencia LowCost 16,Inmuebles,1200000.0,200000.0,1000000.0,50,2015-01-01
+ACT-17,Edificio Residencia LowCost 17,Inmuebles,1200000.0,200000.0,1000000.0,50,2015-01-01
+ACT-18,Edificio Residencia LowCost 18,Inmuebles,1200000.0,200000.0,1000000.0,50,2015-01-01
+ACT-19,Edificio Residencia LowCost 19,Inmuebles,1200000.0,200000.0,1000000.0,50,2015-01-01
+ACT-20,Edificio Residencia LowCost 20,Inmuebles,1200000.0,200000.0,1000000.0,50,2015-01-01
