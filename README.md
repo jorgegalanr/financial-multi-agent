@@ -74,29 +74,49 @@ python generar_datos.py
 
 ## Instalación y ejecución
 
-Requisitos: Python 3.10 o superior y [Ollama](https://ollama.com/).
+Requisitos: Python 3.11 (versión comprobada en CI) y [Ollama](https://ollama.com/). Utiliza un entorno virtual nuevo: mezclar instalaciones globales de distintas versiones de LangChain puede provocar errores de importación.
 
 ```bash
-python -m venv .venv
-
 # Linux/macOS
+python3.11 -m venv .venv
+
 source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 
 # Windows PowerShell
-# .venv\Scripts\Activate.ps1
+# py -3.11 -m venv .venv
+# .\.venv\Scripts\Activate.ps1
+# python -m pip install --upgrade pip
+# python -m pip install -r requirements.txt
 
-pip install -r requirements.txt
 ollama pull qwen2.5:7b
 python generar_datos.py
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 Ollama debe estar activo mientras se utiliza el chat. El dashboard y la generación de datos no requieren conexión a servicios externos.
 
+### Error `No module named langchain_core.pydantic_v1`
+
+Este error indica que Python está utilizando paquetes globales incompatibles en vez de las versiones fijadas por el proyecto. En Windows, crea un entorno nuevo con otro nombre para no reutilizar la instalación anterior:
+
+```powershell
+py -3.11 -m venv .venv311
+.\.venv311\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -c "import langchain_core.pydantic_v1; print('Entorno correcto')"
+python generar_datos.py
+python -m streamlit run app.py
+```
+
+El terminal debe mostrar `(.venv311)` al principio de la línea antes de ejecutar Streamlit.
+
 ## Pruebas
 
 ```bash
-pip install -r requirements-dev.txt
+python -m pip install -r requirements-dev.txt
 pytest -q
 ```
 
