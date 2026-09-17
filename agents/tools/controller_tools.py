@@ -103,7 +103,7 @@ def consultar_cuenta_resultados() -> str:
         margen = (resultado_neto / ingresos * 100) if ingresos > 0 else 0
         
         resultado = f"""## 📈 CUENTA DE PÉRDIDAS Y GANANCIAS
-**Ejercicio:** 01/01/2025 - 31/12/2025
+**Ejercicio:** 01/01/2026 - 31/08/2026
 **Según PGC español**
 
 | Concepto | Tipo | Importe |

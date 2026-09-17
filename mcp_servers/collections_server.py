@@ -1,6 +1,6 @@
 """
 MCP Server 2: Servidor de Gestión de Cobros
-Proporciona acceso a datos de facturación, morosos y estudiantes mediante MCP.
+Proporciona acceso a datos de facturación, morosos y clientes mediante MCP.
 """
 
 import json
@@ -43,9 +43,9 @@ async def list_tools() -> List[Tool]:
                         "description": "Filtrar por estado: todas, pendiente, pagada, vencida",
                         "enum": ["todas", "pendiente", "pagada", "vencida"]
                     },
-                    "residence": {
+                    "unit_name": {
                         "type": "string",
-                        "description": "Filtrar por residencia: Sol, Luna, Estrella"
+                        "description": "Filtrar por nombre de unidad de negocio"
                     }
                 },
                 "required": []
@@ -53,7 +53,7 @@ async def list_tools() -> List[Tool]:
         ),
         Tool(
             name="get_defaulters",
-            description="Obtiene listado de estudiantes morosos",
+            description="Obtiene listado de clientes morosos",
             inputSchema={
                 "type": "object",
                 "properties": {
@@ -66,17 +66,17 @@ async def list_tools() -> List[Tool]:
             }
         ),
         Tool(
-            name="get_student_info",
-            description="Obtiene información completa de un estudiante",
+            name="get_customer_info",
+            description="Obtiene información completa de un cliente",
             inputSchema={
                 "type": "object",
                 "properties": {
-                    "student_id": {
+                    "customer_id": {
                         "type": "string",
-                        "description": "ID del estudiante (ej: EST-101)"
+                        "description": "ID del cliente (ej: CLI-101)"
                     }
                 },
-                "required": ["student_id"]
+                "required": ["customer_id"]
             }
         ),
         Tool(
@@ -103,8 +103,8 @@ async def list_tools() -> List[Tool]:
             }
         ),
         Tool(
-            name="get_occupancy",
-            description="Obtiene la ocupación de las residencias",
+            name="get_utilization",
+            description="Obtiene la utilización de las unidades",
             inputSchema={
                 "type": "object",
                 "properties": {},
@@ -122,12 +122,12 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
         if name == "get_invoices":
             df = load_csv("facturas_emitidas.csv")
             status = arguments.get("status", "todas")
-            residence = arguments.get("residence")
+            unit_name = arguments.get("unit_name")
             
             if status != "todas":
                 df = df[df["estado"] == status]
-            if residence:
-                df = df[df["residencia"].str.contains(residence, case=False, na=False)]
+            if unit_name:
+                df = df[df["unidad"].str.contains(unit_name, case=False, na=False)]
             
             result = {
                 "total_facturas": len(df),
@@ -138,7 +138,7 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
         elif name == "get_defaulters":
             min_days = arguments.get("min_days", 1)
             facturas = load_csv("facturas_emitidas.csv")
-            estudiantes = load_csv("estudiantes.csv")
+            clientes = load_csv("clientes.csv")
             
             vencidas = facturas[facturas["estado"] == "vencida"].copy()
             vencidas["fecha_vencimiento"] = pd.to_datetime(vencidas["fecha_vencimiento"])
@@ -148,13 +148,13 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
             if vencidas.empty:
                 result = {"total_morosos": 0, "deuda_total": 0, "morosos": []}
             else:
-                morosos = vencidas.groupby("id_estudiante").agg({
+                morosos = vencidas.groupby("id_cliente").agg({
                     "importe": "sum",
                     "id_factura": "count",
                     "dias_retraso": "max"
                 }).reset_index()
-                morosos.columns = ["id_estudiante", "deuda_total", "num_facturas", "max_dias_retraso"]
-                morosos = morosos.merge(estudiantes, on="id_estudiante", how="left")
+                morosos.columns = ["id_cliente", "deuda_total", "num_facturas", "max_dias_retraso"]
+                morosos = morosos.merge(clientes, on="id_cliente", how="left")
                 
                 result = {
                     "total_morosos": len(morosos),
@@ -162,17 +162,17 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
                     "morosos": morosos.to_dict(orient="records")
                 }
             
-        elif name == "get_student_info":
-            student_id = arguments.get("student_id", "").upper()
-            estudiantes = load_csv("estudiantes.csv")
+        elif name == "get_customer_info":
+            customer_id = arguments.get("customer_id", "").upper()
+            clientes = load_csv("clientes.csv")
             facturas = load_csv("facturas_emitidas.csv")
             
-            est = estudiantes[estudiantes["id_estudiante"] == student_id]
+            est = clientes[clientes["id_cliente"] == customer_id]
             if est.empty:
-                result = {"error": f"Estudiante {student_id} no encontrado"}
+                result = {"error": f"Cliente {customer_id} no encontrado"}
             else:
                 est = est.iloc[0].to_dict()
-                fact_est = facturas[facturas["id_estudiante"] == student_id]
+                fact_est = facturas[facturas["id_cliente"] == customer_id]
                 est["facturas"] = fact_est.to_dict(orient="records")
                 est["total_pagado"] = fact_est[fact_est["estado"] == "pagada"]["importe"].sum()
                 est["total_pendiente"] = fact_est[fact_est["estado"] == "pendiente"]["importe"].sum()
@@ -222,16 +222,16 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
                 "cobros": proximos.to_dict(orient="records")
             }
             
-        elif name == "get_occupancy":
-            df = load_csv("ocupacion.csv")
+        elif name == "get_utilization":
+            df = load_csv("utilizacion.csv")
             total_cap = df["capacidad"].sum()
-            total_ocu = df["ocupacion_actual"].sum()
+            total_ocu = df["utilizacion_actual"].sum()
             
             result = {
-                "ocupacion_media": round((total_ocu / total_cap * 100) if total_cap > 0 else 0, 1),
+                "utilizacion_media": round((total_ocu / total_cap * 100) if total_cap > 0 else 0, 1),
                 "total_capacidad": total_cap,
-                "total_ocupadas": total_ocu,
-                "residencias": df.to_dict(orient="records")
+                "total_utilizadas": total_ocu,
+                "unidades": df.to_dict(orient="records")
             }
             
         else:

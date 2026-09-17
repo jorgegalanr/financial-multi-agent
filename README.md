@@ -1,196 +1,130 @@
-# Sistema Multi-Agente Financiero
+# Financial Multi-Agent
 
-Sistema multi-agente que simula un **departamento financiero completo** de una empresa de alojamiento estudiantil.  
-Integra **LangGraph** para la orquestación de agentes, **RAG local**, y **MCP (Model Context Protocol)** con servidores propios y de terceros, todo accesible desde una interfaz **Streamlit**.
+Prototipo local de un asistente financiero multiagente para una empresa de servicios B2B. El sistema enruta cada consulta al especialista adecuado, ejecuta herramientas sobre datos sintéticos y redacta una respuesta con un modelo local de Ollama.
 
----
+El proyecto demuestra orquestación con LangGraph, análisis financiero reproducible, recuperación documental con BM25 y exposición de herramientas mediante servidores MCP. No utiliza datos reales ni representa a una empresa concreta.
+
+## Casos de uso
+
+- Consultar posición de caja, deuda y pagos próximos.
+- Analizar facturas vencidas, morosidad y aging de clientes.
+- Revisar balance, cuenta de resultados y ratios.
+- Comparar presupuesto y resultados reales.
+- Consultar normativa incluida en la base documental, mostrando la fuente.
+- Revisar activos, amortizaciones y mantenimientos.
 
 ## Arquitectura
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Usuario (Streamlit)                       │
-└─────────────────────────┬───────────────────────────────────┘
-                          │
-                          ▼
-┌─────────────────────────────────────────────────────────────┐
-│                 SUPERVISOR / ROUTER (LangGraph)                       │
-│            Analiza consulta y selecciona agente              │
-└─────────────────────────┬───────────────────────────────────┘
-                          │
-          ┌───────────────┼───────────────┐
-          ▼               ▼               ▼
-    ┌──────────┐    ┌──────────┐    ┌──────────┐
-    │ 👔 CFO   │    │ 💳 AR    │    │ 🏦 Tes.  │ ...
-    │          │    │ Manager  │    │          │
-    └────┬─────┘    └────┬─────┘    └────┬─────┘
-         │               │               │
-         ▼               ▼               ▼
-    ┌─────────────────────────────────────────┐
-    │         HERRAMIENTAS DISPONIBLES        │
-    │  • Tools propias (CSV, cálculos, KPIs)  │
-    │  • RAG local(BM25 sobre documentación)  │
-    │  • MCP Propios (2 servidores)           │
-    │  • MCP Terceros (filesystem)            │
-    │  • Web tools (datos csv/referenciales)  │
-    └─────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    U[Usuario] --> S[Streamlit]
+    S --> R[Supervisor LangGraph]
+    R --> A[Agente especializado]
+    A --> T[Herramientas financieras]
+    A --> B[RAG BM25]
+    T --> D[CSV sintéticos]
+    B --> C[Documentos locales]
 ```
 
-## Agentes (7 total)
+El supervisor aplica primero reglas deterministas y, si ninguna coincide, pide al LLM que clasifique la consulta. La selección manual tiene prioridad y está validada mediante pruebas unitarias.
 
-| Agente | Rol | Herramientas |
-|--------|-----|--------------|
-| 👔 Director Financiero | Estrategia y supervisión | Dashboard, RAG, MCP, Filesystem |
-| 💳 AR Manager | Facturación y cobros | Facturas, morosos, aging, MCP cobros |
-| 🏦 Tesorero | Liquidez y pagos | Caja, pagos, deuda, MCP financiero |
-| 📊 Controller | Contabilidad | Balance, PyG, ratios, RAG normativa |
-| 📈 FP&A Analyst | Análisis y presupuesto | Ocupación, KPIs, desviaciones |
-| ⚖️ Fiscalista | Impuestos | IVA, obligaciones fiscales, RAG normativa |
-| 🏢 Gestor de Activos | Activos fijos | Inventario, amortización, mantenimientos |
+### Agentes
 
-> El modo **“auto”** actúa como un **router semántico/heurístico**, delegando la consulta al agente más adecuado según el dominio financiero detectado.
+| Agente | Responsabilidad principal |
+|---|---|
+| Director financiero | Resumen ejecutivo y visión consolidada |
+| AR Manager | Facturación, cobros, aging y morosidad |
+| Tesorero | Caja, pagos, deuda y liquidez |
+| Controller | Balance, resultados y ratios contables |
+| FP&A Analyst | KPIs, presupuesto y desviaciones |
+| Fiscalista | IVA y calendario fiscal de demostración |
+| Gestor de activos | Inventario, amortización y mantenimiento |
 
-## RAG
+## RAG y fuentes
 
-El sistema incorpora un **RAG local, ligero y reproducible**, basado en:
+El módulo `rag/rag_system.py` crea en memoria un índice BM25 sobre los Markdown de `rag/documentos/`. No requiere una base vectorial persistente y devuelve el nombre del documento junto con cada fragmento recuperado.
 
-- **BM25 (búsqueda léxica)** sobre documentos Markdown locales.
-- Sin bases vectoriales externas (ChromaDB, FAISS, etc.) para garantizar estabilidad en Windows.
-- Integrado como **tools** accesibles por los agentes.
+Los documentos incluidos son material resumido para una demostración técnica. Las respuestas fiscales o contables deben verificarse siempre contra fuentes oficiales vigentes.
 
-### Documentos indexados:
-- `normativa_iva.md` - Régimen IVA residencias estudiantes
-- `normativa_contable.md` - Plan General Contable
-- `normativa_arrendamientos.md` - Ley de Arrendamientos Urbanos
-- `procedimientos_cobros.md` - Procedimientos internos
+## MCP: alcance real
 
-### Tools RAG:
-- `buscar_normativa(consulta)` - Búsqueda híbrida general
-- `buscar_procedimiento_cobros(tipo)` - Procedimientos de cobro
-- `consultar_normativa_iva(aspecto)` - Normativa IVA específica
+El repositorio incluye dos servidores MCP ejecutables por `stdio`:
 
-## 🔌 MCP - Model Context Protocol
+- `mcp_servers/financial_data_server.py`: caja, pagos, deuda, balance y resultados.
+- `mcp_servers/collections_server.py`: facturas, clientes, aging y previsión de cobros.
 
-### MCP Propios (2 servidores):
+La interfaz Streamlit utiliza herramientas LangChain locales equivalentes para evitar gestionar procesos asíncronos dentro de la aplicación. Por tanto, los servidores MCP se pueden probar de forma independiente, pero no son el transporte utilizado por el chat de Streamlit en la versión actual.
 
-**1. Financial Data Server** (`mcp_servers/financial_data_server.py`)
-- `get_cash_position` - Posición de caja
-- `get_pending_payments` - Pagos pendientes
-- `get_bank_debt` - Deuda bancaria
-- `get_balance_sheet` - Balance de situación
-- `get_income_statement` - Cuenta de resultados
-- `calculate_liquidity_ratio` - Ratio de liquidez
+`mcp_config.json` contiene además un ejemplo de configuración de un servidor MCP de filesystem restringido a `./data`.
 
-**2. Collections Server** (`mcp_servers/collections_server.py`)
-- `get_invoices` - Facturas emitidas
-- `get_defaulters` - Listado de morosos
-- `get_student_info` - Info de estudiante
-- `get_aging_report` - Aging de cuentas por cobrar
-- `get_collection_forecast` - Previsión de cobros
-- `get_occupancy` - Ocupación de residencias
+## Datos sintéticos
 
-### MCP Terceros (1 servidor):
+`generar_datos.py` genera de manera determinista los CSV utilizados por la aplicación. Los CSV no se versionan porque pueden reconstruirse y así se evita confundirlos con información real:
 
-**Filesystem MCP** (`mcp_servers/third_party_mcp.py`)
-- `filesystem_list_directory` - Listar directorio
-- `filesystem_read_file` - Leer archivo
-- `filesystem_search_files` - Buscar archivos
-- `filesystem_get_file_info` - Info de archivo
+- 400 clientes ficticios y ocho meses de facturación.
+- Comportamientos de pago normal, retrasado y vencido.
+- Caja, deuda, pagos, balance, resultados, KPIs y activos.
+- Cinco unidades de negocio con capacidad y utilización.
 
-## Web Tools
+Los archivos de `data/` usan coma como separador, punto decimal y fechas ISO para facilitar su lectura por código. La copia opcional de `datos_informe_manual/` usa punto y coma, coma decimal y fechas españolas para abrirla en Excel.
 
-Las herramientas web proporcionan **datos referenciales o simulados** (Euríbor, tipos BCE, etc.) cuando no existe conectividad externa, garantizando la **reproducibilidad del proyecto**.
-
-
-## Instalación
-
-## Requisitos
-- Python 3.10+
-- Ollama instalado (LLM local)
-
-### 1. Instalar Ollama
 ```bash
-# Linux/Mac
-curl -fsSL https://ollama.com/install.sh | sh
-
-o también desde la web
-
-# Windows
-https://ollama.com/download/windows
-
-# Descargar modelo
-ollama pull qwen2.5:14b
+python generar_datos.py
 ```
 
-### 2. Instalar dependencias Python
+## Instalación y ejecución
+
+Requisitos: Python 3.10 o superior y [Ollama](https://ollama.com/).
+
 ```bash
+python -m venv .venv
+
+# Linux/macOS
+source .venv/bin/activate
+
+# Windows PowerShell
+# .venv\Scripts\Activate.ps1
+
 pip install -r requirements.txt
-```
-
-### 3. Ejecutar
-```bash
-# Terminal 1: Ollama
-ollama run qwen2.5:14b
-
-# Terminal 2: Streamlit
+ollama pull qwen2.5:7b
+python generar_datos.py
 streamlit run app.py
 ```
 
-## Estructura del Proyecto
+Ollama debe estar activo mientras se utiliza el chat. El dashboard y la generación de datos no requieren conexión a servicios externos.
 
+## Pruebas
+
+```bash
+pip install -r requirements-dev.txt
+pytest -q
 ```
-AgentesFinancieros/
-├── app.py
-├── requirements.txt
-├── README.md
-│
-├── agents/
-│   ├── __init__.py
-│   └── tools/
-│       ├── ar_manager_tools.py
-│       ├── tesorero_tools.py
-│       ├── controller_tools.py
-│       ├── fpa_analyst_tools.py
-│       ├── fiscalista_tools.py
-│       ├── gestor_activos_tools.py
-│       └── director_financiero_tools.py
-│
+
+GitHub Actions ejecuta las pruebas de enrutamiento y compila todos los módulos Python en cada pull request.
+
+## Estructura
+
+```text
+.
+├── app.py                       # Dashboard y chat Streamlit
+├── generar_datos.py             # Generador reproducible
+├── agents/tools/                # Herramientas por función financiera
 ├── graphs/
-│   └── financial_graph.py
-│
-├── rag/
-│   ├── rag_system.py
-│   └── documentos/
-│
-├── mcp_servers/
-│   ├── financial_data_server.py
-│   ├── collections_server.py
-│   ├── mcp_client.py
-│   └── third_party_mcp.py
-│
-└── data/
-    ├── facturas_emitidas.csv
-    ├── estudiantes.csv
-    ├── posicion_caja.csv
-    └── ...
-
+│   ├── financial_graph.py       # Orquestación LangGraph
+│   └── routing.py               # Reglas deterministas comprobables
+├── mcp_servers/                 # Servidores MCP y adaptadores locales
+├── rag/                         # Recuperación BM25 y documentos
+├── data/                        # Datos ficticios reproducibles
+└── tests/                       # Pruebas automatizadas
 ```
 
-## 💡 Ejemplos de uso
+## Limitaciones
 
-```
-"¿Cuál es la normativa de IVA para residencias?"  → RAG + Fiscalista
-"Dame el balance desde el servidor MCP"           → MCP + Controller
-"Lista los archivos del proyecto"                 → MCP terceros + CFO
-"¿Quiénes son los morosos?"                       → AR Manager
-"Genera un dashboard ejecutivo"                   → Director Financiero
-```
+- El LLM se ejecuta localmente y la calidad depende del modelo instalado.
+- Los indicadores macroeconómicos incluidos en las herramientas son datos de demostración, no información en tiempo real.
+- El proyecto no sustituye una validación contable, fiscal o financiera profesional.
+- La aplicación no mantiene memoria persistente ni controles de acceso de producción.
 
-## 🔧 Tecnologías
+## Licencia
 
-- **LangChain**: Framework para agentes LLM
-- **LangGraph**: Orquestación de flujos de agentes
-- **Ollama**: LLM local (qwen2.5:14b)
-- **MCP**: Model Context Protocol para herramientas
-- **Streamlit**: Interfaz web
-- **RAG local (BM25)**: Búsqueda interna
+MIT.

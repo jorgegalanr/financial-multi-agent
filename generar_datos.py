@@ -1,185 +1,184 @@
-import pandas as pd
-import numpy as np
-import random
+"""Genera datos sintéticos reproducibles para una empresa de servicios B2B."""
+
+from __future__ import annotations
+
 import os
-from datetime import date, timedelta, datetime
+import random
 
-# --- 1. CONFIGURACIÓN ---
-random.seed(2025)
-np.random.seed(2025)
+import numpy as np
+import pandas as pd
 
-NUM_ESTUDIANTES = 1000
-ANIO_FISCAL = 2025
 
-# Carpetas de Salida
-DIR_AGENTES = "data" # FORMATO MÁQUINA (UTF-8, sep=",", dec=".")
-DIR_EXCEL = "datos_informe_manual"     # FORMATO HUMANO ES (UTF-8-SIG, sep=";", dec=",")
+SEED = 2026
+FISCAL_YEAR = 2026
+REFERENCE_DATE = pd.Timestamp("2026-08-31")
+NUM_CLIENTS = 400
+DATA_DIR = "data"
+EXCEL_DIR = "datos_informe_manual"
 
-for d in [DIR_AGENTES, DIR_EXCEL]:
-    if not os.path.exists(d):
-        os.makedirs(d)
+random.seed(SEED)
+np.random.seed(SEED)
 
-TIPOS_RESIDENCIA = {
-    'Premium': {'cantidad': 5, 'precio': 1200, 'capacidad': 60},
-    'Standard': {'cantidad': 10, 'precio': 850, 'capacidad': 50},
-    'LowCost': {'cantidad': 5, 'precio': 600, 'capacidad': 45}
-}
+BUSINESS_UNITS = (
+    {"name": "Consultoría", "capacity": 120, "active": 108, "fee": 2_400.0},
+    {"name": "Servicios Gestionados", "capacity": 100, "active": 91, "fee": 1_850.0},
+    {"name": "Datos y Analítica", "capacity": 80, "active": 72, "fee": 3_200.0},
+    {"name": "Soporte Empresarial", "capacity": 70, "active": 61, "fee": 1_250.0},
+    {"name": "Formación", "capacity": 60, "active": 49, "fee": 900.0},
+)
 
-print(f"🚀 Generando simulación {ANIO_FISCAL}...")
 
-# --- 2. GENERACIÓN DE DATOS (Lógica pura, sin formato) ---
+def build_clients() -> pd.DataFrame:
+    rows = []
+    segments = ("Pyme", "Mid-market", "Enterprise")
+    for index in range(1, NUM_CLIENTS + 1):
+        unit = BUSINESS_UNITS[(index - 1) % len(BUSINESS_UNITS)]
+        rows.append(
+            {
+                "id_cliente": f"CLI-{index:04d}",
+                "nombre": f"Cliente B2B {index:04d}",
+                "email": f"finanzas{index:04d}@example.com",
+                "telefono": f"+34 910 {index:06d}",
+                "unidad": unit["name"],
+                "referencia": f"CTR-{FISCAL_YEAR}-{index:04d}",
+                "segmento": segments[index % len(segments)],
+                "fecha_alta": pd.Timestamp("2023-01-01")
+                + pd.Timedelta(days=random.randint(0, 1_200)),
+                "cuota_mensual": round(unit["fee"] * np.random.uniform(0.85, 1.20), 2),
+            }
+        )
+    return pd.DataFrame(rows)
 
-# A. Residencias
-residencias = []
-counter = 1
-for tipo, data in TIPOS_RESIDENCIA.items():
-    for _ in range(data['cantidad']):
-        nombre = f"Residencia {tipo} {counter}"
-        if tipo == 'Premium' and counter <= 5: 
-            nombre = f"Residencia {['Sol','Nova','Elite','Royal','Zenith'][counter-1]}"
-        residencias.append({
-            'id_residencia': f'RES-{counter:02d}', 'nombre': nombre, 'tipo': tipo,
-            'precio_base': float(data['precio']), 'capacidad': int(data['capacidad'])
-        })
-        counter += 1
-df_residencias = pd.DataFrame(residencias)
 
-# B. Estudiantes
-estudiantes = []
-res_list = residencias
-idx = 0
-for i in range(1, NUM_ESTUDIANTES + 1):
-    res = res_list[idx % len(res_list)]
-    idx += 1
-    estudiantes.append({
-        'id_estudiante': f'EST-{i:04d}', 'nombre': f'Estudiante {i}',
-        'email': f'estudiante{i}@email.com', 'telefono': 600000000 + i,
-        'residencia': res['nombre'], 'habitacion': random.randint(101, 599),
-        'fecha_entrada': datetime(2024, 9, 1), 'cuota_mensual': float(res['precio_base'])
-    })
-df_estudiantes = pd.DataFrame(estudiantes)
+def build_invoices(clients: pd.DataFrame) -> pd.DataFrame:
+    delayed_ids = set(np.random.choice(clients["id_cliente"], 35, replace=False))
+    default_ids = set(np.random.choice(sorted(delayed_ids), 10, replace=False))
+    rows = []
+    sequence = 1
 
-# C. Facturas & Morosidad
-morosos_ids = np.random.choice(df_estudiantes['id_estudiante'], 50, replace=False)
-perfiles = {}
-for i, uid in enumerate(morosos_ids):
-    if i < 20: perfiles[uid] = 'Despistado'
-    elif i < 40: perfiles[uid] = 'Intermitente'
-    else: perfiles[uid] = 'Incobrable'
+    for month in range(1, REFERENCE_DATE.month + 1):
+        issue_date = pd.Timestamp(FISCAL_YEAR, month, 1)
+        due_date = issue_date + pd.Timedelta(days=30)
+        for client in clients.itertuples(index=False):
+            payment_date = issue_date + pd.Timedelta(days=random.randint(12, 28))
+            status = "pagada"
 
-facturas = []
-num_fac = 1
-for mes in range(1, 13):
-    f_emision = datetime(ANIO_FISCAL, mes, 1)
-    f_venc = f_emision + timedelta(days=5)
-    
-    for _, stu in df_estudiantes.iterrows():
-        uid = stu['id_estudiante']
-        estado = 'pagada'
-        f_pago = f_emision + timedelta(days=random.randint(0, 4))
-        
-        if uid in perfiles:
-            p = perfiles[uid]
-            if p == 'Despistado': f_pago = f_emision + timedelta(days=random.randint(15, 25))
-            elif p == 'Intermitente':
-                if random.random() < 0.3: 
-                    f_pago = pd.NaT; estado = 'vencida' if mes < 12 else 'pendiente'
-                else: f_pago = f_emision + timedelta(days=random.randint(20, 60))
-            elif p == 'Incobrable':
-                if mes >= 9: f_pago = pd.NaT; estado = 'impagada'
-        
-        facturas.append({
-            'id_factura': f'FAC-{ANIO_FISCAL}-{num_fac:06d}',
-            'id_estudiante': uid, 'residencia': stu['residencia'],
-            'concepto': f'Alquiler {f_emision.strftime("%B %Y")}',
-            'importe': stu['cuota_mensual'],
-            'fecha_emision': f_emision, 'fecha_vencimiento': f_venc,
-            'estado': estado, 
-            'fecha_pago_real': f_pago
-        })
-        num_fac += 1
-df_facturas = pd.DataFrame(facturas)
+            if client.id_cliente in default_ids and month >= 6:
+                payment_date = pd.NaT
+                status = "vencida" if due_date < REFERENCE_DATE else "pendiente"
+            elif client.id_cliente in delayed_ids and random.random() < 0.30:
+                payment_date = due_date + pd.Timedelta(days=random.randint(5, 35))
+                if payment_date > REFERENCE_DATE:
+                    payment_date = pd.NaT
+                    status = "vencida" if due_date < REFERENCE_DATE else "pendiente"
 
-# D. Resto de DataFrames
-df_ocup = df_residencias.copy().rename(columns={'nombre':'residencia', 'precio_base':'precio_medio'})
-df_ocup['ocupacion_actual'] = df_ocup['capacidad'] - np.random.randint(0, 3, size=len(df_ocup))
-df_ocup = df_ocup[['residencia','capacidad','ocupacion_actual','precio_medio']]
+            rows.append(
+                {
+                    "id_factura": f"FAC-{FISCAL_YEAR}-{sequence:06d}",
+                    "id_cliente": client.id_cliente,
+                    "unidad": client.unidad,
+                    "concepto": f"Servicio mensual {issue_date:%m/%Y}",
+                    "importe": client.cuota_mensual,
+                    "fecha_emision": issue_date,
+                    "fecha_vencimiento": due_date,
+                    "estado": status,
+                    "fecha_pago_real": payment_date,
+                }
+            )
+            sequence += 1
+    return pd.DataFrame(rows)
 
-activos = []
-for _, r in df_residencias.iterrows():
-    val = r['precio_base'] * 2000
-    activos.append({
-        'id_activo': f"ACT-{r['id_residencia'][-2:]}", 'descripcion': f"Edificio {r['nombre']}",
-        'categoria': 'Inmuebles', 'valor_adquisicion': val,
-        'amortizacion_acumulada': 200000.0, 'valor_neto': val - 200000.0,
-        'vida_util_anos': 50, 'fecha_adquisicion': datetime(2015, 1, 1)
-    })
-df_activos = pd.DataFrame(activos)
 
-deudas = []
-for _, r in df_residencias.iterrows():
-    deudas.append({
-        'id_prestamo': f"PREST-{r['id_residencia'][-2:]}", 'entidad': 'Banco Sim',
-        'tipo': f"Hipoteca {r['nombre']}", 'capital_pendiente': 800000.0,
-        'cuota_mensual': 4500.0, 'tipo_interes': 3.5,
-        'fecha_vencimiento': datetime(2040, 1, 1)
-    })
-df_deuda = pd.DataFrame(deudas)
+def build_datasets() -> dict[str, pd.DataFrame]:
+    # Reiniciar las semillas permite regenerar exactamente los mismos datos
+    # incluso si la función se invoca varias veces en el mismo proceso.
+    random.seed(SEED)
+    np.random.seed(SEED)
+    clients = build_clients()
+    invoices = build_invoices(clients)
+    utilization = pd.DataFrame(
+        {
+            "unidad": [unit["name"] for unit in BUSINESS_UNITS],
+            "capacidad": [unit["capacity"] for unit in BUSINESS_UNITS],
+            "utilizacion_actual": [unit["active"] for unit in BUSINESS_UNITS],
+            "precio_medio": [unit["fee"] for unit in BUSINESS_UNITS],
+        }
+    )
+    assets = pd.DataFrame(
+        [
+            ("ACT-01", "Plataforma tecnológica", "Software", 480_000.0, 160_000.0, 320_000.0, 5, "2024-01-01"),
+            ("ACT-02", "Equipos informáticos", "Hardware", 260_000.0, 104_000.0, 156_000.0, 5, "2024-01-01"),
+            ("ACT-03", "Mobiliario y oficinas", "Instalaciones", 350_000.0, 87_500.0, 262_500.0, 10, "2023-07-01"),
+            ("ACT-04", "Infraestructura de datos", "Hardware", 300_000.0, 75_000.0, 225_000.0, 5, "2025-01-01"),
+            ("ACT-05", "Vehículos comerciales", "Transporte", 180_000.0, 54_000.0, 126_000.0, 6, "2024-03-01"),
+        ],
+        columns=("id_activo", "descripcion", "categoria", "valor_adquisicion", "amortizacion_acumulada", "valor_neto", "vida_util_anos", "fecha_adquisicion"),
+    )
+    debt = pd.DataFrame(
+        [
+            ("PRCLI-01", "Banco Demo", "Financiación tecnológica", 420_000.0, 12_800.0, 3.4, "2029-12-31"),
+            ("PRCLI-02", "Banco Demo", "Circulante", 250_000.0, 8_200.0, 4.1, "2028-06-30"),
+            ("PRCLI-03", "Entidad Simulada", "Equipamiento", 160_000.0, 5_500.0, 3.7, "2029-03-31"),
+        ],
+        columns=("id_prestamo", "entidad", "tipo", "capital_pendiente", "cuota_mensual", "tipo_interes", "fecha_vencimiento"),
+    )
 
-df_kpis = pd.DataFrame([
-    {'nombre': 'Ocupación media', 'valor': 98.5, 'objetivo': 95.0, 'unidad': '%'},
-    {'nombre': 'Tasa de morosidad', 'valor': 5.0, 'objetivo': 2.0, 'unidad': '%'},
-    {'nombre': 'DSO', 'valor': 35.5, 'objetivo': 30.0, 'unidad': 'días'},
-    {'nombre': 'EBITDA', 'valor': 3200000.0, 'objetivo': 3000000.0, 'unidad': '€'}
-])
+    return {
+        "clientes.csv": clients,
+        "facturas_emitidas.csv": invoices,
+        "utilizacion.csv": utilization,
+        "activos_fijos.csv": assets,
+        "deuda_bancaria.csv": debt,
+        "gastos_fijos.csv": pd.DataFrame(
+            [("Personal", "RRHH", 185_000.0, "mensual"), ("Tecnología", "Sistemas", 42_000.0, "mensual"), ("Oficinas", "Operaciones", 28_000.0, "mensual")],
+            columns=("concepto", "categoria", "importe_mensual", "periodicidad"),
+        ),
+        "kpis.csv": pd.DataFrame(
+            [("Utilización media", 88.6, 90.0, "%"), ("Tasa de morosidad", 3.8, 2.5, "%"), ("DSO", 39.0, 35.0, "días"), ("EBITDA", 1_280_000.0, 1_200_000.0, "€")],
+            columns=("nombre", "valor", "objetivo", "unidad"),
+        ),
+        "mantenimientos.csv": pd.DataFrame(
+            [("M-01", "Infraestructura de datos", "Preventivo", "Revisión técnica", "2026-10-15", 3_500.0, "Proveedor Demo")],
+            columns=("id", "activo", "tipo", "descripcion", "proximo_mantenimiento", "coste_estimado", "proveedor"),
+        ),
+        "pagos_pendientes.csv": pd.DataFrame(
+            [("P-01", "Proveedor Cloud", "Servicios cloud", 26_500.0, "2026-09-25", "Alta"), ("P-02", "Proveedor Oficina", "Arrendamiento", 28_000.0, "2026-09-30", "Media")],
+            columns=("id", "proveedor", "concepto", "importe", "fecha_vencimiento", "prioridad"),
+        ),
+        "obligaciones_fiscales.csv": pd.DataFrame(
+            [("303", "IVA 3T", "3T", "2026-10-20", "pendiente", 76_500.0)],
+            columns=("modelo", "concepto", "periodo", "fecha_limite", "estado", "importe_estimado"),
+        ),
+        "posicion_caja.csv": pd.DataFrame(
+            [("Banco Demo", "ES00-DEMO-0001", "Corriente", 540_000.0), ("Entidad Simulada", "ES00-DEMO-0002", "Corriente", 215_000.0)],
+            columns=("banco", "cuenta", "tipo", "saldo"),
+        ),
+        "balance.csv": pd.DataFrame(
+            [("Activo corriente", "activo", 2_400_000.0), ("Activo no corriente", "activo", 1_850_000.0), ("Pasivo", "pasivo", 1_620_000.0), ("Patrimonio neto", "patrimonio", 2_630_000.0)],
+            columns=("cuenta", "tipo", "importe"),
+        ),
+        "cuenta_resultados.csv": pd.DataFrame(
+            [("Ventas", "ingreso", 5_800_000.0), ("Costes de personal", "gasto", 2_150_000.0), ("Otros gastos operativos", "gasto", 1_620_000.0)],
+            columns=("concepto", "tipo", "importe"),
+        ),
+        "iva_repercutido.csv": pd.DataFrame([("Servicios B2B", 4_250_000.0, 21.0, 892_500.0)], columns=("concepto", "base", "tipo", "cuota")),
+        "iva_soportado.csv": pd.DataFrame([("Compras y servicios", 1_650_000.0, 21.0, 346_500.0)], columns=("concepto", "base", "tipo", "cuota")),
+        "desviaciones.csv": pd.DataFrame(
+            [("Ventas", 5_500_000.0, 5_800_000.0), ("Gastos operativos", 1_550_000.0, 1_620_000.0)],
+            columns=("concepto", "presupuesto", "real"),
+        ),
+    }
 
-df_gastos = pd.DataFrame([{'concepto': 'Personal', 'categoria': 'RRHH', 'importe_mensual': 150000.0, 'periodicidad': 'mensual'}])
-df_mant = pd.DataFrame([{'id': 'M-01', 'activo': 'Residencia Sol', 'tipo': 'Prev', 'descripcion': 'Ascensor', 'proximo_mantenimiento': datetime(2025,6,15), 'coste_estimado': 500.0, 'proveedor': 'Otis'}])
-df_pagos = pd.DataFrame([{'id': 'P-01', 'proveedor': 'Iberdrola', 'concepto': 'Luz', 'importe': 4500.0, 'fecha_vencimiento': datetime(2026,1,15), 'prioridad': 'Alta'}])
-df_fiscal = pd.DataFrame([{'modelo': '303', 'concepto': 'IVA 4T', 'periodo': '4T', 'fecha_limite': datetime(2026,1,30), 'estado': 'pdte', 'importe_estimado': 45000.0}])
-df_caja = pd.DataFrame([{'banco': 'Santander', 'cuenta': 'ES00...', 'tipo': 'Corriente', 'saldo': 850000.0}])
-df_balance = pd.DataFrame([{'cuenta': 'Activo', 'tipo': 'Act', 'importe': 35000000.0}, {'cuenta': 'Pasivo', 'tipo': 'Pas', 'importe': 20000000.0}])
-df_pnl = pd.DataFrame([{'concepto': 'Ventas', 'tipo': 'Ing', 'importe': 10500000.0}])
-df_iva_r = pd.DataFrame([{'concepto': 'Alquiler', 'base': 10000000.0, 'tipo': 10.0, 'cuota': 1000000.0}])
-df_iva_s = pd.DataFrame([{'concepto': 'Gastos', 'base': 5000000.0, 'tipo': 21.0, 'cuota': 1050000.0}])
-df_desv = pd.DataFrame([{'concepto': 'Ventas', 'presupuesto': 10000000.0, 'real': 10500000.0}])
 
-# --- 3. EXPORTACIÓN DOBLE VÍA ---
+def export_datasets(datasets: dict[str, pd.DataFrame]) -> None:
+    os.makedirs(DATA_DIR, exist_ok=True)
+    os.makedirs(EXCEL_DIR, exist_ok=True)
+    for filename, dataframe in datasets.items():
+        dataframe.to_csv(os.path.join(DATA_DIR, filename), index=False, sep=",", decimal=".", date_format="%Y-%m-%d", encoding="utf-8")
+        dataframe.to_csv(os.path.join(EXCEL_DIR, filename), index=False, sep=";", decimal=",", date_format="%d/%m/%Y", encoding="utf-8-sig")
 
-archivos = {
-    'estudiantes.csv': df_estudiantes,
-    'facturas_emitidas.csv': df_facturas,
-    'ocupacion.csv': df_ocup,
-    'activos_fijos.csv': df_activos,
-    'deuda_bancaria.csv': df_deuda,
-    'gastos_fijos.csv': df_gastos,
-    'kpis.csv': df_kpis,
-    'mantenimientos.csv': df_mant,
-    'pagos_pendientes.csv': df_pagos,
-    'obligaciones_fiscales.csv': df_fiscal,
-    'posicion_caja.csv': df_caja,
-    'balance.csv': df_balance,
-    'cuenta_resultados.csv': df_pnl,
-    'iva_repercutido.csv': df_iva_r,
-    'iva_soportado.csv': df_iva_s,
-    'desviaciones.csv': df_desv
-}
 
-print("\n--- Guardando Archivos ---")
-
-for nombre, df in archivos.items():
-    
-    # 1. VERSIÓN AGENTES (Machine Readable)
-    # Formato: 2025-12-31 | 1200.50 | Separador: Coma
-    path_agente = os.path.join(DIR_AGENTES, nombre)
-    df.to_csv(path_agente, index=False, sep=',', decimal='.', date_format='%Y-%m-%d', encoding='utf-8')
-    
-    # 2. VERSIÓN EXCEL (Human Readable - Spain)
-    # Formato: 31/12/2025 | 1.200,50 | Separador: Punto y coma
-    path_excel = os.path.join(DIR_EXCEL, nombre)
-    df.to_csv(path_excel, index=False, sep=';', decimal=',', date_format='%d/%m/%Y', encoding='utf-8-sig')
-    
-    print(f"✅ {nombre}: Guardado en ambas carpetas.")
-
-print(f"\n🎉 ¡LISTO! \n👉 Usa los archivos de '{DIR_AGENTES}' para tus agentes de IA.")
-print(f"👉 Usa los archivos de '{DIR_EXCEL}' para abrir en tu Excel.")
+if __name__ == "__main__":
+    generated = build_datasets()
+    export_datasets(generated)
+    print(f"Generados {len(generated)} archivos reproducibles con semilla {SEED}.")

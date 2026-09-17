@@ -1,38 +1,38 @@
-"""
-Integración con MCP de terceros: Filesystem MCP Server
-Este módulo integra el servidor MCP de filesystem de Anthropic/terceros
-para acceder al sistema de archivos.
+"""Adaptador local de filesystem para las herramientas LangChain.
 
-MCP Server de terceros utilizado:
-- @anthropic/mcp-server-filesystem (npm package)
-- Permite listar, leer y buscar archivos
-
-Documentación: https://github.com/anthropics/mcp-servers
+Estas funciones no abren una sesión MCP: replican de forma local las
+operaciones necesarias para que Streamlit funcione sin procesos auxiliares.
+El servidor MCP real se configura por separado en ``mcp_config.json``.
 """
 
 import os
 import json
+from pathlib import Path
 from typing import List, Dict, Any
 from langchain_core.tools import tool
-
-# Para usar el MCP de filesystem de terceros, se necesita instalarlo:
-# npm install -g @anthropics/mcp-server-filesystem
-# O usar la versión Python equivalente
 
 # Configuración del directorio permitido
 ALLOWED_DIRECTORY = os.path.dirname(os.path.dirname(__file__))
 
 
+def resolve_allowed_path(path: str) -> Path:
+    """Resuelve una ruta y rechaza escapes fuera del directorio permitido."""
+
+    base = Path(ALLOWED_DIRECTORY).resolve()
+    candidate = (base / path).resolve()
+    if not candidate.is_relative_to(base):
+        raise ValueError("Acceso denegado. La ruta está fuera del proyecto.")
+    return candidate
+
+
 # ============================================
 # IMPLEMENTACIÓN DIRECTA (sin servidor externo)
-# Para demostrar la integración con MCP de terceros
 # ============================================
 
 @tool
 def filesystem_list_directory(path: str = "") -> str:
     """
-    [MCP Terceros - Filesystem] Lista el contenido de un directorio.
-    Integración con el protocolo MCP de filesystem.
+    Lista el contenido de un directorio permitido.
     
     Args:
         path: Ruta relativa al directorio del proyecto
@@ -41,11 +41,7 @@ def filesystem_list_directory(path: str = "") -> str:
         Lista de archivos y carpetas en el directorio
     """
     try:
-        full_path = os.path.join(ALLOWED_DIRECTORY, path)
-        
-        # Validar que está dentro del directorio permitido
-        if not os.path.abspath(full_path).startswith(os.path.abspath(ALLOWED_DIRECTORY)):
-            return "Error: Acceso denegado. Solo se permite acceder al directorio del proyecto."
+        full_path = resolve_allowed_path(path)
         
         if not os.path.exists(full_path):
             return f"Error: El directorio '{path}' no existe."
@@ -74,8 +70,7 @@ def filesystem_list_directory(path: str = "") -> str:
 @tool
 def filesystem_read_file(path: str) -> str:
     """
-    [MCP Terceros - Filesystem] Lee el contenido de un archivo.
-    Integración con el protocolo MCP de filesystem.
+    Lee el contenido de un archivo permitido.
     
     Args:
         path: Ruta relativa al archivo dentro del proyecto
@@ -84,11 +79,7 @@ def filesystem_read_file(path: str) -> str:
         Contenido del archivo
     """
     try:
-        full_path = os.path.join(ALLOWED_DIRECTORY, path)
-        
-        # Validar acceso
-        if not os.path.abspath(full_path).startswith(os.path.abspath(ALLOWED_DIRECTORY)):
-            return "Error: Acceso denegado."
+        full_path = resolve_allowed_path(path)
         
         if not os.path.exists(full_path):
             return f"Error: El archivo '{path}' no existe."
@@ -111,8 +102,7 @@ def filesystem_read_file(path: str) -> str:
 @tool
 def filesystem_search_files(pattern: str, directory: str = "") -> str:
     """
-    [MCP Terceros - Filesystem] Busca archivos por patrón.
-    Integración con el protocolo MCP de filesystem.
+    Busca archivos por patrón dentro del proyecto.
     
     Args:
         pattern: Patrón de búsqueda (ej: "*.csv", "*.py")
@@ -124,10 +114,7 @@ def filesystem_search_files(pattern: str, directory: str = "") -> str:
     try:
         import fnmatch
         
-        search_path = os.path.join(ALLOWED_DIRECTORY, directory)
-        
-        if not os.path.abspath(search_path).startswith(os.path.abspath(ALLOWED_DIRECTORY)):
-            return "Error: Acceso denegado."
+        search_path = resolve_allowed_path(directory)
         
         matches = []
         for root, dirs, files in os.walk(search_path):
@@ -152,8 +139,7 @@ def filesystem_search_files(pattern: str, directory: str = "") -> str:
 @tool
 def filesystem_get_file_info(path: str) -> str:
     """
-    [MCP Terceros - Filesystem] Obtiene información de un archivo.
-    Integración con el protocolo MCP de filesystem.
+    Obtiene información de un archivo permitido.
     
     Args:
         path: Ruta relativa al archivo
@@ -162,10 +148,7 @@ def filesystem_get_file_info(path: str) -> str:
         Información del archivo (tamaño, fecha modificación, etc.)
     """
     try:
-        full_path = os.path.join(ALLOWED_DIRECTORY, path)
-        
-        if not os.path.abspath(full_path).startswith(os.path.abspath(ALLOWED_DIRECTORY)):
-            return "Error: Acceso denegado."
+        full_path = resolve_allowed_path(path)
         
         if not os.path.exists(full_path):
             return f"Error: '{path}' no existe."
@@ -186,7 +169,7 @@ def filesystem_get_file_info(path: str) -> str:
         return f"Error: {str(e)}"
 
 
-# Lista de herramientas MCP de terceros
+# Alias mantenido para no romper el grafo existente.
 THIRD_PARTY_MCP_TOOLS = [
     filesystem_list_directory,
     filesystem_read_file,

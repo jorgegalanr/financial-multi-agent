@@ -85,3 +85,10 @@ coverage.xml
 
 # Documentación compilada
 docs/_build/
+
+# Exportaciones locales para revisión manual
+datos_informe_manual/
+
+# Datos sintéticos regenerables
+data/*.csv
+!data/.gitkeep

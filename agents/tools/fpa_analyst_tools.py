@@ -1,11 +1,11 @@
 """
 Herramientas del FP&A Analyst.
-Ocupación, KPIs, presupuestos y análisis de desviaciones.
+Utilización, KPIs, presupuestos y análisis de desviaciones.
 Normativa española y formato EUR (1.234,56€).
 """
 
 from langchain_core.tools import tool
-from .web_tools import buscar_mercado_residencias, buscar_indicadores_economicos
+from .web_tools import buscar_mercado_servicios, buscar_indicadores_economicos
 import pandas as pd
 import os
 from .utils import formato_euro, formato_numero, formato_porcentaje
@@ -14,34 +14,34 @@ from .utils import formato_euro, formato_numero, formato_porcentaje
 DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "data")
 
 @tool
-def consultar_ocupacion() -> str:
+def consultar_utilizacion() -> str:
     """
-    Consulta la ocupación actual de las residencias.
+    Consulta la utilización actual de las unidades.
     
     Returns:
-        Ocupación por residencia con plazas totales, ocupadas y porcentaje
+        Utilización por unidad con capacidad total, utilizadas y porcentaje
     """
     try:
-        df = pd.read_csv(os.path.join(DATA_PATH, "ocupacion.csv"))
+        df = pd.read_csv(os.path.join(DATA_PATH, "utilizacion.csv"))
         
         total_capacidad = df["capacidad"].sum()
-        total_ocupacion = df["ocupacion_actual"].sum()
-        media = (total_ocupacion / total_capacidad * 100) if total_capacidad > 0 else 0
+        total_utilizacion = df["utilizacion_actual"].sum()
+        media = (total_utilizacion / total_capacidad * 100) if total_capacidad > 0 else 0
         
-        resultado = f"""## 🏠 OCUPACIÓN DE RESIDENCIAS
-**Ocupación media:** {formato_porcentaje(media)}
-**Plazas totales:** {total_capacidad} | **Ocupadas:** {total_ocupacion}
+        resultado = f"""## 🏠 UTILIZACIÓN DE UNIDADES
+**Utilización media:** {formato_porcentaje(media)}
+**Capacidad total:** {total_capacidad} | **Contratos activos:** {total_utilizacion}
 
-| Residencia | Capacidad | Ocupadas | Precio Medio | Ocupación |
+| Unidad | Capacidad | Contratos activos | Precio Medio | Utilización |
 |------------|-----------|----------|--------------|-----------|
 """
         for _, row in df.iterrows():
-            pct = (row['ocupacion_actual'] / row['capacidad'] * 100) if row['capacidad'] > 0 else 0
+            pct = (row['utilizacion_actual'] / row['capacidad'] * 100) if row['capacidad'] > 0 else 0
             icono = "🟢" if pct >= 90 else "🟡" if pct >= 75 else "🔴"
             precio = row.get('precio_medio', 0)
-            resultado += f"| {row['residencia']} | {row['capacidad']} | {row['ocupacion_actual']} | {formato_euro(precio)} | {icono} {formato_porcentaje(pct)} |\n"
+            resultado += f"| {row['unidad']} | {row['capacidad']} | {row['utilizacion_actual']} | {formato_euro(precio)} | {icono} {formato_porcentaje(pct)} |\n"
         
-        resultado += f"| **TOTAL** | **{total_capacidad}** | **{total_ocupacion}** | | **{formato_porcentaje(media)}** |"
+        resultado += f"| **TOTAL** | **{total_capacidad}** | **{total_utilizacion}** | | **{formato_porcentaje(media)}** |"
         
         return resultado
     except Exception as e:
@@ -112,7 +112,7 @@ def analisis_desviaciones() -> str:
         df = pd.read_csv(os.path.join(DATA_PATH, "desviaciones.csv"))
         
         resultado = """## 📊 ANÁLISIS DE DESVIACIONES PRESUPUESTARIAS
-**Ejercicio 2025**
+**Ejercicio 2026**
 
 | Concepto | Presupuesto | Real | Desviación | % |
 |----------|-------------|------|------------|---|
@@ -137,8 +137,8 @@ def analisis_desviaciones() -> str:
 
 # Lista de herramientas para exportar
 FPA_ANALYST_TOOLS = [
-    consultar_ocupacion,
+    consultar_utilizacion,
     consultar_kpis,
     analisis_desviaciones,
-    buscar_mercado_residencias, buscar_indicadores_economicos
+    buscar_mercado_servicios, buscar_indicadores_economicos
 ]

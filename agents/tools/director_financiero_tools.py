@@ -5,7 +5,7 @@ Normativa española y formato EUR (1.234,56€).
 """
 
 from langchain_core.tools import tool
-from .web_tools import buscar_tipos_interes, buscar_mercado_residencias, buscar_indicadores_economicos
+from .web_tools import buscar_tipos_interes, buscar_mercado_servicios, buscar_indicadores_economicos
 import pandas as pd
 import os
 from datetime import datetime
@@ -27,7 +27,7 @@ def generar_dashboard_ejecutivo() -> str:
         # Cargar todos los datos necesarios
         caja = pd.read_csv(os.path.join(DATA_PATH, "posicion_caja.csv"))
         facturas = pd.read_csv(os.path.join(DATA_PATH, "facturas_emitidas.csv"))
-        ocupacion = pd.read_csv(os.path.join(DATA_PATH, "ocupacion.csv"))
+        utilizacion = pd.read_csv(os.path.join(DATA_PATH, "utilizacion.csv"))
         deuda = pd.read_csv(os.path.join(DATA_PATH, "deuda_bancaria.csv"))
         kpis = pd.read_csv(os.path.join(DATA_PATH, "kpis.csv"))
         
@@ -39,9 +39,9 @@ def generar_dashboard_ejecutivo() -> str:
         pendiente = facturas[facturas["estado"] == "pendiente"]["importe"].sum()
         vencido = facturas[facturas["estado"] == "vencida"]["importe"].sum()
         
-        total_plazas = ocupacion["capacidad"].sum()
-        plazas_ocupadas = ocupacion["ocupacion_actual"].sum()
-        pct_ocupacion = (plazas_ocupadas / total_plazas * 100) if total_plazas > 0 else 0
+        total_capacidad = utilizacion["capacidad"].sum()
+        contratos_activos = utilizacion["utilizacion_actual"].sum()
+        pct_utilizacion = (contratos_activos / total_capacidad * 100) if total_capacidad > 0 else 0
         
         deuda_total = deuda["capital_pendiente"].sum()
         cuota_mensual = deuda["cuota_mensual"].sum()
@@ -50,7 +50,7 @@ def generar_dashboard_ejecutivo() -> str:
         
         resultado = f"""## 📊 DASHBOARD EJECUTIVO
 **Fecha:** {datetime.now().strftime('%d/%m/%Y %H:%M')}
-**Empresa:** Grupo Residencias Estudiantiles, S.L.
+**Empresa:** Empresa de Servicios B2B, S.L.
 
 ---
 
@@ -61,7 +61,7 @@ def generar_dashboard_ejecutivo() -> str:
 | Deuda bancaria total | {formato_euro(deuda_total)} | ℹ️ |
 | Cuota mensual deuda | {formato_euro(cuota_mensual)} | ℹ️ |
 
-### 📈 FACTURACIÓN (Ejercicio 2025)
+### 📈 FACTURACIÓN (Ejercicio 2026)
 | Concepto | Importe | % |
 |----------|---------|---|
 | Total facturado | {formato_euro(total_facturado)} | 100% |
@@ -69,12 +69,12 @@ def generar_dashboard_ejecutivo() -> str:
 | 🟡 Pendiente | {formato_euro(pendiente)} | {formato_porcentaje(pendiente/total_facturado*100 if total_facturado > 0 else 0)} |
 | 🔴 Vencido | {formato_euro(vencido)} | {formato_porcentaje(vencido/total_facturado*100 if total_facturado > 0 else 0)} |
 
-### 🏠 OCUPACIÓN
+### 🏠 UTILIZACIÓN
 | Indicador | Valor |
 |-----------|-------|
-| Plazas totales | {total_plazas} |
-| Plazas ocupadas | {plazas_ocupadas} |
-| **Ocupación** | **{formato_porcentaje(pct_ocupacion)}** {"🟢" if pct_ocupacion >= 90 else "🟡" if pct_ocupacion >= 80 else "🔴"} |
+| Capacidad total | {total_capacidad} |
+| Contratos activos | {contratos_activos} |
+| **Utilización** | **{formato_porcentaje(pct_utilizacion)}** {"🟢" if pct_utilizacion >= 90 else "🟡" if pct_utilizacion >= 80 else "🔴"} |
 
 ### ⚠️ ALERTAS
 | Indicador | Valor | Estado |
@@ -112,7 +112,7 @@ def resumen_para_consejo() -> str:
         # Cargar datos
         balance = pd.read_csv(os.path.join(DATA_PATH, "balance.csv"))
         pyg = pd.read_csv(os.path.join(DATA_PATH, "cuenta_resultados.csv"))
-        ocupacion = pd.read_csv(os.path.join(DATA_PATH, "ocupacion.csv"))
+        utilizacion = pd.read_csv(os.path.join(DATA_PATH, "utilizacion.csv"))
         
         # Normalizar tipos
         def norm_tipo(t):
@@ -131,12 +131,12 @@ def resumen_para_consejo() -> str:
         
         ingresos = pyg[pyg['tipo_norm'] == 'ingreso']['importe'].sum()
         
-        total_plazas = ocupacion['capacidad'].sum()
-        ocupadas = ocupacion['ocupacion_actual'].sum()
+        total_capacidad = utilizacion['capacidad'].sum()
+        utilizadas = utilizacion['utilizacion_actual'].sum()
         
         resultado = f"""## 📋 INFORME PARA CONSEJO DE ADMINISTRACIÓN
 **Fecha:** {datetime.now().strftime('%d/%m/%Y')}
-**Ejercicio:** 2025
+**Ejercicio:** 2026
 
 ---
 
@@ -152,9 +152,9 @@ La empresa presenta una situación financiera **sólida**:
 - **Previsión anual:** En línea con presupuesto
 
 ### OPERACIONES
-- **Residencias operativas:** {len(ocupacion)}
-- **Capacidad total:** {total_plazas} plazas
-- **Ocupación actual:** {ocupadas} plazas ({formato_porcentaje(ocupadas/total_plazas*100 if total_plazas > 0 else 0)})
+- **Unidades operativas:** {len(utilizacion)}
+- **Capacidad total:** {total_capacidad} contratos
+- **Contratos activos:** {utilizadas} ({formato_porcentaje(utilizadas/total_capacidad*100 if total_capacidad > 0 else 0)})
 
 ### RECOMENDACIONES
 1. Mantener política de cobro activa para reducir morosidad
@@ -173,5 +173,5 @@ La empresa presenta una situación financiera **sólida**:
 DIRECTOR_FINANCIERO_TOOLS = [
     generar_dashboard_ejecutivo,
     resumen_para_consejo,
-    buscar_tipos_interes, buscar_mercado_residencias, buscar_indicadores_economicos
+    buscar_tipos_interes, buscar_mercado_servicios, buscar_indicadores_economicos
 ]

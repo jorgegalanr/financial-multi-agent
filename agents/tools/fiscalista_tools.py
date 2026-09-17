@@ -9,7 +9,7 @@ from langchain_core.tools import tool
 import pandas as pd
 import os
 from .utils import formato_euro, formato_numero, formato_porcentaje
-from .web_tools import buscar_normativa_fiscal, consultar_boe_aeat
+from .web_tools import buscar_normativa_fiscal, consultar_referencia_fiscal
 
 # Configuración
 DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "data")
@@ -37,11 +37,8 @@ def consultar_obligaciones_fiscales() -> str:
             resultado += f"| {row['modelo']} | {row['concepto']} | {row['periodo']} | {row['fecha_limite']} | {icono} {row['estado']} | {formato_euro(row['importe_estimado'])} |\n"
         
         resultado += """
-### Calendario AEAT 2025
-- **Mod. 303 (IVA):** Trimestral, del 1-20 del mes siguiente
-- **Mod. 111 (Retenciones):** Trimestral, del 1-20 del mes siguiente
-- **Mod. 200 (IS):** Anual, hasta 25 de julio
-- **Mod. 390 (Resumen IVA):** Anual, del 1-30 de enero
+
+> Calendario sintético. La fecha oficial debe verificarse en la AEAT.
 """
         return resultado
     except Exception as e:
@@ -78,8 +75,7 @@ def calcular_liquidacion_iva() -> str:
         resultado_iva = total_repercutido - total_soportado
         
         resultado = f"""## 📋 LIQUIDACIÓN IVA (Modelo 303)
-**Según Ley 37/1992 del IVA**
-**Período:** 4º Trimestre 2025
+**Período del caso:** acumulado 2026
 
 ### IVA Repercutido (ventas)
 | Concepto | Base Imponible | Tipo | Cuota IVA |
@@ -115,10 +111,7 @@ def calcular_liquidacion_iva() -> str:
 | IVA Soportado | -{formato_euro(total_soportado)} |
 | **{icono} {tipo_resultado}** | **{formato_euro(abs(resultado_iva))}** |
 
-### Tipos de IVA vigentes en España
-- **General:** 21% (servicios, bienes en general)
-- **Reducido:** 10% (alojamiento, hostelería, transporte)
-- **Superreducido:** 4% (alimentos básicos, libros, medicamentos)
+> Cálculo de demostración basado en los CSV. La deducibilidad, el período y los tipos deben verificarse antes de cualquier uso real.
 """
         return resultado
     except Exception as e:
@@ -130,5 +123,5 @@ FISCALISTA_TOOLS = [
     consultar_obligaciones_fiscales,
     calcular_liquidacion_iva,
     buscar_normativa_fiscal,
-    consultar_boe_aeat
+    consultar_referencia_fiscal
 ]
