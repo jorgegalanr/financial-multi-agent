@@ -161,7 +161,7 @@ def buscar_normativa(consulta: str) -> str:
     Busca información en la base de conocimiento de normativa fiscal y contable.
     
     Args:
-        consulta: Pregunta o tema a buscar (ej: "tipos de IVA residencias", "plazos modelo 303")
+        consulta: Pregunta o tema a buscar (ej: "IVA en servicios B2B", "deterioro de clientes")
     
     Returns:
         Información relevante encontrada en la normativa
@@ -215,7 +215,7 @@ def buscar_procedimiento_cobros(tipo_consulta: str) -> str:
 @tool
 def consultar_normativa_iva(aspecto: str) -> str:
     """
-    Consulta específica sobre normativa de IVA para residencias de estudiantes.
+    Consulta específica sobre la referencia local de IVA.
     
     Args:
         aspecto: Aspecto del IVA a consultar (ej: "tipos aplicables", "deducciones", "exenciones")
@@ -224,7 +224,7 @@ def consultar_normativa_iva(aspecto: str) -> str:
         Información detallada sobre el aspecto de IVA consultado
     """
     try:
-        query = f"IVA {aspecto} residencias estudiantes"
+        query = f"IVA {aspecto} servicios B2B"
         results = rag_system.search(query, k=3)
         
         if not results:

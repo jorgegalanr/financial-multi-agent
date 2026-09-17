@@ -1,6 +1,6 @@
 """
 Herramientas del AR Manager (Cuentas por Cobrar).
-Facturación, cobros, morosos y gestión de estudiantes.
+Facturación, cobros, morosos y gestión de clientes.
 Normativa española y formato de moneda EUR (1.234,56€).
 """
 
@@ -16,35 +16,35 @@ DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file_
 
 
 @tool
-def consultar_facturas(estado: str = "todas", residencia: str = "todas") -> str:
+def consultar_facturas(estado: str = "todas", unidad: str = "todas") -> str:
     """
-    Consulta las facturas emitidas a estudiantes según normativa española de facturación.
+    Consulta las facturas emitidas a clientes según normativa española de facturación.
     
     Args:
         estado: Filtrar por estado - todas, pendiente, pagada, vencida
-        residencia: Filtrar por residencia - todas o nombre de residencia
+        unidad: Filtrar por unidad - todas o nombre de unidad
     
     Returns:
-        Listado de facturas con id, estudiante, importe, estado, vencimiento
+        Listado de facturas con id, cliente, importe, estado, vencimiento
     """
     try:
         df = pd.read_csv(os.path.join(DATA_PATH, "facturas_emitidas.csv"))
         
         if estado != "todas":
             df = df[df["estado"] == estado]
-        if residencia != "todas":
-            df = df[df["residencia"].str.contains(residencia, case=False, na=False)]
+        if unidad != "todas":
+            df = df[df["unidad"].str.contains(unidad, case=False, na=False)]
         
         if df.empty:
             return "No se encontraron facturas con los filtros especificados."
         
         total = df["importe"].sum()
         resultado = f"📋 **{len(df)} facturas encontradas** | Total: {formato_euro(total)}\n\n"
-        resultado += "| Factura | Estudiante | Concepto | Importe | Estado | Vencimiento |\n"
+        resultado += "| Factura | Cliente | Concepto | Importe | Estado | Vencimiento |\n"
         resultado += "|---------|------------|----------|---------|--------|-------------|\n"
         
         for _, row in df.head(20).iterrows():
-            resultado += f"| {row['id_factura']} | {row['id_estudiante']} | {row['concepto'][:15]}... | {formato_euro(row['importe'])} | {row['estado']} | {row['fecha_vencimiento']} |\n"
+            resultado += f"| {row['id_factura']} | {row['id_cliente']} | {row['concepto'][:15]}... | {formato_euro(row['importe'])} | {row['estado']} | {row['fecha_vencimiento']} |\n"
         
         if len(df) > 20:
             resultado += f"\n*Mostrando 20 de {len(df)} facturas*"
@@ -57,7 +57,7 @@ def consultar_facturas(estado: str = "todas", residencia: str = "todas") -> str:
 @tool
 def consultar_morosos(dias_minimo: int = 1) -> str:
     """
-    Obtiene listado de estudiantes con facturas vencidas (morosos).
+    Obtiene listado de clientes con facturas vencidas (morosos).
     Según Ley 3/2004 de morosidad en operaciones comerciales.
     
     Args:
@@ -68,12 +68,12 @@ def consultar_morosos(dias_minimo: int = 1) -> str:
     """
     try:
         facturas = pd.read_csv(os.path.join(DATA_PATH, "facturas_emitidas.csv"))
-        estudiantes = pd.read_csv(os.path.join(DATA_PATH, "estudiantes.csv"))
+        clientes = pd.read_csv(os.path.join(DATA_PATH, "clientes.csv"))
         
         vencidas = facturas[facturas["estado"] == "vencida"].copy()
         
         if vencidas.empty:
-            return "✅ ¡Excelente! No hay estudiantes morosos. Todas las facturas están al día."
+            return "✅ ¡Excelente! No hay clientes morosos. Todas las facturas están al día."
         
         vencidas["fecha_vencimiento"] = pd.to_datetime(vencidas["fecha_vencimiento"])
         vencidas["dias_retraso"] = (datetime.now() - vencidas["fecha_vencimiento"]).dt.days
@@ -82,13 +82,13 @@ def consultar_morosos(dias_minimo: int = 1) -> str:
         if vencidas.empty:
             return f"✅ No hay morosos con más de {dias_minimo} días de retraso."
         
-        morosos = vencidas.groupby("id_estudiante").agg({
+        morosos = vencidas.groupby("id_cliente").agg({
             "importe": "sum",
             "id_factura": "count",
             "dias_retraso": "max"
         }).reset_index()
-        morosos.columns = ["id_estudiante", "deuda_total", "num_facturas", "max_dias_retraso"]
-        morosos = morosos.merge(estudiantes, on="id_estudiante", how="left")
+        morosos.columns = ["id_cliente", "deuda_total", "num_facturas", "max_dias_retraso"]
+        morosos = morosos.merge(clientes, on="id_cliente", how="left")
         morosos = morosos.sort_values("deuda_total", ascending=False)
         
         total_deuda = morosos['deuda_total'].sum()
@@ -96,10 +96,10 @@ def consultar_morosos(dias_minimo: int = 1) -> str:
         resultado += f"Total morosos: {len(morosos)} | Deuda total: {formato_euro(total_deuda)}\n\n"
         
         for _, m in morosos.head(15).iterrows():
-            resultado += f"""**{m['nombre']}** ({m['id_estudiante']})
+            resultado += f"""**{m['nombre']}** ({m['id_cliente']})
 - Deuda: {formato_euro(m['deuda_total'])} ({int(m['num_facturas'])} facturas)
 - Días máximo retraso: {int(m['max_dias_retraso'])}
-- Residencia: {m['residencia']} - Hab. {m['habitacion']}
+- Unidad: {m['unidad']} - Contrato: {m['referencia']}
 - Email: {m['email']}
 - Teléfono: {m['telefono']}
 
@@ -113,27 +113,27 @@ def consultar_morosos(dias_minimo: int = 1) -> str:
 
 
 @tool
-def consultar_estudiante(id_estudiante: str) -> str:
+def consultar_cliente(id_cliente: str) -> str:
     """
-    Obtiene ficha completa de un estudiante con historial de facturación.
+    Obtiene ficha completa de un cliente con historial de facturación.
     
     Args:
-        id_estudiante: ID del estudiante (ej: EST-0001, EST-0002)
+        id_cliente: ID del cliente (ej: CLI-0001, CLI-0002)
     
     Returns:
-        Ficha completa con datos personales, alojamiento y facturas
+        Ficha completa con datos personales, servicios y facturas
     """
     try:
-        estudiantes = pd.read_csv(os.path.join(DATA_PATH, "estudiantes.csv"))
+        clientes = pd.read_csv(os.path.join(DATA_PATH, "clientes.csv"))
         facturas = pd.read_csv(os.path.join(DATA_PATH, "facturas_emitidas.csv"))
         
-        est = estudiantes[estudiantes["id_estudiante"] == id_estudiante.upper()]
+        est = clientes[clientes["id_cliente"] == id_cliente.upper()]
         
         if est.empty:
-            return f"❌ Estudiante {id_estudiante} no encontrado. Verifica el ID."
+            return f"❌ Cliente {id_cliente} no encontrado. Verifica el ID."
         
         est = est.iloc[0]
-        fact_est = facturas[facturas["id_estudiante"] == id_estudiante.upper()]
+        fact_est = facturas[facturas["id_cliente"] == id_cliente.upper()]
         
         pagadas = fact_est[fact_est["estado"] == "pagada"]["importe"].sum()
         pendientes = fact_est[fact_est["estado"] == "pendiente"]["importe"].sum()
@@ -142,14 +142,14 @@ def consultar_estudiante(id_estudiante: str) -> str:
         resultado = f"""## 👤 Ficha: {est['nombre']}
 
 ### Datos Personales
-- **ID:** {est['id_estudiante']}
+- **ID:** {est['id_cliente']}
 - **Email:** {est['email']}
 - **Teléfono:** {est['telefono']}
 
-### Alojamiento
-- **Residencia:** {est['residencia']}
-- **Habitación:** {est['habitacion']}
-- **Fecha entrada:** {est['fecha_entrada']}
+### Servicios
+- **Unidad:** {est['unidad']}
+- **Referencia:** {est['referencia']}
+- **Fecha entrada:** {est['fecha_alta']}
 - **Cuota mensual:** {formato_euro(est['cuota_mensual'])}
 
 ### Resumen Financiero
@@ -245,11 +245,11 @@ def prevision_cobros_semanal() -> str:
 **Para:** Tesorero | **Generado:** {datetime.now().strftime('%d/%m/%Y %H:%M')}
 **Total previsto:** {formato_euro(total)}
 
-| Fecha Venc. | Estudiante | Residencia | Importe |
+| Fecha Venc. | Cliente | Unidad | Importe |
 |-------------|------------|------------|---------|
 """
         for _, row in pendientes.head(30).iterrows():
-            resultado += f"| {row['fecha_vencimiento'].strftime('%d/%m/%Y')} | {row['id_estudiante']} | {row['residencia'][:15]} | {formato_euro(row['importe'])} |\n"
+            resultado += f"| {row['fecha_vencimiento'].strftime('%d/%m/%Y')} | {row['id_cliente']} | {row['unidad'][:15]} | {formato_euro(row['importe'])} |\n"
         
         if len(pendientes) > 30:
             resultado += f"\n*Mostrando 30 de {len(pendientes)} cobros previstos*"
@@ -263,7 +263,7 @@ def prevision_cobros_semanal() -> str:
 AR_MANAGER_TOOLS = [
     consultar_facturas,
     consultar_morosos,
-    consultar_estudiante,
+    consultar_cliente,
     generar_aging_report,
     prevision_cobros_semanal,
     buscar_normativa_fiscal

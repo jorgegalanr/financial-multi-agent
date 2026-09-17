@@ -39,7 +39,7 @@ def formato_euro(valor):
 @tool
 def mcp_get_cash_position() -> str:
     """
-    [MCP Financial] Obtiene la posición de caja actual.
+    [Adaptador local] Obtiene la posición de caja actual.
     Herramienta del servidor MCP de datos financieros.
     
     Returns:
@@ -49,7 +49,7 @@ def mcp_get_cash_position() -> str:
         df = load_csv("posicion_caja.csv")
         total = df["saldo"].sum()
         result = {
-            "servidor": "MCP Financial Data Server",
+            "adaptador": "financial_local",
             "herramienta": "get_cash_position",
             "fecha": datetime.now().isoformat(),
             "saldo_total": float(total),
@@ -63,7 +63,7 @@ def mcp_get_cash_position() -> str:
 @tool
 def mcp_get_bank_debt() -> str:
     """
-    [MCP Financial] Obtiene el detalle de la deuda bancaria.
+    [Adaptador local] Obtiene el detalle de la deuda bancaria.
     Herramienta del servidor MCP de datos financieros.
     
     Returns:
@@ -72,7 +72,7 @@ def mcp_get_bank_debt() -> str:
     try:
         df = load_csv("deuda_bancaria.csv")
         result = {
-            "servidor": "MCP Financial Data Server",
+            "adaptador": "financial_local",
             "herramienta": "get_bank_debt",
             "deuda_total": float(df["capital_pendiente"].sum()),
             "cuota_mensual_total": float(df["cuota_mensual"].sum()),
@@ -86,7 +86,7 @@ def mcp_get_bank_debt() -> str:
 @tool
 def mcp_get_balance_sheet() -> str:
     """
-    [MCP Financial] Obtiene el balance de situación.
+    [Adaptador local] Obtiene el balance de situación.
     Herramienta del servidor MCP de datos financieros.
     
     Returns:
@@ -98,7 +98,7 @@ def mcp_get_balance_sheet() -> str:
         pasivo = df[df["tipo"] == "pasivo"]["importe"].sum()
         patrimonio = df[df["tipo"] == "patrimonio"]["importe"].sum()
         result = {
-            "servidor": "MCP Financial Data Server",
+            "adaptador": "financial_local",
             "herramienta": "get_balance_sheet",
             "fecha": datetime.now().isoformat(),
             "activo_total": float(activo),
@@ -114,7 +114,7 @@ def mcp_get_balance_sheet() -> str:
 @tool
 def mcp_calculate_liquidity() -> str:
     """
-    [MCP Financial] Calcula el ratio de liquidez.
+    [Adaptador local] Calcula el ratio de liquidez.
     Herramienta del servidor MCP de datos financieros.
     
     Returns:
@@ -127,7 +127,7 @@ def mcp_calculate_liquidity() -> str:
         gastos_mensuales = gastos["importe_mensual"].sum()
         meses = saldo / gastos_mensuales if gastos_mensuales > 0 else 0
         result = {
-            "servidor": "MCP Financial Data Server",
+            "adaptador": "financial_local",
             "herramienta": "calculate_liquidity_ratio",
             "saldo_disponible": float(saldo),
             "gastos_mensuales": float(gastos_mensuales),
@@ -146,7 +146,7 @@ def mcp_calculate_liquidity() -> str:
 @tool
 def mcp_get_defaulters(min_days: int = 1) -> str:
     """
-    [MCP Collections] Obtiene listado de morosos.
+    [Adaptador local] Obtiene listado de morosos.
     Herramienta del servidor MCP de gestión de cobros.
     
     Args:
@@ -157,7 +157,7 @@ def mcp_get_defaulters(min_days: int = 1) -> str:
     """
     try:
         facturas = load_csv("facturas_emitidas.csv")
-        estudiantes = load_csv("estudiantes.csv")
+        clientes = load_csv("clientes.csv")
         
         vencidas = facturas[facturas["estado"] == "vencida"].copy()
         vencidas["fecha_vencimiento"] = pd.to_datetime(vencidas["fecha_vencimiento"])
@@ -166,23 +166,23 @@ def mcp_get_defaulters(min_days: int = 1) -> str:
         
         if vencidas.empty:
             result = {
-                "servidor": "MCP Collections Server",
+                "adaptador": "collections_local",
                 "herramienta": "get_defaulters",
                 "total_morosos": 0,
                 "deuda_total": 0,
                 "morosos": []
             }
         else:
-            morosos = vencidas.groupby("id_estudiante").agg({
+            morosos = vencidas.groupby("id_cliente").agg({
                 "importe": "sum",
                 "id_factura": "count",
                 "dias_retraso": "max"
             }).reset_index()
-            morosos.columns = ["id_estudiante", "deuda_total", "num_facturas", "max_dias_retraso"]
-            morosos = morosos.merge(estudiantes, on="id_estudiante", how="left")
+            morosos.columns = ["id_cliente", "deuda_total", "num_facturas", "max_dias_retraso"]
+            morosos = morosos.merge(clientes, on="id_cliente", how="left")
             
             result = {
-                "servidor": "MCP Collections Server",
+                "adaptador": "collections_local",
                 "herramienta": "get_defaulters",
                 "total_morosos": len(morosos),
                 "deuda_total": float(morosos["deuda_total"].sum()),
@@ -195,32 +195,32 @@ def mcp_get_defaulters(min_days: int = 1) -> str:
 
 
 @tool
-def mcp_get_student_info(student_id: str) -> str:
+def mcp_get_customer_info(customer_id: str) -> str:
     """
-    [MCP Collections] Obtiene información de un estudiante.
+    [Adaptador local] Obtiene información de un cliente.
     Herramienta del servidor MCP de gestión de cobros.
     
     Args:
-        student_id: ID del estudiante (ej: EST-101)
+        customer_id: ID del cliente (ej: CLI-101)
     
     Returns:
-        JSON con datos del estudiante y su historial de facturas
+        JSON con datos del cliente y su historial de facturas
     """
     try:
-        estudiantes = load_csv("estudiantes.csv")
+        clientes = load_csv("clientes.csv")
         facturas = load_csv("facturas_emitidas.csv")
         
-        student_id = student_id.upper()
-        est = estudiantes[estudiantes["id_estudiante"] == student_id]
+        customer_id = customer_id.upper()
+        est = clientes[clientes["id_cliente"] == customer_id]
         
         if est.empty:
-            return json.dumps({"error": f"Estudiante {student_id} no encontrado"})
+            return json.dumps({"error": f"Cliente {customer_id} no encontrado"})
         
         est_dict = est.iloc[0].to_dict()
-        fact_est = facturas[facturas["id_estudiante"] == student_id]
+        fact_est = facturas[facturas["id_cliente"] == customer_id]
         
-        est_dict["servidor"] = "MCP Collections Server"
-        est_dict["herramienta"] = "get_student_info"
+        est_dict["adaptador"] = "collections_local"
+        est_dict["herramienta"] = "get_customer_info"
         est_dict["facturas"] = fact_est.to_dict(orient="records")
         est_dict["total_pagado"] = float(fact_est[fact_est["estado"] == "pagada"]["importe"].sum())
         est_dict["total_pendiente"] = float(fact_est[fact_est["estado"] == "pendiente"]["importe"].sum())
@@ -234,7 +234,7 @@ def mcp_get_student_info(student_id: str) -> str:
 @tool
 def mcp_get_aging_report() -> str:
     """
-    [MCP Collections] Genera el aging report de cuentas por cobrar.
+    [Adaptador local] Genera el aging report de cuentas por cobrar.
     Herramienta del servidor MCP de gestión de cobros.
     
     Returns:
@@ -261,7 +261,7 @@ def mcp_get_aging_report() -> str:
         aging.columns = ["tramo", "importe", "num_facturas"]
         
         result = {
-            "servidor": "MCP Collections Server",
+            "adaptador": "collections_local",
             "herramienta": "get_aging_report",
             "total_pendiente": float(pendientes["importe"].sum()),
             "total_facturas": len(pendientes),
@@ -274,26 +274,26 @@ def mcp_get_aging_report() -> str:
 
 
 @tool
-def mcp_get_occupancy() -> str:
+def mcp_get_utilization() -> str:
     """
-    [MCP Collections] Obtiene la ocupación de residencias.
+    [Adaptador local] Obtiene la utilización de unidades.
     Herramienta del servidor MCP de gestión de cobros.
     
     Returns:
-        JSON con ocupación por residencia y media total
+        JSON con utilización por unidad y media total
     """
     try:
-        df = load_csv("ocupacion.csv")
+        df = load_csv("utilizacion.csv")
         total_cap = df["capacidad"].sum()
-        total_ocu = df["ocupacion_actual"].sum()
+        total_ocu = df["utilizacion_actual"].sum()
         
         result = {
-            "servidor": "MCP Collections Server",
-            "herramienta": "get_occupancy",
-            "ocupacion_media": round((total_ocu / total_cap * 100) if total_cap > 0 else 0, 1),
+            "adaptador": "collections_local",
+            "herramienta": "get_utilization",
+            "utilizacion_media": round((total_ocu / total_cap * 100) if total_cap > 0 else 0, 1),
             "total_capacidad": int(total_cap),
-            "total_ocupadas": int(total_ocu),
-            "residencias": df.to_dict(orient="records")
+            "total_utilizadas": int(total_ocu),
+            "unidades": df.to_dict(orient="records")
         }
         
         return json.dumps(result, indent=2, default=str)
@@ -311,9 +311,9 @@ MCP_FINANCIAL_TOOLS = [
 
 MCP_COLLECTIONS_TOOLS = [
     mcp_get_defaulters,
-    mcp_get_student_info,
+    mcp_get_customer_info,
     mcp_get_aging_report,
-    mcp_get_occupancy
+    mcp_get_utilization
 ]
 
 
@@ -324,11 +324,10 @@ MCP_COLLECTIONS_TOOLS = [
 @tool
 def mcp_get_interest_rates() -> str:
     """
-    [MCP Market Data] Obtiene tipos de interés actuales: Euribor, BCE, hipotecas.
-    Herramienta del servidor MCP de datos de mercado.
+    Devuelve un escenario sintético de tipos de interés.
     
     Returns:
-        JSON con tipos de interés actualizados
+        JSON de demostración; no contiene datos actuales
     """
     result = {
         "servidor": "MCP Market Data Server",
@@ -351,7 +350,8 @@ def mcp_get_interest_rates() -> str:
             "tipo_fijo_medio": 3.25,
             "tipo_variable_medio": "Euribor + 0.99"
         },
-        "fuente": "Banco de España / BCE"
+        "es_dato_sintetico": True,
+        "fuente": "dataset sintético"
     }
     return json.dumps(result, indent=2, default=str)
 
@@ -359,11 +359,10 @@ def mcp_get_interest_rates() -> str:
 @tool
 def mcp_get_tax_rates() -> str:
     """
-    [MCP Market Data] Obtiene tipos impositivos vigentes en España.
-    Herramienta del servidor MCP de datos de mercado.
+    Devuelve un escenario fiscal sintético.
     
     Returns:
-        JSON con tipos de IVA, IS, IRPF actualizados
+        JSON de demostración; requiere verificación oficial
     """
     result = {
         "servidor": "MCP Market Data Server",
@@ -373,8 +372,8 @@ def mcp_get_tax_rates() -> str:
             "general": 21,
             "reducido": 10,
             "superreducido": 4,
-            "alojamiento_estudiantes": 10,
-            "arrendamiento_vivienda": "exento"
+            "servicios_b2b": 10,
+            "operaciones_exentas": "exento"
         },
         "impuesto_sociedades": {
             "general": 25,
@@ -386,7 +385,8 @@ def mcp_get_tax_rates() -> str:
             "arrendamientos": 19,
             "profesionales": 15
         },
-        "fuente": "AEAT 2025"
+        "es_dato_sintetico": True,
+        "fuente": "dataset sintético"
     }
     return json.dumps(result, indent=2, default=str)
 
@@ -394,8 +394,7 @@ def mcp_get_tax_rates() -> str:
 @tool
 def mcp_get_economic_indicators() -> str:
     """
-    [MCP Market Data] Obtiene indicadores económicos de España.
-    Herramienta del servidor MCP de datos de mercado.
+    Devuelve indicadores económicos sintéticos.
     
     Returns:
         JSON con IPC, SMI, indicadores económicos
@@ -415,12 +414,13 @@ def mcp_get_economic_indicators() -> str:
             "anual": 15876,
             "fecha": "2024"
         },
-        "mercado_residencias": {
-            "ocupacion_media": 92,
+        "mercado_servicios": {
+            "utilizacion_media": 92,
             "precio_medio": 650,
             "crecimiento": 5.2
         },
-        "fuente": "INE / BOE"
+        "es_dato_sintetico": True,
+        "fuente": "dataset sintético"
     }
     return json.dumps(result, indent=2, default=str)
 
@@ -431,4 +431,4 @@ MCP_MARKET_TOOLS = [
     mcp_get_economic_indicators
 ]
 
-ALL_MCP_TOOLS = MCP_FINANCIAL_TOOLS + MCP_COLLECTIONS_TOOLS + MCP_MARKET_TOOLS
+ALL_MCP_TOOLS = MCP_FINANCIAL_TOOLS + MCP_COLLECTIONS_TOOLS

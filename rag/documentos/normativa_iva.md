@@ -1,57 +1,20 @@
-# Normativa IVA España - Residencias de Estudiantes
+# Referencia de IVA para el caso B2B
 
-## Tipo de IVA aplicable a alojamiento estudiantil
+> Resumen educativo, no asesoramiento fiscal. Tipos, modelos y plazos deben verificarse en la AEAT y el BOE antes de utilizarse.
 
-El alojamiento en residencias de estudiantes puede estar sujeto a diferentes tipos de IVA dependiendo de los servicios incluidos:
+## Tratamiento general
 
-### Exención de IVA (Art. 20.Uno.23º LIVA)
-Los arrendamientos de edificios o partes de los mismos destinados exclusivamente a viviendas están exentos de IVA. Sin embargo, esta exención NO se aplica a:
-- Arrendamientos con servicios propios de la industria hotelera
-- Arrendamientos de apartamentos amueblados con servicios complementarios
+Las prestaciones de servicios realizadas por una empresa pueden estar sujetas a IVA. El tratamiento concreto depende de la naturaleza del servicio, el territorio de aplicación, la condición del cliente y las reglas de localización.
 
-### IVA reducido del 10%
-Se aplica el tipo reducido del 10% a los servicios de hostelería y hospedaje, incluyendo:
-- Alojamiento en hoteles, hostales, pensiones
-- Residencias de estudiantes cuando incluyen servicios adicionales como limpieza de habitaciones, cambio de ropa de cama, etc.
+Para cada factura deben conservarse, como mínimo, la identificación de las partes, fecha, descripción de la operación, base imponible, tipo aplicado y cuota.
 
-### IVA general del 21%
-Se aplica a servicios complementarios no incluidos en el alojamiento:
-- Servicios de lavandería independientes
-- Alquiler de equipamiento adicional
-- Servicios de catering externos
+## Control del prototipo
 
-## Modelo 303 - Declaración trimestral de IVA
+El sistema separa IVA repercutido e IVA soportado en CSV independientes. Esta separación permite comprobar:
 
-### Plazos de presentación:
-- 1T (enero-marzo): del 1 al 20 de abril
-- 2T (abril-junio): del 1 al 20 de julio
-- 3T (julio-septiembre): del 1 al 20 de octubre
-- 4T (octubre-diciembre): del 1 al 30 de enero del año siguiente
+- Coherencia entre bases y cuotas.
+- Operaciones sin tipo informado.
+- Diferencias entre los libros auxiliares y la contabilidad.
+- Concentraciones o variaciones inusuales por periodo.
 
-### Obligaciones formales:
-- Libro registro de facturas emitidas
-- Libro registro de facturas recibidas
-- Libro registro de bienes de inversión
-
-## Retenciones IRPF - Modelo 111
-
-Las residencias de estudiantes deben practicar retenciones de IRPF sobre:
-- Rendimientos del trabajo (nóminas empleados): según tablas de retención
-- Rendimientos de actividades profesionales: 15% (7% para nuevos profesionales)
-
-### Plazos Modelo 111:
-- Presentación trimestral: mismos plazos que Modelo 303
-- Grandes empresas: presentación mensual (primeros 20 días del mes siguiente)
-
-## Impuesto sobre Sociedades - Modelo 200
-
-### Tipo general: 25%
-### Pagos fraccionados (Modelo 202):
-- Abril: primer pago fraccionado
-- Octubre: segundo pago fraccionado  
-- Diciembre: tercer pago fraccionado
-
-### Base imponible:
-- Resultado contable ajustado
-- Diferencias permanentes y temporarias
-- Compensación de bases imponibles negativas de ejercicios anteriores
+El prototipo no presenta declaraciones ni determina la deducibilidad de una operación.

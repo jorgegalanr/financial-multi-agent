@@ -7,7 +7,7 @@ from .ar_manager_tools import (
     AR_MANAGER_TOOLS,
     consultar_facturas,
     consultar_morosos,
-    consultar_estudiante,
+    consultar_cliente,
     generar_aging_report,
     prevision_cobros_semanal
 )
@@ -30,7 +30,7 @@ from .controller_tools import (
 
 from .fpa_analyst_tools import (
     FPA_ANALYST_TOOLS,
-    consultar_ocupacion,
+    consultar_utilizacion,
     consultar_kpis,
     analisis_desviaciones
 )
@@ -58,9 +58,9 @@ from .web_tools import (
     WEB_SEARCH_TOOLS,
     buscar_tipos_interes,
     buscar_normativa_fiscal,
-    buscar_mercado_residencias,
+    buscar_mercado_servicios,
     buscar_indicadores_economicos,
-    consultar_boe_aeat
+    consultar_referencia_fiscal
 )
 
 # Alias por compatibilidad (agents/__init__.py esperaba "web_search")
@@ -88,4 +88,6 @@ def get_tools_for_agent(agent_key: str) -> list:
     Returns:
         Lista de herramientas del agente
     """
-    return AGENT_TOOLS.get(agent_key, WEB_SEARCH_TOOLS)
+    # Devolver una copia evita que el grafo añada RAG/MCP sobre la lista global
+    # y duplique herramientas en consultas posteriores.
+    return list(AGENT_TOOLS.get(agent_key, WEB_SEARCH_TOOLS))

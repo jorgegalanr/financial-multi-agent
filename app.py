@@ -65,7 +65,7 @@ def formato_porcentaje(valor):
 # CONFIGURACIÓN DE PÁGINA
 # ============================================
 st.set_page_config(
-    page_title="Dashboard Financiero | Residencias Estudiantiles",
+    page_title="Dashboard Financiero | Servicios B2B",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -74,9 +74,6 @@ st.set_page_config(
 # Control manual de tema para títulos
 if "titulos_blancos" not in st.session_state:
     st.session_state.titulos_blancos = False
-
-if "titulos_blancos" not in st.session_state:
-    st.session_state.titulos_blancos = True
 
 # Toggle grande y visible en sidebar
 st.sidebar.markdown("---")
@@ -161,7 +158,7 @@ def cargar_datos():
     """Carga todos los CSVs necesarios."""
     datos = {}
     archivos = [
-        "estudiantes", "facturas_emitidas", "ocupacion", "posicion_caja",
+        "clientes", "facturas_emitidas", "utilizacion", "posicion_caja",
         "deuda_bancaria", "gastos_fijos", "balance", "cuenta_resultados",
         "kpis", "obligaciones_fiscales", "activos_fijos", "iva_repercutido",
         "iva_soportado", "desviaciones", "pagos_pendientes", "mantenimientos"
@@ -213,7 +210,7 @@ def dashboard_resumen(datos):
     
     # Calcular métricas
     facturas = datos.get("facturas_emitidas", pd.DataFrame())
-    ocupacion = datos.get("ocupacion", pd.DataFrame())
+    utilizacion = datos.get("utilizacion", pd.DataFrame())
     caja = datos.get("posicion_caja", pd.DataFrame())
     deuda = datos.get("deuda_bancaria", pd.DataFrame())
     
@@ -221,9 +218,9 @@ def dashboard_resumen(datos):
     cobrado = facturas[facturas["estado"] == "pagada"]["importe"].sum() if not facturas.empty else 0
     vencido = facturas[facturas["estado"] == "vencida"]["importe"].sum() if not facturas.empty else 0
     
-    total_plazas = ocupacion["capacidad"].sum() if not ocupacion.empty else 0
-    ocupadas = ocupacion["ocupacion_actual"].sum() if not ocupacion.empty else 0
-    pct_ocupacion = (ocupadas / total_plazas * 100) if total_plazas > 0 else 0
+    total_capacidad = utilizacion["capacidad"].sum() if not utilizacion.empty else 0
+    utilizadas = utilizacion["utilizacion_actual"].sum() if not utilizacion.empty else 0
+    pct_utilizacion = (utilizadas / total_capacidad * 100) if total_capacidad > 0 else 0
     
     saldo_caja = caja["saldo"].sum() if not caja.empty else 0
     deuda_total = deuda["capital_pendiente"].sum() if not deuda.empty else 0
@@ -237,17 +234,17 @@ def dashboard_resumen(datos):
         st.markdown(crear_kpi_card(
             "Facturación Total",
             formato_euro(total_facturado),
-            "Ejercicio 2025",
+            "Ejercicio 2026",
             "normal",
             "💰"
         ), unsafe_allow_html=True)
     
     with col2:
-        color = "positive" if pct_ocupacion >= 90 else "negative" if pct_ocupacion < 80 else "normal"
+        color = "positive" if pct_utilizacion >= 90 else "negative" if pct_utilizacion < 80 else "normal"
         st.markdown(crear_kpi_card(
-            "Ocupación",
-            formato_porcentaje(pct_ocupacion),
-            f"{int(ocupadas)}/{int(total_plazas)} plazas",
+            "Utilización",
+            formato_porcentaje(pct_utilizacion),
+            f"{int(utilizadas)}/{int(total_capacidad)} contratos",
             color,
             "🏠"
         ), unsafe_allow_html=True)
@@ -286,29 +283,29 @@ def dashboard_resumen(datos):
     col_left, col_right = st.columns(2)
     
     with col_left:
-        st.markdown('<div class="section-title">📈 Ocupación por Residencia</div>', unsafe_allow_html=True)
-        if not ocupacion.empty:
-            fig_ocupacion = go.Figure()
+        st.markdown('<div class="section-title">📈 Utilización por Unidad</div>', unsafe_allow_html=True)
+        if not utilizacion.empty:
+            fig_utilizacion = go.Figure()
             
-            fig_ocupacion.add_trace(go.Bar(
-                name='Libres',
-                x=ocupacion['residencia'],
-                y=ocupacion['capacidad'] - ocupacion['ocupacion_actual'],
+            fig_utilizacion.add_trace(go.Bar(
+                name='Capacidad disponible',
+                x=utilizacion['unidad'],
+                y=utilizacion['capacidad'] - utilizacion['utilizacion_actual'],
                 marker_color='#2ecc71',
-                text=ocupacion['capacidad'] - ocupacion['ocupacion_actual'],
+                text=utilizacion['capacidad'] - utilizacion['utilizacion_actual'],
                 textposition='auto'
             ))
             
-            fig_ocupacion.add_trace(go.Bar(
-                name='Ocupadas',
-                x=ocupacion['residencia'],
-                y=ocupacion['ocupacion_actual'],
+            fig_utilizacion.add_trace(go.Bar(
+                name='Contratos activos',
+                x=utilizacion['unidad'],
+                y=utilizacion['utilizacion_actual'],
                 marker_color='#e74c3c',
-                text=ocupacion['ocupacion_actual'],
+                text=utilizacion['utilizacion_actual'],
                 textposition='auto'
             ))
             
-            fig_ocupacion.update_layout(
+            fig_utilizacion.update_layout(
                 barmode='stack',
                 height=400,
                 xaxis_tickangle=-45,
@@ -317,8 +314,8 @@ def dashboard_resumen(datos):
                 paper_bgcolor='rgba(0,0,0,0)',
                 plot_bgcolor='rgba(0,0,0,0)'
             )
-            fig_ocupacion = aplicar_tema_plotly(fig_ocupacion)
-            st.plotly_chart(fig_ocupacion, use_container_width=True)
+            fig_utilizacion = aplicar_tema_plotly(fig_utilizacion)
+            st.plotly_chart(fig_utilizacion, width="stretch")
 
     
     with col_right:
@@ -350,7 +347,7 @@ def dashboard_resumen(datos):
                 paper_bgcolor='rgba(0,0,0,0)'
             )
             fig_facturas = aplicar_tema_plotly(fig_facturas)
-            st.plotly_chart(fig_facturas, use_container_width=True)
+            st.plotly_chart(fig_facturas, width="stretch")
 
 
 
@@ -358,7 +355,7 @@ def dashboard_cobros(datos):
     """Dashboard de gestión de cobros y morosidad."""
     
     facturas = datos.get("facturas_emitidas", pd.DataFrame())
-    estudiantes = datos.get("estudiantes", pd.DataFrame())
+    clientes = datos.get("clientes", pd.DataFrame())
     
     if facturas.empty:
         st.warning("No hay datos de facturas disponibles.")
@@ -426,26 +423,26 @@ def dashboard_cobros(datos):
                 margin=dict(l=20, r=20, t=20, b=20)
             )
             fig_aging = aplicar_tema_plotly(fig_aging)
-            st.plotly_chart(fig_aging, use_container_width=True)
+            st.plotly_chart(fig_aging, width="stretch")
 
     
     with col_right:
         st.markdown("#### 🔴 Top 10 Morosos")
         
         vencidas = facturas[facturas["estado"] == "vencida"].copy()
-        if not vencidas.empty and not estudiantes.empty:
+        if not vencidas.empty and not clientes.empty:
             vencidas["fecha_vencimiento"] = pd.to_datetime(vencidas["fecha_vencimiento"])
             vencidas["dias_retraso"] = (datetime.now() - vencidas["fecha_vencimiento"]).dt.days
             
-            morosos = vencidas.groupby("id_estudiante").agg({
+            morosos = vencidas.groupby("id_cliente").agg({
                 "importe": "sum",
                 "id_factura": "count",
                 "dias_retraso": "max"
             }).reset_index()
             morosos.columns = ["ID", "Deuda", "Facturas", "Días"]
             morosos = morosos.merge(
-                estudiantes[["id_estudiante", "nombre", "email"]],
-                left_on="ID", right_on="id_estudiante", how="left"
+                clientes[["id_cliente", "nombre", "email"]],
+                left_on="ID", right_on="id_cliente", how="left"
             )
             morosos = morosos.sort_values("Deuda", ascending=False).head(10)
             
@@ -454,11 +451,11 @@ def dashboard_cobros(datos):
             
             st.dataframe(
                 morosos[["nombre", "Deuda_fmt", "Facturas", "Días", "email"]].rename(columns={
-                    "nombre": "Estudiante",
+                    "nombre": "Cliente",
                     "Deuda_fmt": "Deuda Total",
                     "email": "Email"
                 }),
-                use_container_width=True,
+                width="stretch",
                 hide_index=True
             )
 
@@ -505,7 +502,7 @@ def dashboard_tesoreria(datos):
             fig_caja.update_traces(textposition='outside')
             fig_caja.update_layout(height=350, margin=dict(l=20, r=20, t=20, b=20))
             fig_caja = aplicar_tema_plotly(fig_caja)
-            st.plotly_chart(fig_caja, use_container_width=True)
+            st.plotly_chart(fig_caja, width="stretch")
 
 
     
@@ -522,7 +519,7 @@ def dashboard_tesoreria(datos):
             fig_deuda.update_traces(textposition='inside', textinfo='percent+label')
             fig_deuda.update_layout(height=350, margin=dict(l=20, r=20, t=20, b=20))
             fig_deuda = aplicar_tema_plotly(fig_deuda)
-            st.plotly_chart(fig_deuda, use_container_width=True)
+            st.plotly_chart(fig_deuda, width="stretch")
 
 
     
@@ -543,7 +540,7 @@ def dashboard_tesoreria(datos):
                 "tipo_interes": "Interés",
                 "fecha_vencimiento": "Vencimiento"
             }),
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
             height=300
         )
@@ -600,7 +597,7 @@ def dashboard_fiscal(datos):
         ))
         fig_iva.update_layout(height=300, margin=dict(l=20, r=20, t=20, b=20))
         fig_iva = aplicar_tema_plotly(fig_iva)
-        st.plotly_chart(fig_iva, use_container_width=True)
+        st.plotly_chart(fig_iva, width="stretch")
 
     
     with col_right:
@@ -621,7 +618,7 @@ def dashboard_fiscal(datos):
                     "estado_icono": "Estado",
                     "importe_estimado": "Importe Est."
                 }),
-                use_container_width=True,
+                width="stretch",
                 hide_index=True
             )
 
@@ -636,16 +633,16 @@ def generar_pdf_dashboard(datos):
         from fpdf import FPDF
         
         facturas = datos.get("facturas_emitidas", pd.DataFrame())
-        ocupacion = datos.get("ocupacion", pd.DataFrame())
+        utilizacion = datos.get("utilizacion", pd.DataFrame())
         caja = datos.get("posicion_caja", pd.DataFrame())
         
         total_facturado = facturas["importe"].sum() if not facturas.empty else 0
         cobrado = facturas[facturas["estado"] == "pagada"]["importe"].sum() if not facturas.empty else 0
         vencido = facturas[facturas["estado"] == "vencida"]["importe"].sum() if not facturas.empty else 0
         
-        total_plazas = ocupacion["capacidad"].sum() if not ocupacion.empty else 0
-        ocupadas = ocupacion["ocupacion_actual"].sum() if not ocupacion.empty else 0
-        pct_ocupacion = (ocupadas / total_plazas * 100) if total_plazas > 0 else 0
+        total_capacidad = utilizacion["capacidad"].sum() if not utilizacion.empty else 0
+        utilizadas = utilizacion["utilizacion_actual"].sum() if not utilizacion.empty else 0
+        pct_utilizacion = (utilizadas / total_capacidad * 100) if total_capacidad > 0 else 0
         
         saldo_caja = caja["saldo"].sum() if not caja.empty else 0
         
@@ -668,7 +665,7 @@ def generar_pdf_dashboard(datos):
         pdf.cell(0, 10, 'Dashboard Financiero', align='C')
         pdf.set_font('DejaVu', '', 12)
         pdf.set_y(24)
-        pdf.cell(0, 10, 'Unilife S.L.', align='C')
+        pdf.cell(0, 10, 'Empresa Demo B2B, S.L.', align='C')
         
         pdf.set_y(50)
         pdf.set_text_color(0, 0, 0)
@@ -689,8 +686,8 @@ def generar_pdf_dashboard(datos):
             ("Facturacion Total", formato_euro(total_facturado)),
             ("Importe Cobrado", formato_euro(cobrado)),
             ("Importe Vencido", formato_euro(vencido)),
-            ("Ocupacion", formato_porcentaje(pct_ocupacion)),
-            ("Plazas Ocupadas", f"{int(ocupadas)} / {int(total_plazas)}"),
+            ("Utilizacion", formato_porcentaje(pct_utilizacion)),
+            ("Contratos activos", f"{int(utilizadas)} / {int(total_capacidad)}"),
             ("Saldo en Caja", formato_euro(saldo_caja))
         ]
         
@@ -701,25 +698,25 @@ def generar_pdf_dashboard(datos):
         
         pdf.ln(10)
         
-        # Ocupación por residencia
+        # Utilización por unidad
         pdf.set_font('DejaVu', 'B', 14)
-        pdf.cell(0, 10, 'OCUPACION POR RESIDENCIA', fill=True)
+        pdf.cell(0, 10, 'UTILIZACION POR UNIDAD', fill=True)
         pdf.ln(15)
         
         pdf.set_font('DejaVu', 'B', 10)
-        pdf.cell(70, 8, 'Residencia', border=1)
+        pdf.cell(70, 8, 'Unidad', border=1)
         pdf.cell(30, 8, 'Capacidad', border=1, align='C')
-        pdf.cell(30, 8, 'Ocupadas', border=1, align='C')
-        pdf.cell(30, 8, 'Ocupacion', border=1, align='C')
+        pdf.cell(30, 8, 'Contratos', border=1, align='C')
+        pdf.cell(30, 8, 'Utilizacion', border=1, align='C')
         pdf.ln()
         
         pdf.set_font('DejaVu', '', 9)
-        if not ocupacion.empty:
-            for _, row in ocupacion.head(15).iterrows():
-                pct = (row['ocupacion_actual'] / row['capacidad'] * 100) if row['capacidad'] > 0 else 0
-                pdf.cell(70, 7, str(row['residencia'])[:30], border=1)
+        if not utilizacion.empty:
+            for _, row in utilizacion.head(15).iterrows():
+                pct = (row['utilizacion_actual'] / row['capacidad'] * 100) if row['capacidad'] > 0 else 0
+                pdf.cell(70, 7, str(row['unidad'])[:30], border=1)
                 pdf.cell(30, 7, str(int(row['capacidad'])), border=1, align='C')
-                pdf.cell(30, 7, str(int(row['ocupacion_actual'])), border=1, align='C')
+                pdf.cell(30, 7, str(int(row['utilizacion_actual'])), border=1, align='C')
                 pdf.cell(30, 7, formato_porcentaje(pct), border=1, align='C')
                 pdf.ln()
         
@@ -781,13 +778,7 @@ def chat_agentes():
             with st.spinner("Procesando..."):
                 agente = agente_seleccionado if agente_seleccionado != "auto" else None
 
-                prompt_to_send = prompt
-                if agente is None:
-                    prompt_to_send = prompt_to_send.replace("cliente", "estudiante").replace("clientes", "estudiantes")
-                    prompt_to_send = prompt_to_send.replace("cuenta de clientes", "cuentas a cobrar")
-                    prompt_to_send = prompt_to_send.replace("listado de clientes", "listado de estudiantes")
-
-                response, agent_name, icon = run_agent_query(prompt_to_send, agente)
+                response, agent_name, icon = run_agent_query(prompt, agente)
 
                 st.markdown(f"**{icon} {agent_name}**")
                 st.markdown(response)
@@ -812,7 +803,7 @@ def main():
     st.markdown("""
     <div class="main-header">
         <h1>📊 Dashboard Financiero</h1>
-        <p>Unilife S.L. | Sistema Multi-Agente</p>
+        <p>Empresa Demo B2B, S.L. | Sistema Multi-Agente</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -858,7 +849,7 @@ def main():
                 data=pdf_data,
                 file_name=f"dashboard_{datetime.now().strftime('%Y%m%d_%H%M')}.pdf",
                 mime="application/pdf",
-                use_container_width=True
+                width="stretch"
             )
         
         # Botón Excel
@@ -867,17 +858,17 @@ def main():
             with pd.ExcelWriter(output, engine='openpyxl') as writer:
                 if not datos["facturas_emitidas"].empty:
                     datos["facturas_emitidas"].to_excel(writer, sheet_name='Facturas', index=False)
-                if not datos["estudiantes"].empty:
-                    datos["estudiantes"].head(100).to_excel(writer, sheet_name='Estudiantes', index=False)
-                if not datos["ocupacion"].empty:
-                    datos["ocupacion"].to_excel(writer, sheet_name='Ocupacion', index=False)
+                if not datos["clientes"].empty:
+                    datos["clientes"].head(100).to_excel(writer, sheet_name='Clientes', index=False)
+                if not datos["utilizacion"].empty:
+                    datos["utilizacion"].to_excel(writer, sheet_name='Utilizacion', index=False)
             
             st.download_button(
                 label="📊 Descargar Excel",
                 data=output.getvalue(),
                 file_name=f"datos_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx",
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                use_container_width=True
+                width="stretch"
             )
         except Exception as e:
             st.error(f"Error Excel: {e}")
@@ -889,7 +880,7 @@ def main():
         st.caption(f"📊 Agentes: {len(AGENT_CONFIG)}")
         st.caption(f"📅 {datetime.now().strftime('%d/%m/%Y %H:%M')}")
         
-        if st.button("🗑️ Limpiar Chat", use_container_width=True):
+        if st.button("🗑️ Limpiar Chat", width="stretch"):
             st.session_state.messages = []
             st.rerun()
 

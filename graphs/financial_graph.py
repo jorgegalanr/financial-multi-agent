@@ -7,6 +7,7 @@ from typing import TypedDict, Annotated
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage
 from langchain_ollama import ChatOllama
 from langgraph.graph import StateGraph, END
+from graphs.routing import select_agent
 import operator
 import os
 import sys
@@ -57,7 +58,7 @@ except ImportError:
         RAG_AVAILABLE = False
         print("⚠️ [WARN] RAG NO disponible")
 
-# --- MCP ---
+# --- ADAPTADORES LOCALES EQUIVALENTES A LAS TOOLS MCP ---
 MCP_AVAILABLE = False
 ALL_MCP_TOOLS = []
 MCP_FINANCIAL_TOOLS = []
@@ -69,16 +70,16 @@ try:
     from mcp_client import ALL_MCP_TOOLS, MCP_FINANCIAL_TOOLS, MCP_COLLECTIONS_TOOLS
     from third_party_mcp import THIRD_PARTY_MCP_TOOLS
     MCP_AVAILABLE = True
-    print("✅ [OK] MCP disponible (mcp_client en raíz)")
+    print("✅ [OK] Adaptadores financieros locales disponibles")
 except ImportError:
     # Intento 2: Importar desde carpeta mcp_servers
     try:
         from mcp_servers.mcp_client import ALL_MCP_TOOLS, MCP_FINANCIAL_TOOLS, MCP_COLLECTIONS_TOOLS
         from mcp_servers.third_party_mcp import THIRD_PARTY_MCP_TOOLS
         MCP_AVAILABLE = True
-        print("✅ [OK] MCP disponible (mcp_servers/mcp_client)")
+        print("✅ [OK] Adaptadores financieros locales disponibles")
     except ImportError:
-        print("⚠️ [WARN] MCP NO disponible")
+        print("⚠️ [WARN] Adaptadores financieros locales no disponibles")
 
 print("-" * 50)
 
@@ -128,6 +129,7 @@ class AgentState(TypedDict):
     messages: Annotated[list[BaseMessage], operator.add]
     current_agent: str
     next_agent: str | None
+    forced_agent: str | None
 
 def get_base_llm():
     """Devuelve un LLM limpio sin herramientas (para pensar rápido)."""
@@ -241,38 +243,19 @@ def supervisor_node(state: AgentState) -> dict:
     last_msg = state["messages"][-1].content.lower()
     print(f"\n🔍 Supervisor analizando: '{last_msg[:30]}...'")
 
-    # --- 1. REGLAS FIJAS (KEYWORDS) ---
-    # Esto asegura que preguntas clave vayan siempre al agente correcto
-    
-    # Reglas para Director Financiero (CFO)
-    if any(k in last_msg for k in ["consejo", "resumen", "ejecutivo", "dashboard", "estado general", "situación financiera", "estrategia", "global"]):
-        print("   👉 [Keyword Match] Derivando a: director_financiero")
-        return {"next_agent": "director_financiero"}
-
-    # Reglas para Controller
-    if any(k in last_msg for k in ["balance", "cuenta de resultados", "pérdidas", "ganancias", "ratios", "contable", "margen"]):
-        print("   👉 [Keyword Match] Derivando a: controller")
-        return {"next_agent": "controller"}
-    
-    # Reglas para AR Manager
-    if any(k in last_msg for k in ["cobros", "morosos", "facturas", "clientes", "deuda cliente", "aging", "impagados"]):
-        print("   👉 [Keyword Match] Derivando a: ar_manager")
-        return {"next_agent": "ar_manager"}
-
-    # Reglas para Tesorero
-    if any(k in last_msg for k in ["caja", "bancos", "liquidez", "pagos", "deuda bancaria", "préstamos", "dinero"]):
-        print("   👉 [Keyword Match] Derivando a: tesorero")
-        return {"next_agent": "tesorero"}
-
-    # Reglas para Fiscalista
-    if any(k in last_msg for k in ["impuestos", "iva", "hacienda", "aeat", "modelo", "fiscal", "tributar"]):
-        print("   👉 [Keyword Match] Derivando a: fiscalista")
-        return {"next_agent": "fiscalista"}
+    # --- 1. SELECCIÓN MANUAL O REGLAS FIJAS ---
+    deterministic_agent = select_agent(last_msg, state.get("forced_agent"))
+    if deterministic_agent:
+        print(f"   👉 [Deterministic Route] Derivando a: {deterministic_agent}")
+        return {"next_agent": deterministic_agent}
     
     # --- 2. ENRUTAMIENTO INTELIGENTE (LLM) ---
     # Solo si no coincide ninguna palabra clave, preguntamos al modelo
     
-    prompt = f"Clasifica esta consulta en uno de estos roles: {', '.join(AGENT_CONFIG.keys())}. Responde SOLO con el ID del rol exacto."
+    prompt = (
+        f"Clasifica la consulta en uno de estos roles: {', '.join(AGENT_CONFIG.keys())}. "
+        f"Consulta: {last_msg!r}. Responde SOLO con el ID del rol exacto."
+    )
     
     try:
         resp = llm.invoke([HumanMessage(content=prompt)])
@@ -310,14 +293,9 @@ def run_agent_query(query: str, forced_agent: str = None):
         inputs = {
             "messages": [HumanMessage(content=query)], 
             "current_agent": "", 
-            "next_agent": forced_agent
+            "next_agent": None,
+            "forced_agent": forced_agent,
         }
-        
-        # --- AQUÍ ESTABA EL ERROR ---
-        if forced_agent and forced_agent != "auto":
-            print(f"⚠️ Forzando agente: {forced_agent}")
-            inputs["messages"][0].content = f"Redirige inmediatamente al agente {forced_agent}. Consulta: {query}"
-        # -----------------------------
 
         result = app.invoke(inputs)
         

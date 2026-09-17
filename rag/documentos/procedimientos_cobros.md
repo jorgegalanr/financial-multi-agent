@@ -1,116 +1,28 @@
-# Procedimientos de Gestión de Cobros - Residencias Estudiantes
+# Procedimiento interno de gestión de cobros
 
-## Política de cobros
+> Procedimiento ficticio para probar el asistente financiero.
 
-### Condiciones de pago estándar
-- **Forma de pago**: Domiciliación bancaria (preferente) o transferencia
-- **Vencimiento**: Día 5 de cada mes
-- **Periodo de gracia**: 5 días naturales sin recargo
-- **Recargo por demora**: Interés legal del dinero + 2 puntos
+## Antes del vencimiento
 
-### Documentación requerida
-1. Contrato de alojamiento firmado
-2. Autorización de domiciliación bancaria (SEPA)
-3. Copia DNI/NIE del estudiante
-4. Datos de contacto del responsable de pago (si es diferente)
+1. Validar datos maestros, pedido o contrato y aceptación del servicio.
+2. Emitir la factura con referencia y vencimiento correctos.
+3. Enviar un recordatorio preventivo cuando el riesgo lo justifique.
 
-## Proceso de reclamación por impago
+## Después del vencimiento
 
-### Fase 1: Recordatorio amistoso (1-15 días)
-**Acciones:**
-- Envío de email recordatorio automático (día 6)
-- SMS de aviso (día 10)
-- Llamada telefónica (día 15)
+- 1-15 días: recordatorio y confirmación de recepción de factura.
+- 16-30 días: contacto directo y registro de la causa del retraso.
+- 31-60 días: acuerdo de pago o escalado al responsable de crédito.
+- Más de 60 días: revisión individual con Finanzas y Asesoría Jurídica.
 
-**Plantilla email recordatorio:**
-```
-Asunto: Recordatorio de pago - [Mes] [Año]
+## Controles
 
-Estimado/a [Nombre],
+- No modificar fechas o estados sin trazabilidad.
+- Separar disputas comerciales de problemas de solvencia.
+- Conciliar pagos parciales antes de reclamar.
+- Documentar promesas de pago y comprobar su cumplimiento.
+- Revisar posibles deterioros con Contabilidad.
 
-Le recordamos que la cuota correspondiente al mes de [Mes] por importe 
-de [Importe]€ se encuentra pendiente de pago desde el día [Fecha].
+## Salida esperada del agente
 
-Le rogamos proceda a su abono a la mayor brevedad posible.
-
-Datos para transferencia:
-- IBAN: [IBAN]
-- Concepto: [Referencia factura]
-
-Si ya ha realizado el pago, por favor ignore este mensaje.
-
-Atentamente,
-Departamento de Administración
-```
-
-### Fase 2: Reclamación formal (16-30 días)
-**Acciones:**
-- Envío de carta certificada con acuse de recibo
-- Suspensión de servicios no esenciales
-- Bloqueo de nuevas reservas
-
-**Contenido carta certificada:**
-- Identificación de la deuda
-- Plazo de pago: 10 días
-- Advertencia de acciones legales
-- Posibilidad de aplazamiento (previa solicitud)
-
-### Fase 3: Gestión prejudicial (31-60 días)
-**Acciones:**
-- Derivación a departamento jurídico
-- Envío de burofax con requerimiento de pago
-- Inclusión en fichero de morosos (previa advertencia)
-- Negociación de plan de pagos
-
-### Fase 4: Reclamación judicial (>60 días)
-**Opciones según cuantía:**
-- **< 2.000€**: Proceso monitorio
-- **2.000€ - 6.000€**: Juicio verbal
-- **> 6.000€**: Juicio ordinario
-
-## Acuerdos de pago aplazado
-
-### Requisitos para aprobar aplazamiento:
-1. Solicitud por escrito del deudor
-2. Justificación de dificultades temporales
-3. Propuesta de calendario de pagos
-4. Garantía adicional (aval, fiador)
-
-### Condiciones estándar:
-- Plazo máximo: 6 meses
-- Cuota mínima mensual: 25% de la deuda
-- Interés de aplazamiento: Euribor + 3 puntos
-- Vencimiento anticipado si impago de 2 cuotas
-
-## Provisión por insolvencias
-
-### Criterios de dotación:
-| Antigüedad | Provisión |
-|------------|-----------|
-| 0-90 días | 0% |
-| 91-180 días | 25% |
-| 181-270 días | 50% |
-| 271-365 días | 75% |
-| > 365 días | 100% |
-
-### Baja definitiva de créditos:
-- Transcurrido 1 año desde la dotación del 100%
-- Declaración de fallido por el departamento jurídico
-- Aprobación por Dirección Financiera
-
-## Indicadores de gestión (KPIs)
-
-### DSO (Days Sales Outstanding)
-- **Fórmula**: (Cuentas por cobrar / Ventas) x 365
-- **Objetivo**: < 30 días
-- **Frecuencia**: Mensual
-
-### Tasa de morosidad
-- **Fórmula**: (Saldo vencido / Saldo total) x 100
-- **Objetivo**: < 5%
-- **Frecuencia**: Semanal
-
-### Eficacia de cobro
-- **Fórmula**: (Cobros realizados / Vencimientos del período) x 100
-- **Objetivo**: > 95%
-- **Frecuencia**: Mensual
+El AR Manager debe indicar importe, antigüedad, concentración y siguiente acción sugerida. No debe inventar contactos, pagos ni acuerdos que no estén en los datos.
